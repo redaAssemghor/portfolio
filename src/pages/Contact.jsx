@@ -11,9 +11,9 @@ function ContactMe() {
     e.preventDefault();
 
     // Your EmailJS service ID, template ID, and Public Key
-    const serviceId = "service_d8x35t6";
-    const templateId = "template_rq96724";
-    const publicKey = "qGvOnqjqYxrS_fhQo";
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     // Create a new object that contains dynamic template params
     const templateParams = {

@@ -34,7 +34,7 @@ function Projects() {
           Does More Then Ever Platform To Achieve Goal Stages.
         </motion.p>
         <div className="text-gray-400 w-fit rounded-lg p-4 border-2 hover:border-black hover:text-black duration-500 cursor-pointer">
-          <a className="flex gap-3" href="">
+          <a className="flex gap-3" href="/contact">
             <h1 className="font-bold">HIRE ME</h1>
             <FontAwesomeIcon icon={faCircleRight} className="size-6" />
           </a>
@@ -45,8 +45,10 @@ function Projects() {
           <Project
             key={i}
             title={prj.name}
-            url={prj.url}
+            url={prj.imgurl}
             description={prj.description}
+            repo={prj.repo}
+            deployUrl={prj.deployUrl}
           />
         ))}
       </div>

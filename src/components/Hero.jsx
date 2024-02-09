@@ -39,7 +39,11 @@ export function Hero() {
             <div className="flex items-center mt-10">
               <p className=" text-xs font-bold text-slate-300 mr-5">I'm on</p>
               <div>
-                <a href="">
+                <a
+                  href="https://twitter.com/AssemghorReda"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FontAwesomeIcon
                     icon={faTwitter}
                     className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
@@ -47,7 +51,11 @@ export function Hero() {
                 </a>
               </div>
               <div>
-                <a href="">
+                <a
+                  href="https://www.linkedin.com/in/assemghor-reda-2382162b2/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FontAwesomeIcon
                     icon={faLinkedin}
                     className="text-gray-500 text-xl lg:text-4xl ml-4 hover:scale-125 duration-500"
@@ -55,7 +63,11 @@ export function Hero() {
                 </a>
               </div>
               <div>
-                <a href="">
+                <a
+                  href="https://stackoverflow.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FontAwesomeIcon
                     icon={faStackOverflow}
                     className="text-gray-500 text-2xl lg:text-4xl ml-4 hover:scale-125 duration-500"
@@ -63,7 +75,11 @@ export function Hero() {
                 </a>
               </div>
               <div>
-                <a href="">
+                <a
+                  href="https://github.com/redaAssemghor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FontAwesomeIcon
                     icon={faGithub}
                     className="text-gray-500 text-2xl lg:text-4xl ml-4 hover:scale-125 duration-500"
@@ -74,28 +90,29 @@ export function Hero() {
           </div>
           <div className=" mt-10 text-gray-500 dark:text-gray-400 font-light">
             <p className="border-b-2 pb-10">
-              Le Lorem Ipsum est simplement du faux texte employé dans la
-              composition et la mise en page avant impression. Le Lorem Ipsum
-              est le faux texte standard de l'imprimerie depuis les années 1500,
-              quand un imprimeur anonyme assembla ensemble des morceaux de texte
-              pour réaliser un livre spécimen de polices de texte.
+              Code Craftsman on a Mission to Transform Ideas into Reality.
+              Welcome to my digital playground! I'm a Full Stack Developer with
+              a mission to turn innovative ideas into functional, elegant, and
+              scalable solutions. With a toolkit that spans front-end aesthetics
+              to back-end logic, I'm ready to elevate your digital presence to
+              new heights.
             </p>
             <div className="flex flex-col md:flex-row justify-between mt-5">
-              <div className="">
-                <a href="" className="flex gap-2 items-center">
+              <div>
+                <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faLocationDot} />
                   <h3 className="font-light text-sm">
                     Lives In Rabat, Morocco
                   </h3>
-                </a>
+                </div>
               </div>
               <div className="">
-                <a href="" className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faEnvelope} />
                   <h3 className="font-light text-sm">
                     Assemghor.Reda@Gmail.com
                   </h3>
-                </a>
+                </div>
               </div>
               <div className="">
                 <a href="" className="flex gap-2 items-center">

@@ -1,9 +1,11 @@
 "use client";
 
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-function Project({ title, description, url }) {
+function Project({ title, description, url, repo, deployUrl }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -27,12 +29,24 @@ function Project({ title, description, url }) {
         </div>
         <div className="flex justify-between items-center p-5 border-b">
           <h1 className="font-extrabold text-balance">{title}</h1>
-          <a
-            className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-500"
-            href="#"
-          >
-            Discover Project
-          </a>
+          <div>
+            <a
+              className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-500 cursor-pointer mr-3"
+              href={repo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a
+              className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-500 cursor-pointer"
+              href={deployUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Website
+            </a>
+          </div>
         </div>
         <div className="text-gray-500 dark:text-gray-400 font-light ml-5">
           <p>{description}</p>

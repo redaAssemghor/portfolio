@@ -16,19 +16,25 @@ function Footer() {
         <dir className="flex gap-10">
           <a
             className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
-            href=""
+            href="https://www.instagram.com/redaassemghor_/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
           <a
             className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
-            href=""
+            href="https://www.facebook.com/profile.php?id=100003490687218"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faFacebookMessenger} />
           </a>
           <a
             className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
-            href=""
+            href="https://twitter.com/AssemghorReda"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faTwitter} />
           </a>

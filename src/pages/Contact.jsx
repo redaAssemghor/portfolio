@@ -1,11 +1,23 @@
 import Select from "react-select";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 function ContactMe() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const fadeAnimation = {
+    initial: {
+      x: 100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+    },
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,21 +52,33 @@ function ContactMe() {
   return (
     <main>
       <div className="flex flex-col items-center">
-        <h1 className="font-semibold lg:text-5xl text-2xl m-10 mt-20">
-          Contact Me
-        </h1>
+        <motion.div
+          variants={fadeAnimation}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          transition={{
+            duration: "1",
+            delay: "0.5",
+          }}
+        >
+          <h1 className="font-semibold lg:text-5xl text-2xl m-10 mt-20">
+            Contact Me
+          </h1>
+        </motion.div>
         <div className=" mb-20">
-          <a href="/">
-            <span className=" font-bold hover:text-pink-500">Home :</span>{" "}
-            <span className="text-gray-500 dark:text-gray-500">Contact Me</span>
+          <a href="/" className="text-gray-500 dark:text-gray-500">
+            <span className="hover:text-pink-500">Home :</span>{" "}
+            <span className="">Contact Me</span>
           </a>
         </div>
+
         <div className="lg:flex lg:gap-10">
           <div className="p-12 flex flex-col items-center gap-4 bg-gray-100">
             <img className="" src="/src/assets/phone.png" alt="Mobile" />
             <h1 className="font-semibold text-2xl">Phone</h1>
             <a className="text-gray-500 dark:text-gray-400 font-light" href="">
-              Mobile : +197-90-56-780
+              Mobile : +00-00-00-000
             </a>
           </div>
 
@@ -77,9 +101,10 @@ function ContactMe() {
           <div className="p-12 flex flex-col items-center gap-4 bg-gray-100">
             <img src="/src/assets/location.png" alt="Mobile" />
             <h1 className="font-semibold text-2xl">Office Hour</h1>
-            <a className="text-gray-500 dark:text-gray-400 font-light" href="">
-              Sun - Thu 09 am - 06pm Fri - Sat 4 pm - 10pm
-            </a>
+            <a
+              className="text-gray-500 dark:text-gray-400 font-light"
+              href=""
+            ></a>
           </div>
         </div>
 

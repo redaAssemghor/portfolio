@@ -115,7 +115,12 @@ export function Hero() {
                 </div>
               </div>
               <div className="">
-                <a href="" className="flex gap-2 items-center">
+                <a
+                  href="https://www.linkedin.com/in/assemghor-reda-2382162b2/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex gap-2 items-center"
+                >
                   <FontAwesomeIcon icon={faDownload} />
                   <h3 className="font-light text-sm">Download Resume</h3>
                 </a>

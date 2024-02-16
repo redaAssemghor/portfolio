@@ -49,7 +49,7 @@ function Footer() {
 
 function Info() {
   return (
-    <div className="flex flex-col items-center ">
+    <div id="contact" className="flex flex-col items-center ">
       <h1 className="font-semibold text-pink-600">Contact Me</h1>
       <p className="text-5xl font-bold w-1/2 text-center m-8">
         Let's Create Together A Unique Site That Looks Like You.

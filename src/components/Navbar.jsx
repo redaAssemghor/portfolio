@@ -3,9 +3,12 @@ import { faBars, faX, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { useAnimation } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import "../App.css";
 
 function Navbar() {
+  const location = useLocation();
+
   let [open, setOpen] = useState(false);
   let links = [
     {
@@ -18,7 +21,7 @@ function Navbar() {
     },
     {
       name: "Contact",
-      path: "/",
+      path: "contact",
     },
   ];
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,7 +56,7 @@ function Navbar() {
         <div className="flex items-center m-5">
           <img
             className="h-20 md:h-40 border-2 rounded-full md:mr-10 mr-5"
-            src="src/assets/avatar.png"
+            src="src/assets/profile.jpg"
             alt=""
           />
           <div className="">
@@ -72,31 +75,33 @@ function Navbar() {
           onClick={toggleMenu}
         />
       </div>
-      <ul
-        className={`md:flex gap-10 font-semibold md:mr-10 m-10 md:relative md:bg-inherit transition-all duration-300 ease-in md:opacity-100 
+      {location.pathname === "/" && (
+        <ul
+          className={`md:flex gap-10 font-semibold md:mr-10 m-10 md:relative md:bg-inherit transition-all duration-300 ease-in md:opacity-100 
                                     ${
                                       open
                                         ? "max-h-screen opacity-100 "
                                         : "opacity-0 max-h-0"
                                     }`}
-      >
-        {links.map((link) => (
-          <li
-            key={link.name}
-            className="md:p-0 md:m-0 my-3 p-3 pl-40 border-rainbow md:text-xl md:border-none hover:text-gray-300 border-2 cursor-pointer"
-          >
-            <Link
-              to={link.path}
-              spy={true}
-              smooth={true}
-              offset={-110}
-              duration={500}
+        >
+          {links.map((link) => (
+            <li
+              key={link.name}
+              className="md:p-0 md:m-0 my-3 p-3 pl-40 border-rainbow md:text-xl md:border-none hover:text-gray-300 border-2 cursor-pointer"
             >
-              {link.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+              <Link
+                to={link.path}
+                spy={true}
+                smooth={true}
+                offset={-110}
+                duration={500}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

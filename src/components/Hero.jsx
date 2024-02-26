@@ -15,14 +15,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter, Cursor } from "react-simple-typewriter";
 import Skills from "./Skills";
-import { Fade } from "react-awesome-reveal";
 
 export function Hero() {
   return (
     <div id="hero" className="flex flex-col md:flex-row m-10">
       <div className="">
         <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
-          <div className=" lg:flex md:block justify-between border-b-2 ">
+          <div className=" lg:flex md:block justify-between border-b-2 p-6">
             <div>
               <h1 className=" text-2xl md:text-5xl font-bold text-gray-900 ">
                 Hi I'm Reda,
@@ -30,7 +29,11 @@ export function Hero() {
               <div className="md:text-5xl text-2xl font-bold bg-gradient-to-r from-pink-600 to-blue-500 text-transparent bg-clip-text">
                 <Typewriter
                   className=""
-                  words={["Freelancer", "Developer", "Bug Bounty Hunter"]}
+                  words={[
+                    "Freelancer",
+                    "Full-Stack Developer",
+                    "Bug Bounty Hunter",
+                  ]}
                   loop={true}
                 />
                 <Cursor cursorColor="blue" />

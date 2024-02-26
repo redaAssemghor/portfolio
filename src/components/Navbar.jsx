@@ -63,7 +63,7 @@ function Navbar() {
             <h1 className=" text-2xl font-semibold mb-3">Assemghor Reda</h1>
             <div className="flex items-center justify-center border border-gray-500 rounded-full text-gray-500 dark:text-gray-400 font-bold hover:text-white hover:bg-pink-600 duration-500">
               <FontAwesomeIcon className="" icon={faPaperPlane} />
-              <a className="p-2" href="">
+              <a className="p-2" href="/contact">
                 AVAILABLE NOW
               </a>
             </div>

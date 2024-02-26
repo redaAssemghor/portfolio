@@ -15,11 +15,4 @@ export const data = [
     repo: "https://github.com/redaAssemghor/PokemonMemo",
     deployUrl: "https://splendid-arithmetic-3c5651.netlify.app/",
   },
-  {
-    name: "project3",
-    description: "ghcgfhhgh",
-    imgurl: "src/assets/pokememo.png",
-    repo: "https://github.com/redaAssemghor/PokemonMemo",
-    deployUrl: "https://splendid-arithmetic-3c5651.netlify.app/",
-  },
 ];

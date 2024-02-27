@@ -33,6 +33,7 @@ export function Hero() {
                     "Freelancer",
                     "Full-Stack Developer",
                     "Bug Bounty Hunter",
+                    "Shopify Theme Developer",
                   ]}
                   loop={true}
                 />

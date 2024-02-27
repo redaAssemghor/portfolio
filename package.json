@@ -313,6 +313,7 @@
   "license": "ISC",
   "keywords": [],
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.2.1"
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite-plugin-meta-env": "^1.0.2"
   }
 }

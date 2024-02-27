@@ -12,7 +12,7 @@ export const data = [
       "Next.js 13 E-Commerce: Seamlessly integrate advanced authentication and a user-friendly admin panel for effortless management and secure transactions. Built using TypeScript, TailwindCSS, Prisma, DaisyUI",
     imgurl: "src/assets/myshopee.png",
     repo: "https://github.com/redaAssemghor/portfolio",
-    deployUrl: "",
+    deployUrl: "https://my-shopee-ashen.vercel.app/",
   },
   {
     name: "Nike Shopify theme",

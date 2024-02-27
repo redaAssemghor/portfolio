@@ -55,7 +55,7 @@ function Navbar() {
       <div className="flex justify-between items-center">
         <div className="flex items-center m-5">
           <img
-            className="h-20 md:h-40 border-2 rounded-full md:mr-10 mr-5"
+            className="h-20 md:h-40 border-2 rounded-full md:mr-10 mr-5 border-pink-600"
             src="src/assets/profile.jpg"
             alt=""
           />
@@ -87,7 +87,7 @@ function Navbar() {
           {links.map((link) => (
             <li
               key={link.name}
-              className="md:p-0 md:m-0 my-3 p-3 pl-40 border-rainbow md:text-xl md:border-none hover:text-gray-300 border-2 cursor-pointer"
+              className="md:p-0 md:m-0 my-3 p-3 pl-40 border-rainbow text-base md:border-none hover:text-gray-300 border-2 cursor-pointer transition-colors duration-300"
             >
               <Link
                 to={link.path}

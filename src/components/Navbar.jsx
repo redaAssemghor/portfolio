@@ -56,7 +56,7 @@ function Navbar() {
         <div className="flex items-center m-5">
           <img
             className="h-20 md:h-40 border-2 rounded-full md:mr-10 mr-5 border-pink-600"
-            src="src/assets/profile.jpg"
+            src="/profile.jpg"
             alt=""
           />
           <div className="">

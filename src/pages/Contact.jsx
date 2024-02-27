@@ -79,7 +79,7 @@ function ContactMe() {
 
         <div className="lg:flex lg:gap-10 grid grid-cols-2 gap-4">
           <div className="p-12 flex flex-col items-center gap-4 bg-gray-100">
-            <img className="w-10" src="/src/assets/phone.png" alt="Mobile" />
+            <img className="w-10" src="/phone.png" alt="Mobile" />
             <h1 className="font-semibold lg:text-2xl">Phone</h1>
             <p className="text-gray-500 dark:text-gray-400 font-light">
               Mobile : +00-00-00-000
@@ -87,7 +87,7 @@ function ContactMe() {
           </div>
 
           <div className="p-12 flex flex-col items-center gap-4 bg-gray-100">
-            <img className="w-10" src="/src/assets/mail.png" alt="Mobile" />
+            <img className="w-10" src="/mail.png" alt="Mobile" />
             <h1 className="font-semibold lg:text-2xl">Mail Address</h1>
             <a className="text-gray-500 dark:text-gray-400 font-light" href="">
               Assemghor.reda@gmail.com
@@ -95,7 +95,7 @@ function ContactMe() {
           </div>
 
           <div className="p-12 flex flex-col items-center gap-4 bg-gray-100">
-            <img className="w-10" src="/src/assets/time.png" alt="Mobile" />
+            <img className="w-10" src="/time.png" alt="Mobile" />
             <h1 className="font-semibold lg:text-2xl">Our Location</h1>
             <a className="text-gray-500 dark:text-gray-400 font-light" href="">
               Morocco, Rabat
@@ -103,7 +103,7 @@ function ContactMe() {
           </div>
 
           <div className="p-12 flex flex-col items-center gap-4 bg-gray-100">
-            <img className="w-10" src="/src/assets/location.png" alt="Mobile" />
+            <img className="w-10" src="/location.png" alt="Mobile" />
             <h1 className="font-semibold lg:text-2xl">Office Hour</h1>
             <a
               className="text-gray-500 dark:text-gray-400 font-light"

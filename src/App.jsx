@@ -5,7 +5,6 @@ import ContactMe from "./pages/Contact";
 import ScrollUpButton from "./ScrollUpButton";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import { useEffect, useState } from "react";
 
 function App() {
   return (

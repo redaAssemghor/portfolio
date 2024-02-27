@@ -173,7 +173,7 @@ export function Sidebox() {
             <a href="">
               <FontAwesomeIcon icon={faCheck} />
             </a>
-            <h3>Frensh</h3>
+            <h3>French</h3>
           </div>
           <div className="flex gap-2">
             <a href="">
@@ -185,7 +185,7 @@ export function Sidebox() {
             <a href="">
               <FontAwesomeIcon icon={faCheck} />
             </a>
-            <h3>Russin</h3>
+            <h3>Russain</h3>
           </div>
         </ul>
       </div>

@@ -73,7 +73,7 @@
 }
 
 .footer-bg {
-  background-image: url("src/assets/footer-bg.png");
+  background-image: url("/footer-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -81,6 +81,6 @@
 
 /* nav */
 .nav-bg {
-  background-image: url("src/assets/header-bg.png");
+  background-image: url("/header-bg.png");
   background-repeat: no-repeat;
 }

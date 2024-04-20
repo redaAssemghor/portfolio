@@ -57,7 +57,7 @@ function Info() {
       <div className="font-bold flex items-center">
         <img
           className=" h-16 border rounded-full mr-8"
-          src="src/assets/avatar.png"
+          src="/profile.png"
           alt=""
         />
         <a href="/contact">

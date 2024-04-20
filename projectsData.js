@@ -1,11 +1,4 @@
 export const data = [
-  // {
-  //   name: "",
-  //   description: "",
-  //   imgurl: "",
-  //   repo: "",
-  //   deployUrl: "",
-  // },
   {
     name: "MyShopee",
     description:
@@ -19,7 +12,7 @@ export const data = [
     description:
       "Nike Shopify theme for your online store. Fully responsive design ensures seamless browsing across all devices. Built using html, css, javascript and liquid. Password: raylyi",
     imgurl: "/nike-store.png",
-    repo: "https://github.com/redaAssemghor/PokemonMemo",
+    repo: "https://github.com/redaAssemghor/shopifyNike",
     deployUrl: "https://shopynikestore.myshopify.com/",
   },
   {
@@ -29,5 +22,13 @@ export const data = [
     imgurl: "/pokememo.png",
     repo: "https://github.com/redaAssemghor/PokemonMemo",
     deployUrl: "https://splendid-arithmetic-3c5651.netlify.app/",
+  },
+  {
+    name: "Cool-shop",
+    description:
+      "Cool-Shop - React Shopping Cart Application. Technologies: React, React Router, Vite, TailwindCSS, DaisyUI, FontAwesome, ESLint, Vitest",
+    imgurl: "/coolshop.png",
+    repo: "https://github.com/redaAssemghor/cool-shop",
+    deployUrl: "https://coolesshop.netlify.app/shop/",
   },
 ];

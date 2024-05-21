@@ -32,7 +32,6 @@ export function Hero() {
                   words={[
                     "Freelancer",
                     "Full-Stack Developer",
-                    "Bug Bounty Hunter",
                     "Shopify Theme Developer",
                   ]}
                   loop={true}

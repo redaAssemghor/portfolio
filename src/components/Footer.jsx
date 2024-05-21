@@ -39,7 +39,7 @@ function Footer() {
             <FontAwesomeIcon icon={faTwitter} />
           </a>
         </dir>
-        <p className="text-gray-500 dark:text-gray-400 font-light">
+        <p className="text-gray-500 dark:text-gray-400 font-light mr-6">
           © 2024 . All Rights Reserved
         </p>
       </div>
@@ -51,13 +51,13 @@ function Info() {
   return (
     <div id="contact" className="flex flex-col items-center ">
       <h1 className="font-semibold text-pink-600">Contact Me</h1>
-      <p className="text-5xl font-bold w-1/2 text-center m-8">
+      <p className="text-5xl font-bold w-1/2 text-center m-8 slide-fade-in-up">
         Let's Create Together A Unique Site That Looks Like You.
       </p>
       <div className="font-bold flex items-center">
         <img
           className=" h-16 border rounded-full mr-8"
-          src="/profile.png"
+          src="/profile.jpg"
           alt=""
         />
         <a href="/contact">

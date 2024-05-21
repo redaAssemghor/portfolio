@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { icons } from "../icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,18 +9,28 @@ import { motion } from "framer-motion";
 
 function Skills() {
   const sliderRef = useRef(null);
-
-  const slideLeft = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft -= 500;
-    }
-  };
+  const intervalRef = useRef(null);
 
   const slideRight = () => {
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft += 500;
+      // Ensuring smooth reset to start
+      if (
+        sliderRef.current.scrollLeft >=
+        sliderRef.current.scrollWidth - sliderRef.current.clientWidth
+      ) {
+        sliderRef.current.scrollTo({ left: 0, behavior: "smooth" }); // Reset to start with smooth behavior
+      } else {
+        sliderRef.current.scrollBy({ left: 500, behavior: "smooth" }); // Smooth scroll by 500px
+      }
     }
   };
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    intervalRef.current = setInterval(slideRight, 3000); // Slide every 3000 milliseconds
+
+    return () => clearInterval(intervalRef.current); // Cleanup on unmount
+  }, []);
 
   const fadeAnimation = {
     initial: {
@@ -47,12 +57,15 @@ function Skills() {
       <div className="flex items-center">
         <FontAwesomeIcon
           className="cursor-pointer md:h-8 mr-4 opacity-40 hover:opacity-100"
-          onClick={slideLeft}
           icon={faChevronLeft}
+          onClick={() =>
+            sliderRef.current.scrollBy({ left: -500, behavior: "smooth" })
+          }
         />
         <div
           ref={sliderRef}
           className="w-[400px] flex lg:w-[1024px] md:w-[700px] overflow-x-scroll whitespace-nowrap scrollbar-hide snap-x"
+          style={{ scrollBehavior: "smooth" }}
         >
           {icons.map((icon, index) => (
             <div
@@ -71,9 +84,11 @@ function Skills() {
           ))}
         </div>
         <FontAwesomeIcon
-          className=" cursor-pointer md:h-8 ml-4 opacity-40 hover:opacity-100"
-          onClick={slideRight}
+          className="cursor-pointer md:h-8 ml-4 opacity-40 hover:opacity-100"
           icon={faChevronRight}
+          onClick={() =>
+            sliderRef.current.scrollBy({ left: 500, behavior: "smooth" })
+          }
         />
       </div>
     </div>

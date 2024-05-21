@@ -119,7 +119,7 @@ export function Hero() {
               </div>
               <div className="">
                 <a
-                  href="https://www.linkedin.com/in/assemghor-reda-2382162b2/"
+                  href="https://www.doyoubuzz.com/reda-assemghor"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex gap-2 items-center"
@@ -147,9 +147,8 @@ export function Sidebox() {
           My Special Skills
         </h1>
         <ul className="text-gray-500 dark:text-gray-400 font-bold m-3">
-          <li>Team Leadership</li>
-          <li>Programming Languages</li>
-          <li>Program Frameworks</li>
+          <li>Team Player</li>
+          <li>Web app security</li>
           <li>Problem Solving</li>
           <li>Communication Skills</li>
         </ul>

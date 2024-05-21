@@ -5,7 +5,7 @@ export const data = [
       "E-commerce template for Payload CMS, utilizing Next.js, TypeScript, MongoDB, and Stripe to ensure a robust platform with secure user authentication and an efficient admin panel for site management. This project demonstrates a deep understanding of web application development and database optimization.",
     imgurl: "/payloadcms.png",
     repo: "https://github.com/redaAssemghor/payload-commerce",
-    deployUrl: "https://my-shopee-ashen.vercel.app/",
+    deployUrl: "",
   },
   {
     name: "MyShopee",

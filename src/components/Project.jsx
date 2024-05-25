@@ -1,6 +1,7 @@
 "use client";
 
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -25,11 +26,11 @@ function Project({ title, description, url, repo, deployUrl }) {
     >
       <div className="flex flex-col">
         <div className="">
-          <img className="h-80 w-fit rounded-3xl" src={url} alt={title} />
+          <img className="md:h-80 md:w-fit rounded-3xl" src={url} alt={title} />
         </div>
-        <div className="flex justify-between items-center p-5 border-b">
+        <div className="md:flex justify-between items-center p-5 border-b">
           <h1 className="font-extrabold text-balance">{title}</h1>
-          <div>
+          <div className="mt-5">
             <a
               className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-500 cursor-pointer mr-3"
               href={repo}
@@ -44,7 +45,7 @@ function Project({ title, description, url, repo, deployUrl }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Visit Website
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </a>
           </div>
         </div>

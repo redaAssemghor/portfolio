@@ -55,18 +55,19 @@ function Navbar() {
       <div className="flex justify-between items-center">
         <div className="flex items-center m-5">
           <img
-            className="h-20 md:h-40 border-2 rounded-full md:mr-10 mr-5 border-pink-600"
+            className="h-16 md:h-20 border-2 rounded-full md:mr-10 mr-5 border-pink-600"
             src="/profile.jpg"
             alt=""
           />
           <div className="">
             <h1 className=" text-2xl font-semibold mb-3">Assemghor Reda</h1>
-            <div className="flex items-center justify-center border border-gray-500 rounded-full text-gray-500 dark:text-gray-400 font-bold hover:text-white hover:bg-pink-600 duration-500">
+            <a
+              className="flex items-center justify-center gap-2 p-2 border border-gray-500 rounded-full text-gray-500 dark:text-gray-400 font-bold hover:text-white hover:bg-pink-600 duration-500"
+              href="/contact"
+            >
               <FontAwesomeIcon className="" icon={faPaperPlane} />
-              <a className="p-2" href="/contact">
-                AVAILABLE NOW
-              </a>
-            </div>
+              AVAILABLE NOW
+            </a>
           </div>
         </div>
         <FontAwesomeIcon
@@ -87,7 +88,7 @@ function Navbar() {
           {links.map((link) => (
             <li
               key={link.name}
-              className="md:p-0 md:m-0 my-3 p-3 pl-40 border-rainbow text-base md:border-none hover:text-gray-300 border-2 cursor-pointer transition-colors duration-300"
+              className="md:p-0 md:m-0 flex items-center justify-center p-2 m-1 rounded-lg text-base md:border-none hover:text-gray-300 border-2 cursor-pointer transition-colors duration-300"
             >
               <Link
                 to={link.path}

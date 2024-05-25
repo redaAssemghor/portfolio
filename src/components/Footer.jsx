@@ -13,7 +13,7 @@ function Footer() {
     <footer className=" mt-40">
       {location.pathname === "/" && <Info />}
       <div className="flex justify-between items-center h-36 footer-bg">
-        <dir className="flex gap-10">
+        <dir className="flex md:gap-10 gap-5">
           <a
             className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
             href="https://www.instagram.com/redaassemghor_/"
@@ -39,7 +39,7 @@ function Footer() {
             <FontAwesomeIcon icon={faTwitter} />
           </a>
         </dir>
-        <p className="text-gray-500 dark:text-gray-400 font-light mr-6">
+        <p className="text-gray-500 dark:text-gray-400 font-light mr-6 text-sm">
           © 2024 . All Rights Reserved
         </p>
       </div>
@@ -51,7 +51,7 @@ function Info() {
   return (
     <div id="contact" className="flex flex-col items-center ">
       <h1 className="font-semibold text-pink-600">Contact Me</h1>
-      <p className="text-5xl font-bold w-1/2 text-center m-8 slide-fade-in-up">
+      <p className="md:text-5xl font-bold w-1/2 text-center m-8 slide-fade-in-up">
         Let's Create Together A Unique Site That Looks Like You.
       </p>
       <div className="font-bold flex items-center">

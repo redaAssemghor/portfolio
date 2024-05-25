@@ -1,3 +1,4 @@
+import TechList from "./Gsap-skills";
 import { Hero } from "./Hero";
 import Projects from "./Projects";
 
@@ -6,6 +7,7 @@ function Home() {
     <>
       <Hero />
       <Projects />
+      <TechList />
     </>
   );
 }

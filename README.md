@@ -2,7 +2,7 @@
 
 Welcome to the repository for my personal portfolio website, which showcases my work, skills, and projects. This site is designed to reflect my journey and capabilities as a developer.
 
-![Portfolio Display](https://github.com/redaAssemghor/portfolio/public/portfolio-image-readme.png)
+![Portfolio Display](https://github.com/redaAssemghor/portfolio/blob/main/public/portfolio-image-readme.png)
 
 ## Built With
 

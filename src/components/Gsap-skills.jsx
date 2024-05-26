@@ -7,9 +7,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Hardcoded data array
 const data = [
-  { tech_color: "#FF6347", tech_name: "React" },
-  { tech_color: "#4B0082", tech_name: "Node.js" },
-  { tech_color: "#FFD700", tech_name: "JavaScript" },
+  { tech_color: "#FFD700", tech_name: "React" },
+  { tech_color: "#FF6347", tech_name: "Next.JS" },
+  { tech_color: "#4B0082", tech_name: "GSAP" },
 ];
 
 const TechList = () => {

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { useAnimation } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import "../App.css";
 
 function Navbar() {
   const location = useLocation();
@@ -88,7 +87,7 @@ function Navbar() {
           {links.map((link) => (
             <li
               key={link.name}
-              className="md:p-0 md:m-0 flex items-center justify-center p-2 m-1 rounded-lg text-base md:border-none hover:text-gray-300 border-2 cursor-pointer transition-colors duration-300"
+              className="md:p-0 md:m-0 flex items-center justify-center p-2 m-1 rounded-lg hover:text-gray-400 border-2 cursor-pointer transition-colors duration-300"
             >
               <Link
                 to={link.path}
@@ -96,6 +95,7 @@ function Navbar() {
                 smooth={true}
                 offset={-110}
                 duration={500}
+                className="font-bold"
               >
                 {link.name}
               </Link>

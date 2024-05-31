@@ -82,7 +82,7 @@ function ContactMe() {
             <img className="w-10" src="/phone.png" alt="Mobile" />
             <h1 className="font-semibold lg:text-2xl">Phone</h1>
             <p className="text-gray-500 dark:text-gray-400 font-light">
-              Mobile : +212 616877257
+              Mobile : +212 600-190-494
             </p>
           </div>
 

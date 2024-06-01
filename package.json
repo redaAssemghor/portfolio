@@ -109,6 +109,7 @@
     "globalthis": "^1.0.3",
     "gopd": "^1.0.1",
     "graphemer": "^1.4.0",
+    "gsap": "^3.12.5",
     "has-bigints": "^1.0.2",
     "has-flag": "^3.0.0",
     "has-property-descriptors": "^1.0.1",

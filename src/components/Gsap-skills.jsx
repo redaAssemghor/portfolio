@@ -23,7 +23,7 @@ const TechList = () => {
           pin: true, // pin the trigger element while active
           start: "top bottom",
           end: "bottom top",
-          scrub: 0.5,
+          scrub: 1,
         },
       });
 

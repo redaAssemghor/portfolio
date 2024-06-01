@@ -15,16 +15,57 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter, Cursor } from "react-simple-typewriter";
 import Skills from "./Skills";
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 export function Hero() {
+  const ref = useRef(null);
+  const nameText = "Hi I'm Reda,";
+
+  useLayoutEffect(() => {
+    let context = gsap.context(() => {
+      const tl = gsap.timeline();
+
+      tl.from(
+        ".name-text",
+        {
+          opacity: 0,
+          y: -24,
+          stagger: 0.1,
+          duration: 1,
+          ease: "bounce.out",
+        },
+        0
+      ).from(
+        ".icons",
+        {
+          opacity: 0,
+          y: -24,
+          stagger: 0.5,
+          duration: 1,
+        },
+        0
+      );
+      // .from('.description', {
+
+      // })
+    }, ref);
+
+    return () => context.revert();
+  }, []);
+
   return (
-    <div id="hero" className="flex flex-col md:flex-row m-10">
+    <div ref={ref} id="hero" className="flex flex-col md:flex-row m-10">
       <div className="">
         <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
           <div className=" lg:flex md:block justify-between border-b-2 p-6">
             <div>
-              <h1 className=" text-2xl md:text-5xl font-bold text-gray-900 ">
-                Hi I'm Reda,
+              <h1 className=" text-2xl md:text-5xl font-bold text-gray-900">
+                {nameText.split(" ").map((char, i) => (
+                  <span key={i} className="name-text inline-block m-1">
+                    {char}
+                  </span>
+                ))}
               </h1>
               <div className="md:text-5xl text-2xl font-bold bg-gradient-to-r from-pink-600 to-blue-500 text-transparent bg-clip-text">
                 <Typewriter
@@ -40,8 +81,10 @@ export function Hero() {
               </div>
             </div>
             <div className="flex items-center mt-10">
-              <p className=" text-xs font-bold text-slate-300 mr-5">I'm on</p>
-              <div>
+              <p className=" text-xs font-bold text-slate-300 mr-5 name-text">
+                I'm on
+              </p>
+              <div className="icons">
                 <a
                   href="https://twitter.com/AssemghorReda"
                   target="_blank"
@@ -53,7 +96,7 @@ export function Hero() {
                   />
                 </a>
               </div>
-              <div>
+              <div className="icons">
                 <a
                   href="https://www.linkedin.com/in/assemghor-reda-2382162b2/"
                   target="_blank"
@@ -65,7 +108,7 @@ export function Hero() {
                   />
                 </a>
               </div>
-              <div>
+              <div className="icons">
                 <a
                   href="https://stackoverflow.com/"
                   target="_blank"
@@ -77,7 +120,7 @@ export function Hero() {
                   />
                 </a>
               </div>
-              <div>
+              <div className="icons">
                 <a
                   href="https://github.com/redaAssemghor"
                   target="_blank"

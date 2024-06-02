@@ -1,12 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { Link } from "react-scroll";
 import { useAnimation } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Navbar() {
   const location = useLocation();
+  const ref = useRef(null);
+
+  const btnText = "AVAILABLE.NOW";
 
   let [open, setOpen] = useState(false);
   let links = [
@@ -45,8 +52,45 @@ function Navbar() {
   const toggleMenu = () => {
     setOpen(!open);
   };
+
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        ".btnText",
+        { y: -40, opacity: 0 },
+        { y: 1, stagger: 0.05, duration: 0.5, opacity: 1, ease: "expo" },
+        0
+      ).to(".btnText2", { y: 20, opacity: 0, duration: 0.5, ease: "back" }, 0);
+
+      const btnContainer = document.querySelector(".btnContainer");
+
+      const handelEnter = () => {
+        tl.restart();
+      };
+
+      const handelLeave = () => {
+        tl.reverse();
+      };
+
+      if (btnContainer) {
+        btnContainer.addEventListener("mouseenter", handelEnter);
+        btnContainer.addEventListener("mouseleave", handelLeave);
+      }
+      return () => {
+        context.revert;
+        if (btnContainer) {
+          btnContainer.removeEventListener("mouseenter", handelEnter);
+          btnContainer.removeEventListener("mouseleave", handelLeave);
+        }
+      };
+    }, ref);
+  }, []);
+
   return (
     <div
+      ref={ref}
       className={`top-0 sticky md:flex justify-between items-center bg-gray-50 z-10 nav-bg ${
         isScrolled ? "fade-down" : ""
       }`}
@@ -61,11 +105,20 @@ function Navbar() {
           <div className="">
             <h1 className=" text-2xl font-semibold mb-3">Assemghor Reda</h1>
             <a
-              className="flex items-center justify-center gap-2 p-2 border border-gray-500 rounded-full text-gray-500 dark:text-gray-400 font-bold hover:text-white hover:bg-pink-600 duration-500"
+              className="btnContainer flex items-center justify-center gap-2 p-2 border border-gray-500 rounded-full text-gray-500 dark:text-gray-400 font-bold hover:text-white hover:bg-pink-600 duration-500"
               href="/contact"
             >
+              <div>
+                <h1 className="absolute">
+                  {btnText.split("").map((char, i) => (
+                    <span key={i} className="btnText inline-block">
+                      {char}
+                    </span>
+                  ))}
+                </h1>
+                <h1 className="btnText2">{btnText}</h1>
+              </div>
               <FontAwesomeIcon className="" icon={faPaperPlane} />
-              AVAILABLE NOW
             </a>
           </div>
         </div>

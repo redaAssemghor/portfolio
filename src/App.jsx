@@ -5,7 +5,6 @@ import ContactMe from "./pages/Contact";
 import ScrollUpButton from "./ScrollUpButton";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import TestingGsap from "./components/GsapAnimations";
 
 function App() {
   return (

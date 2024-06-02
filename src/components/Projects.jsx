@@ -5,7 +5,6 @@ import { data } from "../../projectsData";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { black, red } from "color-name";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,35 +34,39 @@ function Projects() {
         },
         0
       );
-    }, ref);
-    const btnTl = gsap.timeline({ paused: true });
+      const btnTl = gsap.timeline({ paused: true });
 
-    const btncontainer = document.querySelector(".btncontainer");
+      const btncontainer = document.querySelector(".btncontainer");
 
-    btnTl
-      .fromTo(
-        ".btnChar",
-        { y: -20, opacity: 0 },
-        { y: 1, stagger: 0.1, duration: 0.1, opacity: 1, ease: "back.out" },
-        0
-      )
-      .to(".btnTopText", { y: 10, opacity: 0, duration: 0.1 }, 0);
+      btnTl
+        .fromTo(
+          ".btnChar",
+          { y: -40, opacity: 0 },
+          { y: 1, stagger: 0.05, duration: 0.5, opacity: 1, ease: "expo" },
+          0
+        )
+        .to(
+          ".btnTopText",
+          { y: 20, opacity: 0, duration: 0.5, ease: "back" },
+          0
+        );
 
-    const handleMouseEnter = () => btnTl.play();
-    const handleMouseLeave = () => btnTl.reverse();
+      const handleMouseEnter = () => btnTl.restart();
+      const handleMouseLeave = () => btnTl.reverse();
 
-    if (btncontainer) {
-      btncontainer.addEventListener("mouseenter", handleMouseEnter);
-      btncontainer.addEventListener("mouseleave", handleMouseLeave);
-    }
-
-    return () => {
-      context.revert();
       if (btncontainer) {
-        btncontainer.removeEventListener("mouseenter", handleMouseEnter);
-        btncontainer.removeEventListener("mouseleave", handleMouseLeave);
+        btncontainer.addEventListener("mouseenter", handleMouseEnter);
+        btncontainer.addEventListener("mouseleave", handleMouseLeave);
       }
-    };
+
+      return () => {
+        context.revert();
+        if (btncontainer) {
+          btncontainer.removeEventListener("mouseenter", handleMouseEnter);
+          btncontainer.removeEventListener("mouseleave", handleMouseLeave);
+        }
+      };
+    }, ref);
   }, []);
 
   return (
@@ -72,14 +75,14 @@ function Projects() {
         <h1 className="font-semibold text-pink-600">
           Recent Completed Project
         </h1>
-        <h1 className="font-bold text-2xl">
+        <h1 className="font-bold text-2xl break-words">
           {text.split(" ").map((char, i) => (
             <span key={i} className="text inline-block m-1">
               {char}
             </span>
           ))}
         </h1>
-        <div className="text-gray-400 w-fit rounded-lg p-2 border-2 hover:border-black hover:text-black duration-500 cursor-pointer btncontainer">
+        <button className="w-fit rounded-lg p-4 hover:border-black border btncontainer">
           <a className="flex gap-3" href="/contact">
             <h1 className="font-bold ">
               {btn.split("").map((char, i) => (
@@ -88,11 +91,11 @@ function Projects() {
                 </span>
               ))}
             </h1>
-            <h1 className="font-bold btnTopText absolute">HIRE.ME</h1>
+            <h1 className="font-bold btnTopText absolute">{btn}</h1>
 
             <FontAwesomeIcon icon={faCircleRight} className="size-6" />
           </a>
-        </div>
+        </button>
       </div>
       <div className="lg:w-1/2">
         {data.map((prj, i) => (

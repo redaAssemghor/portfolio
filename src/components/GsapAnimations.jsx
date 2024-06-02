@@ -21,6 +21,24 @@ const TestingGsap = () => {
       });
     }, container);
 
+    const testerTl = gsap.timeline();
+
+    const tester = document.querySelector(".tester");
+
+    testerTl.from(".tester", {
+      y: -10,
+      stagger: 0.1,
+      ease: "power3.out",
+    });
+
+    tester.addEventListener("mouseenter", () => {
+      testerTl.restart();
+    });
+
+    tester.addEventListener("mouseleave", () => {
+      testerTl.reverse();
+    });
+
     return () => context.revert();
   }, []);
 

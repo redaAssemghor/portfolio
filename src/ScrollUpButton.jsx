@@ -14,7 +14,6 @@ function ScrollUpButton() {
 
       setScrollToUp(scrollPosition > 100);
       setScrollPercentage(scrolled);
-      console.log(`Scroll percentage: ${scrolled}%`); // Debug scroll percentage
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -22,7 +21,6 @@ function ScrollUpButton() {
   }, []);
 
   const scrollUp = () => {
-    console.log("Scroll up triggered"); // Debug to check if function is triggered
     window.scrollTo({
       top: 0,
       behavior: "smooth",

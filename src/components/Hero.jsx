@@ -46,9 +46,6 @@ export function Hero() {
         },
         0
       );
-      // .from('.description', {
-
-      // })
     }, ref);
 
     return () => context.revert();

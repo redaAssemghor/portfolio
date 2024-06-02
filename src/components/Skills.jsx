@@ -1,15 +1,19 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useLayoutEffect } from "react";
 import { icons } from "../icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Skills() {
   const sliderRef = useRef(null);
   const intervalRef = useRef(null);
+  const gsapRef = useRef(null);
 
   const slideRight = () => {
     if (sliderRef.current) {
@@ -32,28 +36,28 @@ function Skills() {
     return () => clearInterval(intervalRef.current); // Cleanup on unmount
   }, []);
 
-  const fadeAnimation = {
-    initial: {
-      opacity: 0,
-      scale: 0.5,
-    },
-    animate: {
-      opacity: 1,
-      scale: 1,
-    },
-  };
+  useLayoutEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: gsapRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    tl.fromTo(
+      ".gsapRef",
+      { x: 0 },
+      { x: 200, duration: 1, ease: "bounce", width: 0 }
+    );
+  });
 
   return (
-    <div className="p-10 mt-5 flex flex-col items-center">
-      <motion.h1
-        className="font-semibold text-pink-600 pb-10"
-        variants={fadeAnimation}
-        initial="initial"
-        whileInView="animate"
-        transition={{ delay: 0.5, duration: 2 }}
-      >
-        Explore My Expertise !
-      </motion.h1>
+    <div ref={gsapRef} className="p-10 mt-5 flex flex-col items-center">
+      <div className="relative p-1">
+        <div className="bg-black w-full h-full absolute gsapRef"></div>
+        <h1 className="font-bold">Explore My Expertise !</h1>
+      </div>
       <div className="flex items-center">
         <FontAwesomeIcon
           className="cursor-pointer md:h-8 mr-4 opacity-40 hover:opacity-100"

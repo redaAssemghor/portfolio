@@ -59,8 +59,8 @@ function Navbar() {
 
       tl.fromTo(
         ".btnText",
-        { y: -40, opacity: 0 },
-        { y: 1, stagger: 0.05, duration: 0.5, opacity: 1, ease: "expo" },
+        { y: -20, opacity: 0 },
+        { y: 1, stagger: 0.03, duration: 0.5, opacity: 1, ease: "expo" },
         0
       ).to(".btnText2", { y: 20, opacity: 0, duration: 0.5, ease: "back" }, 0);
 

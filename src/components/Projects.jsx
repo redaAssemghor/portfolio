@@ -34,39 +34,35 @@ function Projects() {
         },
         0
       );
-      const btnTl = gsap.timeline({ paused: true });
-
-      const btncontainer = document.querySelector(".btncontainer");
-
-      btnTl
-        .fromTo(
-          ".btnChar",
-          { y: -40, opacity: 0 },
-          { y: 1, stagger: 0.05, duration: 0.5, opacity: 1, ease: "expo" },
-          0
-        )
-        .to(
-          ".btnTopText",
-          { y: 20, opacity: 0, duration: 0.5, ease: "back" },
-          0
-        );
-
-      const handleMouseEnter = () => btnTl.restart();
-      const handleMouseLeave = () => btnTl.reverse();
-
-      if (btncontainer) {
-        btncontainer.addEventListener("mouseenter", handleMouseEnter);
-        btncontainer.addEventListener("mouseleave", handleMouseLeave);
-      }
-
-      return () => {
-        context.revert();
-        if (btncontainer) {
-          btncontainer.removeEventListener("mouseenter", handleMouseEnter);
-          btncontainer.removeEventListener("mouseleave", handleMouseLeave);
-        }
-      };
     }, ref);
+    const btnTl = gsap.timeline({ paused: true });
+
+    const btncontainer = document.querySelector(".btncontainer");
+
+    btnTl
+      .fromTo(
+        ".btnChar",
+        { y: -40, opacity: 0 },
+        { y: 1, stagger: 0.05, duration: 0.5, opacity: 1, ease: "expo" },
+        0
+      )
+      .to(".btnTopText", { y: 20, opacity: 0, duration: 0.5, ease: "back" }, 0);
+
+    const handleMouseEnter = () => btnTl.restart();
+    const handleMouseLeave = () => btnTl.reverse();
+
+    if (btncontainer) {
+      btncontainer.addEventListener("mouseenter", handleMouseEnter);
+      btncontainer.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      context.revert();
+      if (btncontainer) {
+        btncontainer.removeEventListener("mouseenter", handleMouseEnter);
+        btncontainer.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
   }, []);
 
   return (
@@ -75,7 +71,7 @@ function Projects() {
         <h1 className="font-semibold text-pink-600">
           Recent Completed Project
         </h1>
-        <h1 className="font-bold text-2xl break-words">
+        <h1 className="font-bold text-2xl text-wrap">
           {text.split(" ").map((char, i) => (
             <span key={i} className="text inline-block m-1">
               {char}

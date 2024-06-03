@@ -15,6 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter, Cursor } from "react-simple-typewriter";
 import Skills from "./Skills";
+import Band from "./Band";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 
@@ -52,12 +53,12 @@ export function Hero() {
   }, []);
 
   return (
-    <div ref={ref} id="hero" className="flex flex-col md:flex-row m-10">
-      <div className="">
+    <div ref={ref} id="hero">
+      <div className="flex flex-col md:flex-row m-10">
         <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
           <div className=" lg:flex md:block justify-between border-b-2 p-6">
-            <div>
-              <h1 className=" text-2xl md:text-5xl font-bold text-gray-900">
+            <div className="md:py-6">
+              <h1 className=" text-2xl md:text-6xl font-bold text-gray-900 md:pb-6">
                 {nameText.split(" ").map((char, i) => (
                   <span key={i} className="name-text inline-block m-1">
                     {char}
@@ -171,10 +172,9 @@ export function Hero() {
             </div>
           </div>
         </div>
-
-        <Skills />
+        <Sidebox />
       </div>
-      <Sidebox />
+      <Band />
     </div>
   );
 }
@@ -182,7 +182,7 @@ export function Hero() {
 export function Sidebox() {
   return (
     <div className="border border-gray-300 rounded-3xl p-10 md:w-2/5 md:mt-0 mt-5">
-      <div className="">
+      {/* <div className="">
         <h1 className=" font-bold text-2xl rainbow-heading relative pb-5">
           My Special Skills
         </h1>
@@ -192,13 +192,13 @@ export function Sidebox() {
           <li>Problem Solving</li>
           <li>Communication Skills</li>
         </ul>
-      </div>
+      </div> */}
       <div className="">
-        <div className="flex gap-4 mb-5 font-semibold">
+        <div className="flex gap-4 font-semibold">
           <a href="">
             <FontAwesomeIcon icon={faLanguage} />
           </a>
-          <h1 className="rainbow2-heading relative pb-4">Languages Expert</h1>
+          <h1 className="relative pb-4">Languages I Speak</h1>
         </div>
         <ul className="text-gray-500 dark:text-gray-400 font-bold">
           <div className="flex gap-2">
@@ -232,14 +232,14 @@ export function Sidebox() {
           <a href="">
             <FontAwesomeIcon icon={faGraduationCap} />
           </a>
-          <h1 className="rainbow3-heading relative pb-4">Education Level</h1>
+          <h1 className="relative">Education Level</h1>
         </div>
         <div className=" mb-3 border-y-2 p-2 text-gray-500 dark:text-gray-400 font-bold">
           <h1>Lobachevsky University</h1>
           <h3 className="">Computer Science And Information Technology</h3>
           <h6 className="text-xs">2017-2021</h6>
         </div>
-        <div className="mb-3 border-y-2 p-2 text-gray-500 dark:text-gray-400 font-bold">
+        <div className="mb-3 border-b-2 p-2 text-gray-500 dark:text-gray-400 font-bold">
           <h1>The Odin Project</h1>
           <h3 className="">Full Stack Web Development Bootcamp</h3>
           <h6 className="text-xs">2021-2022</h6>

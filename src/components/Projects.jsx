@@ -71,7 +71,7 @@ function Projects() {
         <h1 className="font-semibold text-pink-600">
           Recent Completed Project
         </h1>
-        <h1 className="font-bold text-2xl text-wrap">
+        <h1 className="font-bold text-2xl">
           {text.split(" ").map((char, i) => (
             <span key={i} className="text inline-block m-1">
               {char}

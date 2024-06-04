@@ -24,7 +24,6 @@ function Project({ title, description, url, repo, deployUrl }) {
           ease: "power2.inOut",
           scrollTrigger: {
             trigger: ref.current,
-            toggleActions: "play none none reverse",
             scrub: true,
           },
         }
@@ -35,11 +34,12 @@ function Project({ title, description, url, repo, deployUrl }) {
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="flex flex-col project border p-10 rounded-3xl mb-10"
-    >
-      <img className="mb-4 rounded-3xl" src={url} alt={title} />
+    <div ref={ref} className="flex flex-col border p-10 rounded-3xl mb-10">
+      <img
+        className="mb-4 rounded-3xl md:w-full min-w-[1000]"
+        src={url}
+        alt={title}
+      />
 
       <div className="text-gray-500 dark:text-gray-400 font-light my-6">
         <p>{description}</p>

@@ -99,11 +99,11 @@ function Navbar() {
         <div className="flex items-center m-5">
           <div className="relative">
             <img
-              className="h-16 md:h-20 border-2 rounded-full md:mr-10 mr-5 border-pink-600"
-              src="/profile.jpg"
+              className="h-16 md:h-20  md:mr-10 mr-5 "
+              src="/logo.png"
               alt=""
             />
-            <span className="absolute h-6 w-6 rounded-full bg-green-600 right-5 bottom-1 border-[5px]"></span>
+            {/* <span className="absolute h-6 w-6 rounded-full bg-green-600 right-5 bottom-1 lg:-bottom-1 lg:right-10 border-[5px]"></span> */}
           </div>
           <div>
             <h1 className=" text-2xl font-semibold mb-3">Assemghor Reda</h1>

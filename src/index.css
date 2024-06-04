@@ -2,52 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-.rainbow-heading::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(to right, #ff0000, #d9ff00);
-  z-index: -1;
+/* Custom scrollbar styles */
+.scrollbar-webkit::-webkit-scrollbar {
+  width: 12px;
 }
 
-.rainbow2-heading::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(to right, #d9ff00, #00ff73);
-  z-index: -1;
+.scrollbar-webkit::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.rainbow3-heading::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(to right, #ff00d0, #8800ff);
-  z-index: -1;
+.scrollbar-webkit::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
 }
 
-/* This class defines the rainbow-colored border */
-.border-rainbow {
-  border-image: linear-gradient(
-    to right,
-    violet,
-    indigo,
-    blue,
-    green,
-    yellow,
-    orange,
-    red
-  );
-  border-image-slice: 1;
+.scrollbar-webkit::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* Navbar fade */

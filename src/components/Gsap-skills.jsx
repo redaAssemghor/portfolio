@@ -50,7 +50,7 @@ const TechList = () => {
   }, []);
 
   return (
-    <section ref={component} className="overflow-hidden">
+    <section ref={component} className="wrapper overflow-hidden">
       <h1 className="text-2xl md:text-5xl font-bold text-gray-500 m-10">
         What I Use
       </h1>

@@ -60,7 +60,7 @@ function Navbar() {
       tl.fromTo(
         ".btnText",
         { y: -20, opacity: 0 },
-        { y: 1, stagger: 0.03, duration: 0.5, opacity: 1, ease: "expo" },
+        { y: 1, stagger: 0.03, duration: 0.5, opacity: 1, ease: "elastic.out" },
         0
       ).to(".btnText2", { y: 20, opacity: 0, duration: 0.5, ease: "back" }, 0);
 

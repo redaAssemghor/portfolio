@@ -14,7 +14,6 @@ import {
   faGraduationCap,
 } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter, Cursor } from "react-simple-typewriter";
-import Skills from "./Skills";
 import Band from "./Band";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -182,17 +181,6 @@ export function Hero() {
 export function Sidebox() {
   return (
     <div className="border border-gray-300 rounded-3xl p-10 md:w-2/5 md:mt-0 mt-5">
-      {/* <div className="">
-        <h1 className=" font-bold text-2xl rainbow-heading relative pb-5">
-          My Special Skills
-        </h1>
-        <ul className="text-gray-500 dark:text-gray-400 font-bold m-3">
-          <li>Team Player</li>
-          <li>Web app security</li>
-          <li>Problem Solving</li>
-          <li>Communication Skills</li>
-        </ul>
-      </div> */}
       <div className="">
         <div className="flex gap-4 font-semibold">
           <a href="">

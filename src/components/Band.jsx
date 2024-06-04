@@ -22,20 +22,30 @@ const Band = () => {
         },
         {
           xPercent: -100,
-          duration: 30,
+          duration: 40,
           ease: "none",
-          background: "linear-gradient(180deg, black, gray, white)",
         }
       );
     }, component);
+
+    gsap.to(
+      ".allText",
+      {
+        duration: 3,
+        background: "linear-gradient(to right, #ffffff, #000000)",
+        repeat: -1,
+      },
+      0
+    );
+
     return () => context.revert();
   });
   return (
     <div
       ref={component}
-      className="overflow-hidden w-full bg-gradient-to-r from-black via-gray-900 to-white text-white"
+      className="overflow-hidden w-full bg-gradient-to-r from-black via-gray-700 to-white text-white allText"
     >
-      <div className="tech-row flex items-center justify-center gap-4 w-full whitespace-nowrap mmd:p-4">
+      <div className="tech-row flex items-center justify-center gap-4 w-full whitespace-nowrap md:p-4">
         {[
           ...skillsArr,
           ...skillsArr,
@@ -44,7 +54,7 @@ const Band = () => {
           ...skillsArr,
         ].map((skill, i) => (
           <div key={i} className="">
-            <h1 className="md:text-6xl font-extrabold flex gap-4 items-center text-xl hover:text-neutral-600 transition-colors duration-500 eas">
+            <h1 className="md:text-7xl font-extrabold flex gap-4 items-center text-xl hover:text-neutral-600 transition-colors duration-500 ease-in-out">
               {skill}
               <MdCircle />
             </h1>

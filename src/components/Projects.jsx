@@ -43,7 +43,7 @@ function Projects() {
       .fromTo(
         ".btnChar",
         { y: -40, opacity: 0 },
-        { y: 1, stagger: 0.05, duration: 0.5, opacity: 1, ease: "expo" },
+        { y: 1, stagger: 0.03, duration: 0.5, opacity: 1, ease: "elastic.out" },
         0
       )
       .to(".btnTopText", { y: 20, opacity: 0, duration: 0.5, ease: "back" }, 0);
@@ -66,44 +66,47 @@ function Projects() {
   }, []);
 
   return (
-    <div ref={ref} id="projects" className="lg:flex m-10 relative">
-      <div className="flex flex-col lg:w-1/2 h-fit lg:top-1/2 lg:sticky">
-        <h1 className="font-semibold text-pink-600">
-          Recent Completed Project
-        </h1>
-        <h1 className="font-bold text-2xl">
-          {text.split(" ").map((char, i) => (
-            <span key={i} className="text inline-block m-1">
-              {char}
-            </span>
-          ))}
-        </h1>
-        <button className="w-fit rounded-lg p-4 hover:border-black border btncontainer">
-          <a className="flex gap-3" href="/contact">
-            <h1 className="font-bold ">
-              {btn.split("").map((char, i) => (
-                <span key={i} className="btnChar inline-block">
-                  {char}
-                </span>
-              ))}
-            </h1>
-            <h1 className="font-bold btnTopText absolute">{btn}</h1>
+    <div>
+      <div className="lg:absolute -left-40 h-full w-1/2 rounded-full border"></div>
+      <div ref={ref} id="projects" className="lg:flex m-10">
+        <div className="flex flex-col lg:w-2/5 h-fit lg:top-1/2 lg:sticky">
+          <h1 className="font-semibold text-pink-600">
+            Recent Completed Project
+          </h1>
+          <h1 className="font-bold text-5xl p-6 pl-0">
+            {text.split(" ").map((char, i) => (
+              <span key={i} className="text inline-block m-1">
+                {char}
+              </span>
+            ))}
+          </h1>
+          <button className="w-fit rounded-lg p-4 hover:border-black border btncontainer">
+            <a className="flex gap-3" href="/contact">
+              <h1 className="font-bold ">
+                {btn.split("").map((char, i) => (
+                  <span key={i} className="btnChar inline-block">
+                    {char}
+                  </span>
+                ))}
+              </h1>
+              <h1 className="font-bold btnTopText absolute">{btn}</h1>
 
-            <FontAwesomeIcon icon={faCircleRight} className="size-6" />
-          </a>
-        </button>
-      </div>
-      <div className="lg:w-1/2">
-        {data.map((prj, i) => (
-          <Project
-            key={i}
-            title={prj.name}
-            url={prj.imgurl}
-            description={prj.description}
-            repo={prj.repo}
-            deployUrl={prj.deployUrl}
-          />
-        ))}
+              <FontAwesomeIcon icon={faCircleRight} className="size-6" />
+            </a>
+          </button>
+        </div>
+        <div className="lg:w-3/5">
+          {data.map((prj, i) => (
+            <Project
+              key={i}
+              title={prj.name}
+              url={prj.imgurl}
+              description={prj.description}
+              repo={prj.repo}
+              deployUrl={prj.deployUrl}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

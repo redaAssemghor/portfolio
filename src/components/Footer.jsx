@@ -78,12 +78,16 @@ function Info() {
         },
         0
       )
-        .from(".message-link", {
-          opacity: 0,
-          duration: 0.5,
-          x: -100,
-          ease: "elastic.out",
-        })
+        .from(
+          ".message-link",
+          {
+            opacity: 0,
+            duration: 0.5,
+            x: -100,
+            ease: "elastic.out",
+          },
+          0.5
+        )
         .from(
           ".img",
           {

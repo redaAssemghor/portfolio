@@ -1,5 +1,5 @@
 import ReactSvg from "./svgs/ReactSvg";
-import JsSvg from "./svgs/JsSvg";
+import MangodbSvg from "./svgs/MangodbSvg";
 import NextjsSvg from "./svgs/NextjsSvg";
 import GsapSvg from "./svgs/GsapSvg";
 import TailwindSvg from "./svgs/TailwindSvg";
@@ -10,7 +10,7 @@ import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 
 const CostumSkills = () => {
   return (
-    <div className="flex flex-col gap-5 items-center border-y border-dotted p-10">
+    <div className="flex flex-col gap-5 items-center border-y-2 border-dotted p-10">
       <h1 className="text-pink-500 font-bold">Explore My Expertise !</h1>
       <h1 className="font-semibold text-4xl">My Advantages</h1>
 
@@ -33,8 +33,8 @@ const CostumSkills = () => {
         </div>
 
         <div className="flex flex-col items-center gap-10 border rounded-full p-8">
-          <JsSvg />
-          <h1 className="font-semibold text-xl">Javascript</h1>
+          <MangodbSvg />
+          <h1 className="font-semibold text-xl">MongoDb</h1>
           <FontAwesomeIcon
             icon={faEllipsis}
             className="text-3xl text-gray-400"

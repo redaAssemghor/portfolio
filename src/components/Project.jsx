@@ -20,13 +20,12 @@ function Project({ title, description, url, repo, deployUrl }) {
         },
         {
           opacity: 1,
-          duration: 3,
           scale: 1,
           ease: "power2.inOut",
           scrollTrigger: {
             trigger: ref.current,
-            start: "top 60%",
             toggleActions: "play none none reverse",
+            scrub: true,
           },
         }
       );

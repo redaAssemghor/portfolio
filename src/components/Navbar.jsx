@@ -97,12 +97,15 @@ function Navbar() {
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center m-5">
-          <img
-            className="h-16 md:h-20 border-2 rounded-full md:mr-10 mr-5 border-pink-600"
-            src="/profile.jpg"
-            alt=""
-          />
-          <div className="">
+          <div className="relative">
+            <img
+              className="h-16 md:h-20 border-2 rounded-full md:mr-10 mr-5 border-pink-600"
+              src="/profile.jpg"
+              alt=""
+            />
+            <span className="absolute h-6 w-6 rounded-full bg-green-600 right-5 bottom-1 border-[5px]"></span>
+          </div>
+          <div>
             <h1 className=" text-2xl font-semibold mb-3">Assemghor Reda</h1>
             <a
               className="btnContainer flex items-center justify-center gap-2 p-2 border border-gray-500 rounded-full text-gray-500 dark:text-gray-400 font-bold hover:text-white hover:bg-pink-600 duration-500"
@@ -118,7 +121,7 @@ function Navbar() {
                 </h1>
                 <h1 className="btnText2">{btnText}</h1>
               </div>
-              <FontAwesomeIcon className="" icon={faPaperPlane} />
+              <FontAwesomeIcon icon={faPaperPlane} />
             </a>
           </div>
         </div>

@@ -133,7 +133,7 @@ function Navbar() {
       </div>
       {location.pathname === "/" && (
         <ul
-          className={`md:flex gap-10 font-semibold md:mr-10 m-10 md:relative md:bg-inherit transition-all duration-300 ease-in md:opacity-100 
+          className={`md:flex gap-10 md:mr-10 m-10 md:relative md:bg-inherit transition-all duration-300 ease-in md:opacity-100 
                                     ${
                                       open
                                         ? "max-h-screen opacity-100 "
@@ -143,7 +143,7 @@ function Navbar() {
           {links.map((link) => (
             <li
               key={link.name}
-              className="md:p-0 md:m-0 flex items-center justify-center p-2 m-1 rounded-lg hover:text-gray-400 border-2 cursor-pointer transition-colors duration-300"
+              className="md:p-0 md:m-0 font-black flex items-center justify-center p-2 m-1 rounded-lg hover:text-gray-400 border-2 cursor-pointer transition-colors duration-300"
             >
               <Link
                 to={link.path}

@@ -56,7 +56,7 @@ const CostumSkills = () => {
         My Advantages
       </h1>
 
-      <div className="icons lg:flex gap-5">
+      <div className="lg:flex gap-5">
         <div className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2">
           <ReactSvg />
           <h1 className="font-semibold text-xl">React</h1>

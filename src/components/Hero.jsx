@@ -17,6 +17,7 @@ import { Typewriter, Cursor } from "react-simple-typewriter";
 import Band from "./Band";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Helmet } from "react-helmet";
 
 export function Hero() {
   const ref = useRef(null);
@@ -53,6 +54,11 @@ export function Hero() {
 
   return (
     <div ref={ref} id="hero">
+      <Helmet>
+        <title>Reda Assemghor,developer&designer</title>
+        <meta name="description" content="This is the home page" />
+        <meta name="keywords" content="home, landing" />
+      </Helmet>
       <div className="flex flex-col md:flex-row m-10">
         <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
           <div className=" lg:flex md:block justify-between border-b-2 p-6">

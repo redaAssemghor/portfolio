@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { Helmet } from "react-helmet";
 
 function ContactMe() {
   const [name, setName] = useState("");
@@ -55,6 +56,11 @@ function ContactMe() {
 
   return (
     <main id="contact">
+      <Helmet>
+        <title>Contact | Reda Assemghor,developer&designer</title>
+        <meta name="description" content="This is the home page" />
+        <meta name="keywords" content="home, landing" />
+      </Helmet>
       <div className="flex flex-col items-center">
         <motion.div
           variants={fadeAnimation}

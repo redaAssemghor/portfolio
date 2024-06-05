@@ -7,7 +7,7 @@ import ScrollUpButton from "./components/ScrollUpButton";
 
 function App() {
   return (
-    <div className="font-custom h-screen overflow-auto scrollbar-webkit">
+    <div className="font-custom h-screen scrollbar-webkit">
       <ScrollUpButton />
       <BrowserRouter>
         <Navbar />

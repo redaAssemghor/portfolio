@@ -48,7 +48,7 @@ const CostumSkills = () => {
   return (
     <div
       ref={ref}
-      className="flex flex-col gap-5 items-center border-y-2 border-dotted p-10"
+      className="flex flex-col gap-5 items-center border-y-2 border-dotted p-10 over"
     >
       <h1 className="text-pink-500 font-bold">Explore My Expertise !</h1>
       <h1 className="font-semibold text-4xl relative">

@@ -1,13 +1,13 @@
 import "./index.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ScrollUpButton from "./components/ScrollUpButton";
 import { BrowserRouter } from "react-router-dom";
 import Routers from "./router/Routers";
+import ScrollUpButton from "./components/ScrollUpButton";
 
 function App() {
   return (
-    <div className="font-custom">
+    <div className="font-custom h-screen overflow-auto scrollbar-webkit">
       <ScrollUpButton />
       <BrowserRouter>
         <Navbar />

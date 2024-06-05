@@ -1,13 +1,15 @@
 import { Route, Routes as Switch } from "react-router-dom";
-import Home from "../pages/Home";
+import Home from "../pages/HomeLayout";
 import ContactMe from "../pages/Contact";
 
 const Routers = () => {
   return (
-    <Switch>
-      <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<ContactMe />} />
-    </Switch>
+    <div className="h-fit">
+      <Switch>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<ContactMe />} />
+      </Switch>
+    </div>
   );
 };
 

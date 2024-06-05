@@ -1,7 +1,6 @@
 import { Route, Routes as Switch } from "react-router-dom";
 import Home from "../pages/Home";
 import ContactMe from "../pages/Contact";
-import contactLayout from "../pages/contactLayout";
 
 const Routers = () => {
   return (

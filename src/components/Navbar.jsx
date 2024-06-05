@@ -91,15 +91,15 @@ function Navbar() {
   return (
     <div
       ref={ref}
-      className={`top-0 sticky md:flex justify-between items-center bg-gray-50 z-10 nav-bg ${
-        isScrolled ? "fade-down" : ""
-      }`}
+      className={`top-0 sticky md:flex justify-between items-center bg-gray-50 z-10 ${
+        isScrolled ? "" : " nav-bg"
+      }  ${isScrolled ? "fade-down" : ""}`}
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center m-5">
           <div className="relative">
             <img
-              className="h-16 md:h-20  md:mr-10 mr-5 "
+              className="h-16 md:h-20 md:mr-10 mr-5 "
               src="/logo.png"
               alt=""
             />

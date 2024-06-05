@@ -57,6 +57,8 @@
 .nav-bg {
   background-image: url("/header-bg.png");
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /* footer text */

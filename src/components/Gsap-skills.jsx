@@ -6,9 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const data = [
-  { tech_color: "#878282", tech_name: "React" },
-  { tech_color: "#878282", tech_name: "Next.JS" },
-  { tech_color: "#878282", tech_name: "GSAP" },
+  { tech_color: "#878282", tech_name: "Web.Developer" },
+  { tech_color: "#878282", tech_name: "Mobile.Developer" },
+  { tech_color: "#878282", tech_name: "designer" },
 ];
 
 const TechList = () => {
@@ -48,7 +48,7 @@ const TechList = () => {
   return (
     <section ref={component} className="wrapper overflow-hidden">
       <h1 className="text-2xl md:text-5xl font-bold text-gray-500 m-10">
-        What I Use
+        What I Do,
       </h1>
       {data.map(({ tech_color, tech_name }, index) => (
         <div

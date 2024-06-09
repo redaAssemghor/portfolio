@@ -79,7 +79,7 @@ function Navbar() {
         btnContainer.addEventListener("mouseleave", handelLeave);
       }
       return () => {
-        context.revert;
+        context.revert();
         if (btnContainer) {
           btnContainer.removeEventListener("mouseenter", handelEnter);
           btnContainer.removeEventListener("mouseleave", handelLeave);
@@ -91,28 +91,28 @@ function Navbar() {
   return (
     <div
       ref={ref}
-      className={`top-0 sticky md:flex justify-between items-center bg-gray-50 z-10 ${
-        isScrolled ? "" : " nav-bg"
-      }  ${isScrolled ? "fade-down" : ""}`}
+      className={`top-0 sticky md:flex justify-between items-center z-20 shadow-md ${
+        isScrolled ? "bg-white fade-down" : "bg-gray-50 bg-cover bg-center"
+      } transition-all duration-300`}
+      style={{
+        backgroundImage: !isScrolled
+          ? 'url("/path/to/your/background-image.jpg")'
+          : "none",
+      }}
     >
-      <div className="flex justify-between items-center">
-        <div className="flex items-center m-5">
-          <div className="relative">
-            <img
-              className="h-16 md:h-20 md:mr-10 mr-5 "
-              src="/logo.png"
-              alt=""
-            />
-            {/* <span className="absolute h-6 w-6 rounded-full bg-green-600 right-5 bottom-1 lg:-bottom-1 lg:right-10 border-[5px]"></span> */}
-          </div>
-          <div>
-            <h1 className=" text-2xl font-semibold mb-3">Assemghor Reda</h1>
+      <div className="flex justify-between items-center w-full px-5 py-3">
+        <div className="flex items-center">
+          <img className="h-16 md:h-20" src="/logo.png" alt="Logo" />
+          <div className="ml-3">
+            <h1 className="text-2xl font-semibold text-gray-800">
+              Assemghor Reda
+            </h1>
             <a
-              className="btnContainer flex items-center justify-center gap-2 p-2 border border-gray-500 rounded-full text-gray-500 dark:text-gray-400 font-bold hover:text-white hover:bg-pink-600 duration-500"
+              className="btnContainer flex items-center justify-center gap-2 p-2 mt-2 border border-gray-300 rounded-full text-gray-500 hover:text-white hover:bg-pink-600 transition duration-300"
               href="/contact"
             >
-              <div>
-                <h1 className="absolute">
+              <div className="relative">
+                <h1 className="absolute inset-0 flex items-center justify-center">
                   {btnText.split("").map((char, i) => (
                     <span key={i} className="btnText inline-block">
                       {char}
@@ -126,24 +126,21 @@ function Navbar() {
           </div>
         </div>
         <FontAwesomeIcon
-          className="md:hidden text-3xl m-5 cursor-pointer absolute right-0"
+          className="md:hidden text-3xl cursor-pointer z-30"
           icon={open ? faX : faBars}
           onClick={toggleMenu}
         />
       </div>
       {location.pathname === "/" && (
         <ul
-          className={`md:flex gap-10 md:mr-10 m-10 md:relative md:bg-inherit transition-all duration-300 ease-in md:opacity-100 
-                                    ${
-                                      open
-                                        ? "max-h-screen opacity-100 "
-                                        : "opacity-0 max-h-0"
-                                    }`}
+          className={`fixed inset-0 bg-white bg-opacity-95 flex flex-col justify-center items-center transition-all duration-300 ease-in-out ${
+            open ? "opacity-100 visible z-20" : "opacity-0 invisible z-0"
+          } md:relative md:bg-transparent md:opacity-100 md:visible md:flex md:flex-row md:items-center md:gap-10`}
         >
           {links.map((link) => (
             <li
               key={link.name}
-              className="md:p-0 md:m-0 font-black flex items-center justify-center p-2 m-1 rounded-lg hover:text-gray-400 border-2 cursor-pointer transition-colors duration-300"
+              className="md:py-0 md:px-3 text-center font-semibold p-2 m-1 rounded-lg hover:text-pink-600 transition-colors duration-300 text-gray-800 text-2xl md:text-lg cursor-pointer"
             >
               <Link
                 to={link.path}
@@ -151,7 +148,8 @@ function Navbar() {
                 smooth={true}
                 offset={-110}
                 duration={500}
-                className="font-bold"
+                className="block"
+                onClick={() => setOpen(false)}
               >
                 {link.name}
               </Link>

@@ -112,13 +112,19 @@ function Navbar() {
               href="/contact"
             >
               <div className="relative">
-                <h1 className="absolute inset-0 flex items-center justify-center">
+                <a
+                  className="absolute inset-0 flex items-center justify-center"
+                  href="https://t.me/redaassemghor
+                  "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {btnText.split("").map((char, i) => (
                     <span key={i} className="btnText inline-block">
                       {char}
                     </span>
                   ))}
-                </h1>
+                </a>
                 <h1 className="btnText2">{btnText}</h1>
               </div>
               <FontAwesomeIcon icon={faPaperPlane} />

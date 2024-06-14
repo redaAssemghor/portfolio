@@ -217,7 +217,7 @@ export function Sidebox() {
             <a href="">
               <FontAwesomeIcon icon={faCheck} />
             </a>
-            <h3>Russain</h3>
+            <h3>Russian</h3>
           </div>
         </ul>
       </div>

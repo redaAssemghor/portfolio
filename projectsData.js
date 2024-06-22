@@ -1,5 +1,13 @@
 export const data = [
   {
+    name: "Solar System 3D Simulator",
+    description:
+      "The Solar System 3D Simulator is an interactive web application that allows users to explore the solar system with realistic 3D graphics. Built with Reactand Three.js for rendering, and styled using TailwindCSS, this project showcases advanced front-end development skills and 3D visualization techniques.",
+    imgurl: "/solar-system.png",
+    repo: "https://github.com/redaAssemghor/3D-solar-system",
+    deployUrl: "https://3-d-solar-system-rho.vercel.app/",
+  },
+  {
     name: "Micro Saas Finder",
     description:
       "Micro SaaS Finder is a web app that generates Micro SaaS ideas using the OpenAI API, helping entrepreneurs find marketable concepts quickly. Built with Next.js, React, and Tailwind CSS, it features robust authentication with Clerk and real-time backend services via Convex.",

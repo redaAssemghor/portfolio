@@ -1,5 +1,13 @@
 export const data = [
   {
+    name: "PDF to MP3 Generator",
+    description:
+      "The PDF to MP3 Generator app allows users to seamlessly convert text and PDF documents into audio files. Built with Next.js and React, it integrates Clerk for authentication, Convex for backend logic, and Tailwind CSS for styling. The app leverages GSAP for animations and PDF.js for PDF parsing, providing a smooth and interactive user experience.",
+    imgurl: "/pd-fto-mp3.png",
+    repo: "https://github.com/redaAssemghor/pdf-to-mp3",
+    deployUrl: "https://pdf-to-mp3-amber.vercel.app/",
+  },
+  {
     name: "Solar System 3D Simulator",
     description:
       "The Solar System 3D Simulator is an interactive web application that allows users to explore the solar system with realistic 3D graphics. Built with Reactand Three.js for rendering, and styled using TailwindCSS, this project showcases advanced front-end development skills and 3D visualization techniques.",

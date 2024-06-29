@@ -14,8 +14,8 @@ function ContactMe() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null); // Add state for selected option
-  const [loading, setLoading] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [loading, setLoading] = useState(true);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -92,7 +92,7 @@ function ContactMe() {
       from_email: email,
       to_name: "Reda Assemghor",
       message: message,
-      my_html: selectedOption ? selectedOption.value : "", // Add selected option to templateParams
+      selected_option: selectedOption ? selectedOption.value : "", // Add selected option to templateParams
     };
 
     // Send the email using EmailJS
@@ -105,9 +105,11 @@ function ContactMe() {
         setMessage("");
         setSelectedOption(null); // Reset the selected option
         setSent(true);
+        setLoading(false); // Set loading state to false
       })
       .catch((error) => {
         console.error("Error sending email:", error);
+        setLoading(false); // Set loading state to false
       });
   };
 
@@ -171,7 +173,7 @@ function ContactMe() {
             </div>
           </div>
 
-          <div className="card flex md:flex-row flex-col w-full items-center justify-center gap-10">
+          <div className="card flex md:flex-row flex-col w-full items-center justify-center gap-10 relative">
             <iframe
               className="md:h-[500px] w-full flex-1"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52962.05933104808!2d-6.8845567999999995!3d33.9378176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7129ada04c2fb%3A0x35aeb81f6b145b90!2zVMOpbWFyYQ!5e0!3m2!1sfr!2sma!4v1706398600301!5m2!1sfr!2sma"
@@ -183,13 +185,20 @@ function ContactMe() {
             {!sent && (
               <form
                 onSubmit={handleSubmit}
-                className="card flex flex-col flex-1 h-[500px] p-10 bg-gray-100 gap-5"
+                className="card flex flex-col flex-1 h-[500px] p-10 bg-gray-100 gap-5 relative"
               >
+                {loading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-75 z-10">
+                    <div className="flex items-center justify-center loader ease-linear rounded-full border-8 border-pink-600 h-40 w-40">
+                      <div className="outerLoader ease-linear rounded-full border-4 border-pink-600 h-[120px] w-[120px]"></div>
+                    </div>
+                  </div>
+                )}
                 <h1 className="font-semibold text-2xl">Leave A Message</h1>
                 <div className="flex gap-4">
                   <input
                     onChange={(e) => setName(e.target.value)}
-                    className=" bg-transparent w-1/2 outline-none py-4 border-b-2 border-gray-300"
+                    className="bg-transparent w-1/2 outline-none py-4 border-b-2 border-gray-300"
                     type="text"
                     value={name}
                     placeholder="Name"
@@ -204,18 +213,17 @@ function ContactMe() {
                 </div>
                 <Select
                   options={[
-                    { value: "Account", label: "Account" },
+                    { value: "Consultation", label: "Consultation" },
                     { value: "Service", label: "Service" },
                     { value: "Pricing", label: "Pricing" },
                     { value: "Support", label: "Support" },
                   ]}
                   value={selectedOption}
-                  onChange={setSelectedOption} // Update state when option is selected
+                  onChange={setSelectedOption}
                 />
-
                 <textarea
                   onChange={(e) => setMessage(e.target.value)}
-                  className=" bg-transparent w-full outline-none py-4 border-b-2 border-gray-300"
+                  className="bg-transparent w-full outline-none py-4 border-b-2 border-gray-300"
                   name=""
                   cols="30"
                   rows="4"
@@ -225,18 +233,14 @@ function ContactMe() {
                 <button
                   className="w-60 py-5 border border-gray-500 rounded-full font-bold hover:text-white hover:bg-pink-600 duration-500 flex items-center justify-center"
                   type="submit"
-                  disabled={loading} // Disable button while loading
+                  disabled={loading}
                 >
-                  {loading ? (
-                    <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6"></div>
-                  ) : (
-                    "Send Message"
-                  )}
+                  Send Message
                 </button>
               </form>
             )}
             {sent && (
-              <div className=" flex flex-col justify-center items-center gap-4 bg-gray-100 p-10 h-[500px] w-full lg:mr-6">
+              <div className="flex flex-1 flex-col justify-center items-center gap-4 bg-gray-100 p-10 h-[500px] w-full lg:mr-6">
                 <p className="lg:text-2xl text-gray-500 dark:text-gray-400 font-light">
                   Thank you for your message! I will get back to you soon.
                 </p>

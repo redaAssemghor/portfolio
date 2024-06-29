@@ -79,7 +79,12 @@
 /* Add this CSS to your stylesheet */
 .loader {
   border-top-color: transparent;
-  animation: spin 1s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.outerLoader {
+  border-top-color: transparent;
+  animation: spin 2.5s linear infinite;
 }
 
 @keyframes spin {

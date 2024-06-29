@@ -109,7 +109,7 @@ function Navbar() {
         <div className="flex items-center">
           <img className="h-16 md:h-20" src="/logo.png" alt="Logo" />
           <div className="ml-3">
-            <h1 className="text-2xl font-semibold text-gray-800">
+            <h1 className="text-2xl font-semibold text-[#181818]">
               Assemghor Reda
             </h1>
             <a
@@ -121,14 +121,17 @@ function Navbar() {
               <div className="relative">
                 <div className="absolute inset-0 flex items-center justify-center">
                   {btnText.split("").map((char, i) => (
-                    <span key={i} className="btnText inline-block">
+                    <span
+                      key={i}
+                      className="btnText inline-block text-[#181818]"
+                    >
                       {char}
                     </span>
                   ))}
                 </div>
-                <h1 className="btnText2">{btnText}</h1>
+                <h1 className="btnText2 text-[#181818]">{btnText}</h1>
               </div>
-              <FontAwesomeIcon icon={faPaperPlane} />
+              <FontAwesomeIcon className="text-[#181818]" icon={faPaperPlane} />
             </a>
           </div>
         </div>

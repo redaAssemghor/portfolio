@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Select from "react-select";
 import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +6,7 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,67 +16,73 @@ function ContactMe() {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const ref = useRef(null);
 
-  useEffect(() => {
-    const context = gsap.context(() => {
-      gsap.fromTo(
-        ".text",
-        {
-          opacity: 0,
-          x: 30,
-        },
-        {
-          duration: 2,
-          opacity: 1,
-          x: 0,
-          ease: "back.out",
-        }
-      );
+  const thankYouText =
+    "Thank you for your message! I will get back to you soon.";
 
+  useGSAP(() => {
+    gsap.fromTo(
+      ".text",
+      {
+        opacity: 0,
+        x: 30,
+      },
+      {
+        duration: 2,
+        opacity: 1,
+        x: 0,
+        ease: "back.out",
+      }
+    );
+
+    gsap.fromTo(
+      ".footerText",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        duration: 2,
+        opacity: 1,
+        y: 0,
+        ease: "bounce",
+        scrollTrigger: {
+          top: "top bottom",
+          trigger: ".footerText",
+        },
+      }
+    );
+
+    gsap.utils.toArray(".card").forEach((card) => {
       gsap.fromTo(
-        ".footerText",
+        card,
         {
           opacity: 0,
           y: 30,
         },
         {
-          duration: 2,
           opacity: 1,
           y: 0,
-          ease: "bounce",
+          duration: 2,
+          ease: "back.out",
           scrollTrigger: {
-            top: "top 80%",
-            trigger: ".footerText",
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none none",
           },
         }
       );
+    });
 
-      gsap.utils.toArray(".card").forEach((card) => {
-        gsap.fromTo(
-          card,
-          {
-            opacity: 0,
-            y: 30,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 2,
-            ease: "back.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 80%", // Adjust this value as needed
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      });
-    }, ref);
-
-    return () => context.revert();
-  }, []);
+    // thank you message animation
+    gsap.from(".thankYouText", {
+      opacity: 0,
+      stagger: 0.05,
+      ease: "expo",
+    });
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -125,10 +132,10 @@ function ContactMe() {
           Contact Me
         </h1>
         <div className="text mb-20 font-semibold">
-          <a href="/" className="text-gray-500 dark:text-gray-500">
+          <a href="/" className="text-[#181818]">
             <span className="hover:text-pink-500">Home :</span>{" "}
-            <span className="">Contact Me</span>
           </a>
+          <span className=""> Contact Me</span>
         </div>
 
         <div className="flex flex-col gap-8 p-8">
@@ -136,7 +143,7 @@ function ContactMe() {
             <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
               <img className="w-10" src="/phone.png" alt="Mobile" />
               <h1 className="font-semibold lg:text-2xl">Phone</h1>
-              <p className="text-gray-500 dark:text-gray-400 font-light">
+              <p className="text-[#181818] font-light">
                 Mobile : +212 600-190-494
               </p>
             </div>
@@ -144,10 +151,7 @@ function ContactMe() {
             <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
               <img className="w-10" src="/mail.png" alt="Mobile" />
               <h1 className="font-semibold lg:text-2xl">Mail Address</h1>
-              <a
-                className="text-gray-500 dark:text-gray-400 font-light"
-                href=""
-              >
+              <a className="text-[#181818] font-light" href="">
                 Assemghor.reda@gmail.com
               </a>
             </div>
@@ -155,10 +159,7 @@ function ContactMe() {
             <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
               <img className="w-10" src="/time.png" alt="Mobile" />
               <h1 className="font-semibold lg:text-2xl">Our Location</h1>
-              <a
-                className="text-gray-500 dark:text-gray-400 font-light"
-                href=""
-              >
+              <a className="text-[#181818] font-light" href="">
                 Morocco, Rabat
               </a>
             </div>
@@ -166,10 +167,7 @@ function ContactMe() {
             <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
               <img className="w-10" src="/location.png" alt="Mobile" />
               <h1 className="font-semibold lg:text-2xl">Office Hour</h1>
-              <a
-                className="text-gray-500 dark:text-gray-400 font-light"
-                href=""
-              ></a>
+              <a className="text-[#181818] font-light" href=""></a>
             </div>
           </div>
 
@@ -240,9 +238,13 @@ function ContactMe() {
               </form>
             )}
             {sent && (
-              <div className="flex flex-1 flex-col justify-center items-center gap-4 bg-gray-100 p-10 h-[500px] w-full lg:mr-6">
-                <p className="lg:text-2xl text-gray-500 dark:text-gray-400 font-light">
-                  Thank you for your message! I will get back to you soon.
+              <div className="flex flex-1 flex-col justify-around items-center gap-4 bg-gray-100 p-10 h-[500px] w-full lg:mr-6">
+                <p className="lg:text-2xl text-[#181818] font-light">
+                  {thankYouText.split("").map((word, i) => (
+                    <span key={i} className="thankYouText">
+                      {word}
+                    </span>
+                  ))}
                 </p>
                 <FontAwesomeIcon
                   icon={faCircleCheck}

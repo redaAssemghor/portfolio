@@ -39,12 +39,4 @@ export const data = [
     repo: "https://github.com/redaAssemghor/myCommerce",
     deployUrl: "https://my-shopee-ashen.vercel.app/",
   },
-  {
-    name: "Nike Shopify theme",
-    description:
-      "Nike Shopify theme for your online store. Fully responsive design ensures seamless browsing across all devices. Built using html, css, javascript and liquid. **Password**: raylyi",
-    imgurl: "/nike-store.png",
-    repo: "https://github.com/redaAssemghor/shopifyNike",
-    deployUrl: "https://shopynikestore.myshopify.com/",
-  },
 ];

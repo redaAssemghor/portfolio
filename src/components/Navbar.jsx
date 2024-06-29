@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 import { useAnimation } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,40 +54,46 @@ function Navbar() {
     setOpen(!open);
   };
 
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      const tl = gsap.timeline({ paused: true });
+  useGSAP(() => {
+    const tl = gsap.timeline({ paused: true });
 
-      tl.fromTo(
-        ".btnText",
-        { y: -20, opacity: 0 },
-        { y: 1, stagger: 0.03, duration: 0.5, opacity: 1, ease: "elastic.out" },
-        0
-      ).to(".btnText2", { y: 20, opacity: 0, duration: 0.5, ease: "back" }, 0);
+    tl.fromTo(
+      ".btnText",
+      { y: -40, opacity: 0 },
+      { y: 1, stagger: 0.05, duration: 0.2, opacity: 1, ease: "circ.in" },
+      0
+    ).to(".btnText2", { y: 20, opacity: 0, duration: 1, ease: "back" }, 0);
 
-      const btnContainer = document.querySelector(".btnContainer");
+    const handelEnter = () => {
+      tl.restart();
+    };
 
-      const handelEnter = () => {
-        tl.restart();
-      };
+    const handelLeave = () => {
+      tl.reverse();
+    };
 
-      const handelLeave = () => {
-        tl.reverse();
-      };
+    const btnContainer = document.querySelector(".btnContainer");
 
-      if (btnContainer) {
-        btnContainer.addEventListener("mouseenter", handelEnter);
-        btnContainer.addEventListener("mouseleave", handelLeave);
-      }
-      return () => {
-        context.revert();
-        if (btnContainer) {
-          btnContainer.removeEventListener("mouseenter", handelEnter);
-          btnContainer.removeEventListener("mouseleave", handelLeave);
-        }
-      };
-    }, ref);
-  }, []);
+    if (btnContainer) {
+      btnContainer.addEventListener("mouseenter", handelEnter);
+      btnContainer.addEventListener("mouseleave", handelLeave);
+
+      // navlinks animation
+      const navLinks = document.querySelectorAll(".navLink");
+
+      navLinks.forEach((navLink) => {
+        const linksAnimation = gsap.to(navLink, {
+          paused: true,
+          scale: 1.2,
+          duration: 1,
+          ease: "power1",
+        });
+
+        navLink.addEventListener("mouseenter", () => linksAnimation.play());
+        navLink.addEventListener("mouseleave", () => linksAnimation.reverse());
+      });
+    }
+  });
 
   return (
     <div
@@ -137,14 +144,14 @@ function Navbar() {
       </div>
       {location.pathname === "/" && (
         <ul
-          className={`fixed inset-0 bg-white bg-opacity-95 flex flex-col justify-center items-center transition-all duration-300 ease-in-out ${
+          className={`fixed inset-0 mr-8 bg-white bg-opacity-95 flex flex-col justify-center items-center transition-all duration-500 ease-in-out ${
             open ? "opacity-100 visible z-20" : "opacity-0 invisible z-0"
-          } md:relative md:bg-transparent md:opacity-100 md:visible md:flex md:flex-row md:items-center md:gap-10`}
+          } md:relative md:bg-transparent md:opacity-100 md:visible md:flex md:flex-row md:items-center md:gap-4`}
         >
           {links.map((link) => (
             <li
               key={link.name}
-              className="md:py-0 md:px-3 text-center font-semibold p-2 m-1 rounded-lg hover:text-pink-600 transition-colors duration-300 text-gray-800 text-2xl md:text-lg cursor-pointer"
+              className="navLink md:py-0 md:px-3 text-center font-semibold p-2 m-1 rounded-lg hover:text-pink-600 transition-colors duration-300 text-gray-800 text-2xl md:text-lg cursor-pointer"
             >
               <Link
                 to={link.path}

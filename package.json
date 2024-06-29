@@ -172,7 +172,6 @@
     "lilconfig": "^2.1.0",
     "lines-and-columns": "^1.2.4",
     "locate-path": "^6.0.0",
-    "locomotive-scroll": "^4.1.4",
     "lodash.merge": "^4.6.2",
     "lodash.throttle": "^4.1.1",
     "loose-envify": "^1.4.0",

@@ -114,22 +114,18 @@ function Navbar() {
             </h1>
             <a
               className="btnContainer flex items-center justify-center gap-2 p-2 mt-2 border border-gray-300 rounded-full text-gray-500 hover:text-white hover:bg-pink-600 transition duration-300"
-              href="/contact"
+              href="https://t.me/redaassemghor"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="relative">
-                <a
-                  className="absolute inset-0 flex items-center justify-center"
-                  href="https://t.me/redaassemghor
-                  "
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <div className="absolute inset-0 flex items-center justify-center">
                   {btnText.split("").map((char, i) => (
                     <span key={i} className="btnText inline-block">
                       {char}
                     </span>
                   ))}
-                </a>
+                </div>
                 <h1 className="btnText2">{btnText}</h1>
               </div>
               <FontAwesomeIcon icon={faPaperPlane} />

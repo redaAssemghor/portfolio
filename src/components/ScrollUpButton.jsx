@@ -57,7 +57,7 @@ function ScrollUpButton() {
   return (
     <div
       ref={ref}
-      className="fixed w-14 h-14 bottom-20 right-10 flex items-center justify-center bg-gray-300 rounded-full"
+      className="fixed z-50 w-14 h-14 bottom-20 right-10 flex items-center justify-center bg-gray-300 rounded-full"
     >
       <button className="rounded-full flex items-center" onClick={scrollUp}>
         <svg

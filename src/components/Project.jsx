@@ -41,14 +41,14 @@ function Project({ title, description, url, repo, deployUrl }) {
         alt={title}
       />
 
-      <div className="text-gray-500 dark:text-gray-400 font-light my-6">
+      <div className="text-[#181818] font-light my-6">
         <p>{description}</p>
       </div>
       <div className="md:flex justify-between items-center border-t">
         <h1 className="font-extrabold text-balance">{title}</h1>
         <div className="mt-5">
           <a
-            className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-500 cursor-pointer mr-3"
+            className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-1000 cursor-pointer mr-3"
             href={repo}
             target="_blank"
             rel="noopener noreferrer"
@@ -56,7 +56,7 @@ function Project({ title, description, url, repo, deployUrl }) {
             <FontAwesomeIcon icon={faGithub} />
           </a>
           <a
-            className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-500 cursor-pointer"
+            className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-1000 cursor-pointer"
             href={deployUrl}
             target="_blank"
             rel="noopener noreferrer"

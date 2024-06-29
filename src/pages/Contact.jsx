@@ -14,6 +14,8 @@ function ContactMe() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null); // Add state for selected option
+  const [loading, setLoading] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -77,6 +79,7 @@ function ContactMe() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     // Your EmailJS service ID, template ID, and Public Key
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -87,8 +90,9 @@ function ContactMe() {
     const templateParams = {
       from_name: name,
       from_email: email,
-      to_name: "reda",
+      to_name: "Reda Assemghor",
       message: message,
+      my_html: selectedOption ? selectedOption.value : "", // Add selected option to templateParams
     };
 
     // Send the email using EmailJS
@@ -99,6 +103,7 @@ function ContactMe() {
         setName("");
         setEmail("");
         setMessage("");
+        setSelectedOption(null); // Reset the selected option
         setSent(true);
       })
       .catch((error) => {
@@ -124,113 +129,129 @@ function ContactMe() {
           </a>
         </div>
 
-        <div className="cards lg:flex lg:gap-10 grid grid-cols-1 gap-4">
-          <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
-            <img className="w-10" src="/phone.png" alt="Mobile" />
-            <h1 className="font-semibold lg:text-2xl">Phone</h1>
-            <p className="text-gray-500 dark:text-gray-400 font-light">
-              Mobile : +212 600-190-494
-            </p>
+        <div className="flex flex-col gap-8 p-8">
+          <div className="cards flex md:flex-row flex-col gap-4">
+            <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
+              <img className="w-10" src="/phone.png" alt="Mobile" />
+              <h1 className="font-semibold lg:text-2xl">Phone</h1>
+              <p className="text-gray-500 dark:text-gray-400 font-light">
+                Mobile : +212 600-190-494
+              </p>
+            </div>
+
+            <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
+              <img className="w-10" src="/mail.png" alt="Mobile" />
+              <h1 className="font-semibold lg:text-2xl">Mail Address</h1>
+              <a
+                className="text-gray-500 dark:text-gray-400 font-light"
+                href=""
+              >
+                Assemghor.reda@gmail.com
+              </a>
+            </div>
+
+            <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
+              <img className="w-10" src="/time.png" alt="Mobile" />
+              <h1 className="font-semibold lg:text-2xl">Our Location</h1>
+              <a
+                className="text-gray-500 dark:text-gray-400 font-light"
+                href=""
+              >
+                Morocco, Rabat
+              </a>
+            </div>
+
+            <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
+              <img className="w-10" src="/location.png" alt="Mobile" />
+              <h1 className="font-semibold lg:text-2xl">Office Hour</h1>
+              <a
+                className="text-gray-500 dark:text-gray-400 font-light"
+                href=""
+              ></a>
+            </div>
           </div>
 
-          <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
-            <img className="w-10" src="/mail.png" alt="Mobile" />
-            <h1 className="font-semibold lg:text-2xl">Mail Address</h1>
-            <a className="text-gray-500 dark:text-gray-400 font-light" href="">
-              Assemghor.reda@gmail.com
-            </a>
-          </div>
-
-          <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
-            <img className="w-10" src="/time.png" alt="Mobile" />
-            <h1 className="font-semibold lg:text-2xl">Our Location</h1>
-            <a className="text-gray-500 dark:text-gray-400 font-light" href="">
-              Morocco, Rabat
-            </a>
-          </div>
-
-          <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
-            <img className="w-10" src="/location.png" alt="Mobile" />
-            <h1 className="font-semibold lg:text-2xl">Office Hour</h1>
-            <a
-              className="text-gray-500 dark:text-gray-400 font-light"
-              href=""
-            ></a>
-          </div>
-        </div>
-
-        <div className="card md:flex gap-10 lg:w-full m-20 ">
-          <iframe
-            className="lg:ml-20 lg:min-h-[500px] lg:min-w-[620px] w-[400px] h-[300px]"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52962.05933104808!2d-6.8845567999999995!3d33.9378176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7129ada04c2fb%3A0x35aeb81f6b145b90!2zVMOpbWFyYQ!5e0!3m2!1sfr!2sma!4v1706398600301!5m2!1sfr!2sma"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            aria-hidden="false"
-            tabIndex="0"
-          />
-          {!sent && (
-            <form
-              onSubmit={handleSubmit}
-              className="card flex flex-col p-10 bg-gray-100 lg:w-1/2 lg:mr-20 gap-5"
-            >
-              <h1 className="font-semibold text-2xl">Leave A Message</h1>
-              <div className="flex gap-4">
-                <input
-                  onChange={(e) => setName(e.target.value)}
-                  className=" bg-transparent w-1/2 outline-none py-4 border-b-2 border-gray-300"
-                  type="text"
-                  value={name}
-                  placeholder="Name"
+          <div className="card flex md:flex-row flex-col w-full items-center justify-center gap-10">
+            <iframe
+              className="md:h-[500px] w-full flex-1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52962.05933104808!2d-6.8845567999999995!3d33.9378176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7129ada04c2fb%3A0x35aeb81f6b145b90!2zVMOpbWFyYQ!5e0!3m2!1sfr!2sma!4v1706398600301!5m2!1sfr!2sma"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              aria-hidden="false"
+              tabIndex="0"
+            />
+            {!sent && (
+              <form
+                onSubmit={handleSubmit}
+                className="card flex flex-col flex-1 h-[500px] p-10 bg-gray-100 gap-5"
+              >
+                <h1 className="font-semibold text-2xl">Leave A Message</h1>
+                <div className="flex gap-4">
+                  <input
+                    onChange={(e) => setName(e.target.value)}
+                    className=" bg-transparent w-1/2 outline-none py-4 border-b-2 border-gray-300"
+                    type="text"
+                    value={name}
+                    placeholder="Name"
+                  />
+                  <input
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="bg-transparent w-1/2 outline-none py-4 border-b-2 border-gray-300"
+                    type="text"
+                    value={email}
+                    placeholder="Email"
+                  />
+                </div>
+                <Select
+                  options={[
+                    { value: "Account", label: "Account" },
+                    { value: "Service", label: "Service" },
+                    { value: "Pricing", label: "Pricing" },
+                    { value: "Support", label: "Support" },
+                  ]}
+                  value={selectedOption}
+                  onChange={setSelectedOption} // Update state when option is selected
                 />
-                <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-transparent w-1/2 outline-none py-4 border-b-2 border-gray-300"
-                  type="text"
-                  value={email}
-                  placeholder="Email"
+
+                <textarea
+                  onChange={(e) => setMessage(e.target.value)}
+                  className=" bg-transparent w-full outline-none py-4 border-b-2 border-gray-300"
+                  name=""
+                  cols="30"
+                  rows="4"
+                  value={message}
+                  placeholder="Message"
+                ></textarea>
+                <button
+                  className="w-60 py-5 border border-gray-500 rounded-full font-bold hover:text-white hover:bg-pink-600 duration-500 flex items-center justify-center"
+                  type="submit"
+                  disabled={loading} // Disable button while loading
+                >
+                  {loading ? (
+                    <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6"></div>
+                  ) : (
+                    "Send Message"
+                  )}
+                </button>
+              </form>
+            )}
+            {sent && (
+              <div className=" flex flex-col justify-center items-center gap-4 bg-gray-100 p-10 h-[500px] w-full lg:mr-6">
+                <p className="lg:text-2xl text-gray-500 dark:text-gray-400 font-light">
+                  Thank you for your message! I will get back to you soon.
+                </p>
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  style={{ fontSize: "144px", color: "gray" }}
                 />
               </div>
-              <Select
-                options={[
-                  { value: "Account", label: "Account" },
-                  { value: "Service", label: "Service" },
-                  { value: "Pricing", label: "Pricing" },
-                  { value: "Support", label: "Support" },
-                ]}
-              />
-
-              <textarea
-                onChange={(e) => setMessage(e.target.value)}
-                className=" bg-transparent w-full outline-none py-4 border-b-2 border-gray-300"
-                name=""
-                cols="30"
-                rows="4"
-                value={message}
-                placeholder="Message"
-              ></textarea>
-              <button className=" w-60 py-5 border border-gray-500 rounded-full font-bold hover:text-white hover:bg-pink-600 duration-500">
-                Send Message
-              </button>
-            </form>
-          )}
-          {sent && (
-            <div className=" flex flex-col justify-center items-center gap-4 bg-gray-100 w-full lg:mr-6">
-              <p className="lg:text-2xl text-gray-500 dark:text-gray-400 font-light">
-                thank you for your message
-              </p>
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                style={{ fontSize: "144px", color: "gray" }}
-              />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-      <div className="footerText text-[#181818] flex justify-between mx-20 border-b-2 pb-5">
-        <h1 className="lg:text-4xl -400 font-light">
-          Let&apos;s Work Together
-        </h1>
-        <h1 className="lg:text-2xl -400 font-light">SEND ME A MESSAGE</h1>
+      <div className="footerText text-[#181818] flex justify-between border-b-2 mt-10 p-5">
+        <h1 className="lg:text-4xl font-light">Let&apos;s Work Together</h1>
+        <h1 className="lg:text-2xl font-light">SEND ME A MESSAGE</h1>
       </div>
     </main>
   );

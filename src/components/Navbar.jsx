@@ -95,9 +95,7 @@ function Navbar() {
         isScrolled ? "bg-white fade-down" : "bg-gray-50 bg-cover bg-center"
       } transition-all duration-300`}
       style={{
-        backgroundImage: !isScrolled
-          ? 'url("/path/to/your/background-image.jpg")'
-          : "none",
+        backgroundImage: !isScrolled ? 'url("/header-bg.png")' : "none",
       }}
     >
       <div className="flex justify-between items-center w-full px-5 py-3">

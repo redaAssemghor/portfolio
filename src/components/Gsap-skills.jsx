@@ -6,9 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const data = [
-  { tech_color: "#878282", tech_name: "Web.Developer" },
-  { tech_color: "#878282", tech_name: "Mobile.Developer" },
-  { tech_color: "#878282", tech_name: "designer" },
+  { tech_color: "#878282", tech_name: "Full/Stack.Developer" },
+  { tech_color: "#878282", tech_name: "UI/UX.Designer" },
+  { tech_color: "#878282", tech_name: "Freelancer" },
 ];
 
 const TechList = () => {
@@ -27,7 +27,7 @@ const TechList = () => {
         {
           x: (index) => {
             return index % 2 === 0
-              ? gsap.utils.random(1000, 800)
+              ? gsap.utils.random(10000, 8000)
               : gsap.utils.random(-1000, -800);
           },
         },
@@ -37,7 +37,7 @@ const TechList = () => {
               ? gsap.utils.random(-1000, -800)
               : gsap.utils.random(1000, 800);
           },
-          ease: "bounce.in",
+          ease: "none",
         }
       );
     }, component);
@@ -47,9 +47,7 @@ const TechList = () => {
 
   return (
     <section ref={component} className="wrapper overflow-hidden">
-      <h1 className="text-2xl md:text-5xl font-bold text-gray-500 m-10">
-        What I Do,
-      </h1>
+      <h1 className="text-2xl text-[#181818] m-10">What I Do,</h1>
       {data.map(({ tech_color, tech_name }, index) => (
         <div
           key={index}

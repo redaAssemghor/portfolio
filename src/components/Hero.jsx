@@ -63,7 +63,7 @@ export function Hero() {
         <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
           <div className=" lg:flex md:block justify-between border-b-2 p-6">
             <div className="md:py-6">
-              <h1 className=" text-2xl md:text-6xl font-bold text-gray-900 md:pb-6">
+              <h1 className=" text-2xl md:text-6xl font-bold text-[#181818] md:pb-6">
                 {nameText.split(" ").map((char, i) => (
                   <span key={i} className="name-text inline-block m-1">
                     {char}
@@ -76,7 +76,7 @@ export function Hero() {
                   words={[
                     "Freelancer",
                     "Full-Stack Developer",
-                    "Shopify Theme Developer",
+                    "UI/UX Designer",
                   ]}
                   loop={true}
                 />
@@ -84,8 +84,8 @@ export function Hero() {
               </div>
             </div>
             <div className="flex items-center mt-10">
-              <p className=" text-xs font-bold text-slate-300 mr-5 name-text">
-                I'm on
+              <p className=" text-xs font-bold text-slate-400 mr-5 name-text">
+                I&apos;m on
               </p>
               <div className="icons">
                 <a
@@ -101,7 +101,7 @@ export function Hero() {
               </div>
               <div className="icons">
                 <a
-                  href="https://www.linkedin.com/in/assemghor-reda-2382162b2/"
+                  href="https://www.linkedin.com/in/assemghor-reda/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -137,30 +137,30 @@ export function Hero() {
               </div>
             </div>
           </div>
-          <div className=" mt-10 text-gray-500 dark:text-gray-400 font-light">
+          <div className=" mt-10 text-[#181818] font-light">
             <p className="border-b-2 pb-10">
-              Code Craftsman on a Mission to Transform Ideas into Reality.
-              Welcome to my digital playground! I'm a Full Stack Developer with
-              a mission to turn innovative ideas into functional, elegant, and
-              scalable solutions. With a toolkit that spans front-end aesthetics
-              to back-end logic, I'm ready to elevate your digital presence to
-              new heights.
+              Welcome! I&apos;m Reda Assemghor, a web developer with a passion
+              for both full-stack development and the art of front-end design.
+              My journey in tech is fueled by a love for crafting beautiful,
+              intuitive user experiences. Dive into my portfolio to see how I
+              blend innovation and functionality to create web solutions that
+              stand out.
             </p>
             <div className="flex flex-col md:flex-row justify-between mt-5">
-              <div>
+              <div className="md:flex gap-4">
                 <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faLocationDot} />
                   <h3 className="font-light text-sm">
                     Lives In Rabat, Morocco
                   </h3>
                 </div>
-              </div>
-              <div className="">
-                <div className="flex gap-2 items-center">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                  <h3 className="font-light text-sm">
-                    Assemghor.Reda@Gmail.com
-                  </h3>
+                <div className="">
+                  <div className="flex gap-2 items-center">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                    <h3 className="font-light text-sm">
+                      Assemghor.Reda@Gmail.com
+                    </h3>
+                  </div>
                 </div>
               </div>
               <div className="">
@@ -188,52 +188,44 @@ export function Sidebox() {
   return (
     <div className="border border-gray-300 rounded-3xl p-10 md:w-2/5 md:mt-0 mt-5">
       <div className="">
-        <div className="flex gap-4 font-semibold">
-          <a href="">
+        <div className="flex gap-4 font-semibold cursor-pointer">
+          <div>
             <FontAwesomeIcon icon={faLanguage} />
-          </a>
+          </div>
           <h1 className="relative pb-4">Languages I Speak</h1>
         </div>
-        <ul className="text-gray-500 dark:text-gray-400 font-bold">
-          <div className="flex gap-2">
-            <a href="">
-              <FontAwesomeIcon icon={faCheck} />
-            </a>
+        <ul className="text-[#181818] pb-4">
+          <div className="flex items-center gap-2">
+            <FontAwesomeIcon icon={faCheck} />
             <h3>English</h3>
           </div>
-          <div className="flex gap-2">
-            <a href="">
-              <FontAwesomeIcon icon={faCheck} />
-            </a>
+          <div className="flex items-center gap-2">
+            <FontAwesomeIcon icon={faCheck} />
             <h3>French</h3>
           </div>
-          <div className="flex gap-2">
-            <a href="">
-              <FontAwesomeIcon icon={faCheck} />
-            </a>
+          <div className="flex gap-2 items-center">
+            <FontAwesomeIcon icon={faCheck} />
             <h3>Arabic</h3>
           </div>
-          <div className="flex gap-2">
-            <a href="">
-              <FontAwesomeIcon icon={faCheck} />
-            </a>
+          <div className="flex gap-2 items-center">
+            <FontAwesomeIcon icon={faCheck} />
             <h3>Russian</h3>
           </div>
         </ul>
       </div>
       <div className="">
-        <div className="flex gap-4 mb-5 font-semibold">
-          <a href="">
+        <div className="flex gap-4 mb-5 font-semibold cursor-pointer">
+          <div>
             <FontAwesomeIcon icon={faGraduationCap} />
-          </a>
+          </div>
           <h1 className="relative">Education Level</h1>
         </div>
-        <div className=" mb-3 border-y-2 p-2 text-gray-500 dark:text-gray-400 font-bold">
+        <div className=" mb-3 border-y-2 p-2 text-[#181818]">
           <h1>Lobachevsky University</h1>
           <h3 className="">Computer Science And Information Technology</h3>
           <h6 className="text-xs">2017-2021</h6>
         </div>
-        <div className="mb-3 border-b-2 p-2 text-gray-500 dark:text-gray-400 font-bold">
+        <div className="mb-3 border-b-2 p-2 text-[#181818]">
           <h1>The Odin Project</h1>
           <h3 className="">Full Stack Web Development Bootcamp</h3>
           <h6 className="text-xs">2021-2022</h6>

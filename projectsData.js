@@ -3,7 +3,7 @@ export const data = [
     name: "PDF to MP3 Generator",
     description:
       "The PDF to MP3 Generator app allows users to seamlessly convert text and PDF documents into audio files. Built with Next.js and React, it integrates Clerk for authentication, Convex for backend logic, and Tailwind CSS for styling. The app leverages GSAP for animations and PDF.js for PDF parsing, providing a smooth and interactive user experience.",
-    imgurl: "/pd-fto-mp3.png",
+    imgurl: "/pdftomp3.png",
     repo: "https://github.com/redaAssemghor/pdf-to-mp3",
     deployUrl: "https://pdf-to-mp3-amber.vercel.app/",
   },

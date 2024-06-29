@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet";
@@ -227,13 +226,11 @@ function ContactMe() {
           )}
         </div>
       </div>
-      <div className="footerText flex justify-between mx-20 border-b-2 pb-5">
-        <h1 className="lg:text-4xl text-gray-500 dark:text-gray-400 font-light">
-          Let's Work Together
+      <div className="footerText text-[#181818] flex justify-between mx-20 border-b-2 pb-5">
+        <h1 className="lg:text-4xl -400 font-light">
+          Let&apos;s Work Together
         </h1>
-        <h1 className="lg:text-2xl text-gray-500 dark:text-gray-400 font-light">
-          SEND ME A MESSAGE
-        </h1>
+        <h1 className="lg:text-2xl -400 font-light">SEND ME A MESSAGE</h1>
       </div>
     </main>
   );

@@ -44,7 +44,7 @@ function Footer() {
             <FontAwesomeIcon icon={faTwitter} />
           </a>
         </dir>
-        <p className="text-gray-500 dark:text-gray-400 font-light mr-6 text-sm">
+        <p className="text-[#181818] font-light mr-6 text-sm">
           © 2024 . All Rights Reserved
         </p>
       </div>

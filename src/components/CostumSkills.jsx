@@ -35,6 +35,7 @@ const CostumSkills = () => {
           y: 0,
           duration: 2,
           ease: "back.out",
+          stagger: 0.2,
           scrollTrigger: {
             trigger: icon,
             start: "top 80%",

@@ -23,27 +23,19 @@ const CostumSkills = () => {
         trigger: "#cover",
       },
     });
-    gsap.utils.toArray(".icon").forEach((icon) => {
-      gsap.fromTo(
-        icon,
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 2,
-          ease: "back.out",
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: icon,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+    gsap.from(".icon", {
+      opacity: 0,
+      y: 24,
+      stagger: 0.2,
+      duration: 3,
+      ease: "expo",
+      scrollTrigger: {
+        trigger: ".icon",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
     });
+    // gsap.utils.toArray(".icon").forEach((icon) => {});
 
     tl.to(
       "#cover",

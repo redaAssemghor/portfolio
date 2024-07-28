@@ -39,4 +39,12 @@ export const data = [
     repo: "https://github.com/redaAssemghor/myCommerce",
     deployUrl: "https://my-shopee-ashen.vercel.app/",
   },
+  {
+    name: "SoundWave",
+    description:
+      "Transform your audio files into immersive 3D animations, a 3D animation app built using cutting-edge technologies. Leveraging Next.js, React Three Fiber, and Tailwind CSS.",
+    imgurl: "/sound-wave.png",
+    repo: "https://github.com/redaAssemghor/sound-wave",
+    deployUrl: "https://sound-wave.vercel.app/",
+  },
 ];

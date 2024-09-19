@@ -1,5 +1,13 @@
 export const data = [
   {
+    name: "Tomodev",
+    description:
+      "TomoDev – A dynamic web development agency specializing in creating custom web solutions using modern technologies. Our stack includes Next.js, React, Node.js, TypeScript, and Tailwind CSS to deliver fast, scalable, and visually appealing websites. ",
+    imgurl: "/tomodev.png",
+    repo: "https://github.com/redaAssemghor/tomodev",
+    deployUrl: "https://tomodev.vercel.app/",
+  },
+  {
     name: "PDF to MP3 Generator",
     description:
       "The PDF to MP3 Generator app allows users to seamlessly convert text and PDF documents into audio files. Built with Next.js and React, it integrates Clerk for authentication, Convex for backend logic, and Tailwind CSS for styling. The app leverages GSAP for animations and PDF.js for PDF parsing, providing a smooth and interactive user experience.",
@@ -46,5 +54,13 @@ export const data = [
     imgurl: "/sound-wave.png",
     repo: "https://github.com/redaAssemghor/sound-wave",
     deployUrl: "https://sound-wave.vercel.app/",
+  },
+  {
+    name: "PicGen",
+    description:
+      "AI-powered text-to-image generation using GPT-4 and Stable Diffusion. Built with Next.js, TailwindCSS, Prisma, and MongoDB.",
+    imgurl: "/sound-wave.png",
+    repo: "https://github.com/redaAssemghor/picGen",
+    deployUrl: "https://pic-gen-lilac.vercel.app/",
   },
 ];

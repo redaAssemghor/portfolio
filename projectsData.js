@@ -59,7 +59,7 @@ export const data = [
     name: "PicGen",
     description:
       "AI-powered text-to-image generation using GPT-4 and Stable Diffusion. Built with Next.js, TailwindCSS, Prisma, and MongoDB.",
-    imgurl: "/sound-wave.png",
+    imgurl: "/picgen.png",
     repo: "https://github.com/redaAssemghor/picGen",
     deployUrl: "https://pic-gen-lilac.vercel.app/",
   },

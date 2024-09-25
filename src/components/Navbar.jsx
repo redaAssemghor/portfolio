@@ -84,7 +84,7 @@ function Navbar() {
       navLinks.forEach((navLink) => {
         const linksAnimation = gsap.to(navLink, {
           paused: true,
-          scale: 1.2,
+          scale: 1.1,
           duration: 1,
           ease: "power1",
         });
@@ -98,8 +98,8 @@ function Navbar() {
   return (
     <div
       ref={ref}
-      className={`top-0 sticky md:flex justify-between items-center z-20 shadow-md ${
-        isScrolled ? "bg-white fade-down" : "bg-gray-50 bg-cover bg-center"
+      className={`h-[200px] top-0 sticky md:flex justify-between items-center z-20 ${
+        isScrolled ? "bg-white fade-down shadow-sm" : "bg-white bg-no-repeat"
       } transition-all duration-300`}
       style={{
         backgroundImage: !isScrolled ? 'url("/header-bg.png")' : "none",
@@ -107,13 +107,19 @@ function Navbar() {
     >
       <div className="flex justify-between items-center w-full px-5 py-3">
         <div className="flex items-center">
-          <img className="h-16 md:h-20" src="/logo.png" alt="Logo" />
+          <a href="/">
+            <img
+              className="h-20 md:h-[120px] mr-5"
+              src="/logo.png"
+              alt="Logo"
+            />
+          </a>
           <div className="ml-3">
             <h1 className="text-2xl font-semibold text-[#181818]">
               Assemghor Reda
             </h1>
             <a
-              className="btnContainer flex items-center justify-center gap-2 p-2 mt-2 border border-gray-300 rounded-full text-gray-500 hover:text-white hover:bg-pink-600 transition duration-300"
+              className="btnContainer flex items-center justify-center gap-2 p-2 mt-4 border border-gray-300 rounded-full text-gray-500 hover:text-white hover:bg-pink-600 transition duration-300"
               href="https://t.me/redaassemghor"
               target="_blank"
               rel="noopener noreferrer"

@@ -1,11 +1,12 @@
 import Project from "./Project";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { data } from "../../projectsData";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { data } from "../lib/projectsData";
+import { textScrollAnimation } from "../animations/projectsAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,31 +16,13 @@ function Projects() {
   const btn = "HIRE.ME";
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ref.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    tl.from(
-      ".text",
-      {
-        opacity: 0,
-        y: 24,
-        stagger: 0.1,
-        duration: 1,
-        ease: "expo",
-      },
-      0
-    );
+    const textClass = document.querySelectorAll(".text");
+    textScrollAnimation(textClass);
   });
 
   useLayoutEffect(() => {
-    const btnTl = gsap.timeline({ paused: true });
-
     const btncontainer = document.querySelector(".btncontainer");
+    const btnTl = gsap.timeline({ paused: true });
 
     btnTl
       .fromTo(
@@ -108,6 +91,7 @@ function Projects() {
               description={prj.description}
               repo={prj.repo}
               deployUrl={prj.deployUrl}
+              techStack={prj.techStack}
             />
           ))}
         </div>

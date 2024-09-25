@@ -139,12 +139,11 @@ export function Hero() {
           </div>
           <div className=" mt-10 text-[#181818] font-light">
             <p className="border-b-2 pb-10">
-              Welcome! I&apos;m Reda Assemghor, a web developer with a passion
-              for both full-stack development and the art of front-end design.
-              My journey in tech is fueled by a love for crafting beautiful,
-              intuitive user experiences. Dive into my portfolio to see how I
-              blend innovation and functionality to create web solutions that
-              stand out.
+              I&rsquo;m a full stack developer skilled in Next.js, React,
+              Node.js, and TypeScript. I build scalable web apps with seamless
+              user experiences and strong backends. Passionate about solving
+              real-world problems through code and always excited to work on
+              innovative projects!
             </p>
             <div className="flex flex-col md:flex-row justify-between mt-5">
               <div className="md:flex gap-4">

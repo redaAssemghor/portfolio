@@ -7,7 +7,7 @@
 }
 
 .scrollbar-webkit::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
+  background: #f18888; /* Background of the scrollbar track */
 }
 
 .scrollbar-webkit::-webkit-scrollbar-thumb {
@@ -20,7 +20,6 @@
 }
 
 /* Navbar fade */
-
 .fade-down {
   animation-name: fadeInDown;
   animation-iteration-count: 1;

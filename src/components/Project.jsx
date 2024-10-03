@@ -42,7 +42,7 @@ function Project({ title, description, url, repo, deployUrl, techStack = [] }) {
 
       <div className="text-[#181818] font-light my-6">
         <p>{description}</p>
-        <ul className="flex gap-5 py-2">
+        <ul className="flex gap-5 py-2 flex-wrap">
           {techStack.map((tech, index) => (
             <li
               key={index}

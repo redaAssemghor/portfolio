@@ -9,7 +9,7 @@ import { projectsScrollAnimnation } from "../animations/projectsAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Project({ title, description, url, repo, deployUrl, techStack = [] }) {
+function Project({ title, description, url, repo, deployUrl, techStack }) {
   const ref = useRef(null);
 
   useGSAP(() => {

@@ -98,7 +98,7 @@ function Navbar() {
   return (
     <div
       ref={ref}
-      className={`h-[200px] top-0 sticky md:flex justify-between items-center z-20 ${
+      className={`h-[200px] lg:px-10 top-0 sticky md:flex justify-between items-center z-20 ${
         isScrolled ? "bg-white fade-down shadow-sm" : "bg-white bg-no-repeat"
       } transition-all duration-300`}
       style={{
@@ -107,13 +107,15 @@ function Navbar() {
     >
       <div className="flex justify-between items-center w-full px-5 py-3">
         <div className="flex items-center">
-          <a href="/">
-            <img
-              className="h-20 md:h-[120px] mr-5"
-              src="/logo.png"
-              alt="Logo"
-            />
-          </a>
+          <div className="flex items-center overflow-hidden lg:h-28 lg:w-28 border-pink-600 rounded-full border-l-8">
+            <a href="/" className="">
+              <img
+                className="h-20 md:h-[120px] mr-5 -rotate-12 lg:translate-y-1"
+                src="/no-bg.png"
+                alt="Logo"
+              />
+            </a>
+          </div>
           <div className="ml-3">
             <h1 className="text-2xl font-semibold text-[#181818]">
               Assemghor Reda

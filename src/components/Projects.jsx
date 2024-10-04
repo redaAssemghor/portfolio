@@ -50,8 +50,8 @@ function Projects() {
   }, []);
 
   return (
-    <div>
-      <div className="lg:absolute -left-40 h-full w-1/2 rounded-full border"></div>
+    <div className="relative">
+      <div className="lg:absolute z-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
       <div ref={ref} id="projects" className="lg:flex m-10">
         <div className="flex flex-col lg:w-2/5 h-fit lg:top-1/2 lg:sticky">
           <h1 className="font-semibold text-pink-600">

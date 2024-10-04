@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import BlurryCursor from "../components/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,13 @@ function ContactMe() {
 
   const thankYouText =
     "Thank you for your message! I will get back to you soon.";
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Function to handle hover state from Hero component
+  const handleHoverChange = (hoverState) => {
+    setIsHovered(hoverState);
+  };
 
   useGSAP(() => {
     gsap.fromTo(
@@ -122,6 +130,7 @@ function ContactMe() {
 
   return (
     <main ref={ref} id="contact">
+      <BlurryCursor isHovered={isHovered} />
       <Helmet>
         <title>Contact | Reda Assemghor,developer&designer</title>
         <meta name="description" content="This is the home page" />
@@ -132,7 +141,12 @@ function ContactMe() {
           Contact Me
         </h1>
         <div className="text mb-20 font-semibold">
-          <a href="/" className="text-[#181818]">
+          <a
+            href="/"
+            onMouseEnter={handleHoverChange.bind(this, true)}
+            onMouseLeave={handleHoverChange.bind(this, false)}
+            className="text-[#181818]"
+          >
             <span className="hover:text-pink-500">Home :</span>{" "}
           </a>
           <span className=""> Contact Me</span>
@@ -200,6 +214,8 @@ function ContactMe() {
                     type="text"
                     value={name}
                     placeholder="Name"
+                    onMouseEnter={handleHoverChange.bind(this, true)}
+                    onMouseLeave={handleHoverChange.bind(this, false)}
                   />
                   <input
                     onChange={(e) => setEmail(e.target.value)}
@@ -207,9 +223,12 @@ function ContactMe() {
                     type="text"
                     value={email}
                     placeholder="Email"
+                    onMouseEnter={handleHoverChange.bind(this, true)}
+                    onMouseLeave={handleHoverChange.bind(this, false)}
                   />
                 </div>
                 <Select
+                  className="cursor-pointer"
                   options={[
                     { value: "Consultation", label: "Consultation" },
                     { value: "Service", label: "Service" },
@@ -227,11 +246,15 @@ function ContactMe() {
                   rows="4"
                   value={message}
                   placeholder="Message"
+                  onMouseEnter={handleHoverChange.bind(this, true)}
+                  onMouseLeave={handleHoverChange.bind(this, false)}
                 ></textarea>
                 <button
                   className="w-60 py-5 border border-gray-500 rounded-full font-bold hover:text-white hover:bg-pink-600 duration-500 flex items-center justify-center"
                   type="submit"
                   disabled={loading}
+                  onMouseEnter={handleHoverChange.bind(this, true)}
+                  onMouseLeave={handleHoverChange.bind(this, false)}
                 >
                   Send Message
                 </button>

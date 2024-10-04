@@ -1,7 +1,7 @@
 import Project from "./Project";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -10,7 +10,13 @@ import { textScrollAnimation } from "../animations/projectsAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Projects() {
+function Projects({ onHoverChange }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Function to handle hover state from Hero component
+  const handleHoverChange = (hoverState) => {
+    setIsHovered(hoverState);
+  };
   const ref = useRef(null);
   const text = "Showcasing Innovation and Excellence in Every Project.";
   const btn = "HIRE.ME";
@@ -64,7 +70,11 @@ function Projects() {
               </span>
             ))}
           </h1>
-          <button className="w-fit rounded-lg p-4 hover:border-black border btncontainer">
+          <button
+            className="w-fit rounded-lg p-4 hover:border-black border btncontainer"
+            onMouseEnter={handleHoverChange.bind(this, true)}
+            onMouseLeave={handleHoverChange.bind(this, false)}
+          >
             <a
               className="flex gap-3 hover:text-[#181818] text-gray-500 transition duration-500"
               href="/contact"

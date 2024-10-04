@@ -107,11 +107,11 @@ function Navbar() {
     >
       <div className="flex justify-between items-center w-full px-5 py-3">
         <div className="flex items-center">
-          <div className="flex items-center overflow-hidden lg:h-28 lg:w-28 border-pink-600 rounded-full border-l-8">
+          <div className="flex items-center overflow-hidden lg:h-40 lg:w-40 w-20 border-pink-600 -rotate-45 rounded-full border-l-8 bg-gray-100">
             <a href="/" className="">
               <img
-                className="h-20 md:h-[120px] mr-5 -rotate-12 lg:translate-y-1"
-                src="/no-bg.png"
+                className="h-20 md:h-[160px] lg:translate-y-1 rotate-[45deg] rounded-full"
+                src="/pic.png"
                 alt="Logo"
               />
             </a>

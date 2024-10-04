@@ -15,13 +15,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter, Cursor } from "react-simple-typewriter";
 import Band from "./Band";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Helmet } from "react-helmet";
 
-export function Hero() {
+export function Hero({ onHoverChange }) {
   const ref = useRef(null);
   const nameText = "Hi I'm Reda,";
+
+  const handleMouseEnter = () => onHoverChange(true);
+  const handleMouseLeave = () => onHoverChange(false);
 
   useLayoutEffect(() => {
     let context = gsap.context(() => {
@@ -53,7 +56,7 @@ export function Hero() {
   }, []);
 
   return (
-    <div ref={ref} id="hero">
+    <div className="relative" ref={ref} id="hero">
       <Helmet>
         <title>Reda Assemghor,developer&designer</title>
         <meta name="description" content="This is the home page" />
@@ -89,6 +92,8 @@ export function Hero() {
               </p>
               <div className="icons">
                 <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                   href="https://twitter.com/AssemghorReda"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -101,6 +106,8 @@ export function Hero() {
               </div>
               <div className="icons">
                 <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                   href="https://www.linkedin.com/in/assemghor-reda/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -113,6 +120,8 @@ export function Hero() {
               </div>
               <div className="icons">
                 <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                   href="https://stackoverflow.com/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -125,6 +134,8 @@ export function Hero() {
               </div>
               <div className="icons">
                 <a
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                   href="https://github.com/redaAssemghor"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -170,7 +181,16 @@ export function Hero() {
                   className="flex gap-2 items-center"
                 >
                   <FontAwesomeIcon icon={faDownload} />
-                  <h3 className="font-light text-sm">Download Resume</h3>
+                  <a
+                    href="https://www.doyoubuzz.com/reda-assemghor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className="font-light text-sm cursor-pointer"
+                  >
+                    Download Resume
+                  </a>
                 </a>
               </div>
             </div>

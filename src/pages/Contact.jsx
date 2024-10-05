@@ -8,6 +8,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import BlurryCursor from "../components/Cursor";
+import Navbar from "../components/Navbar";
+import ScrollUpButton from "../components/ScrollUpButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,6 +132,8 @@ function ContactMe() {
 
   return (
     <main ref={ref} id="contact">
+      <ScrollUpButton onHoverChange={handleHoverChange} />
+      <Navbar />
       <BlurryCursor isHovered={isHovered} />
       <Helmet>
         <title>Contact | Reda Assemghor,developer&designer</title>

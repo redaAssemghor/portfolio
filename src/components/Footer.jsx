@@ -11,38 +11,45 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Footer() {
+function Footer({ onHoverChange }) {
   const location = useLocation();
+
+  const handleMouseEnter = () => onHoverChange(true);
+  const handleMouseLeave = () => onHoverChange(false);
+
+  const socialLinks = [
+    {
+      icon: faInstagram,
+      link: "https://www.instagram.com/redaassemghor_/",
+    },
+    {
+      icon: faFacebookMessenger,
+      link: "https://www.facebook.com/profile.php?id=100003490687218",
+    },
+    {
+      icon: faTwitter,
+      link: "https://twitter.com/AssemghorReda",
+    },
+  ];
 
   return (
     <footer className="mt-40">
       {location.pathname === "/" && <Info />}
       <div className="flex justify-between items-center h-36 footer-bg">
         <dir className="flex md:gap-10 gap-5">
-          <a
-            className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
-            href="https://www.instagram.com/redaassemghor_/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a
-            className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
-            href="https://www.facebook.com/profile.php?id=100003490687218"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faFacebookMessenger} />
-          </a>
-          <a
-            className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
-            href="https://twitter.com/AssemghorReda"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
+          {socialLinks.map((social, i) => (
+            <a
+              key={i}
+              className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <FontAwesomeIcon icon={social.icon} />
+            </a>
+          ))}
         </dir>
         <p className="text-[#181818] font-light mr-6 text-sm">
           © 2024 . All Rights Reserved

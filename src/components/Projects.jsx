@@ -11,12 +11,9 @@ import { textScrollAnimation } from "../animations/projectsAnimations";
 gsap.registerPlugin(ScrollTrigger);
 
 function Projects({ onHoverChange }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => onHoverChange(true);
+  const handleMouseLeave = () => onHoverChange(false);
 
-  // Function to handle hover state from Hero component
-  const handleHoverChange = (hoverState) => {
-    setIsHovered(hoverState);
-  };
   const ref = useRef(null);
   const text = "Showcasing Innovation and Excellence in Every Project.";
   const btn = "HIRE.ME";
@@ -72,8 +69,8 @@ function Projects({ onHoverChange }) {
           </h1>
           <button
             className="w-fit rounded-lg p-4 hover:border-black border btncontainer"
-            onMouseEnter={handleHoverChange.bind(this, true)}
-            onMouseLeave={handleHoverChange.bind(this, false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <a
               className="flex gap-3 hover:text-[#181818] text-gray-500 transition duration-500"
@@ -102,6 +99,7 @@ function Projects({ onHoverChange }) {
               repo={prj.repo}
               deployUrl={prj.deployUrl}
               techStack={prj.techStack}
+              onHoverChange={onHoverChange}
             />
           ))}
         </div>

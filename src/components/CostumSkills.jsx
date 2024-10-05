@@ -14,8 +14,11 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CostumSkills = () => {
+const CostumSkills = ({ onHoverChange }) => {
   const ref = useRef(null);
+
+  const handleMouseEnter = () => onHoverChange(true);
+  const handleMouseLeave = () => onHoverChange(false);
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -35,7 +38,6 @@ const CostumSkills = () => {
         toggleActions: "play none none none",
       },
     });
-    // gsap.utils.toArray(".icon").forEach((icon) => {});
 
     tl.to(
       "#cover",
@@ -55,6 +57,44 @@ const CostumSkills = () => {
     );
   });
 
+  const techStack = [
+    {
+      name: "React",
+      url: "https://react.dev/",
+      icon: ReactSvg,
+    },
+    {
+      name: "Typescript",
+      url: "https://www.typescriptlang.org/",
+      icon: TypescriptSvg,
+    },
+    {
+      name: "MongoDb",
+      url: "https://www.mongodb.com/",
+      icon: MangodbSvg,
+    },
+    {
+      name: "NextJs",
+      url: "https://nextjs.org/",
+      icon: NextjsSvg,
+    },
+    {
+      name: "GSAP",
+      url: "https://greensock.com/gsap/",
+      icon: GsapSvg,
+    },
+    {
+      name: "Tailwindcss",
+      url: "https://tailwindcss.com/",
+      icon: TailwindSvg,
+    },
+    {
+      name: "Threejs",
+      url: "https://threejs.org/",
+      icon: ThreejsSvg,
+    },
+  ];
+
   return (
     <div
       ref={ref}
@@ -67,105 +107,27 @@ const CostumSkills = () => {
       </h1>
 
       <div className="lg:flex gap-5">
-        <div className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2">
-          <ReactSvg />
-          <h1 className="font-semibold text-xl">React</h1>
-          <a
-            href="https://react.dev/"
-            rel="noopener noreferrer"
-            target="_blank"
+        {techStack.map((tech, i) => (
+          <div
+            key={i}
+            className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2"
           >
-            <FontAwesomeIcon
-              icon={faEllipsis}
-              className="text-3xl text-gray-400"
-            />
-          </a>
-        </div>
-        <div className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2">
-          <TypescriptSvg />
-          <h1 className="font-semibold text-xl">Typescript</h1>
-          <a
-            href="https://www.typescriptlang.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FontAwesomeIcon
-              icon={faEllipsis}
-              className="text-3xl text-gray-400"
-            />
-          </a>
-        </div>
-
-        <div className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2">
-          <MangodbSvg />
-          <h1 className="font-semibold text-xl">MongoDb</h1>
-          <a
-            href="https://www.mongodb.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FontAwesomeIcon
-              icon={faEllipsis}
-              className="text-3xl text-gray-400"
-            />
-          </a>
-        </div>
-        <div className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2">
-          <NextjsSvg />
-          <h1 className="font-semibold text-xl">NextJs</h1>
-          <a
-            href="https://nextjs.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FontAwesomeIcon
-              icon={faEllipsis}
-              className="text-3xl text-gray-400"
-            />
-          </a>
-        </div>
-        <div className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2">
-          <GsapSvg />
-          <h1 className="font-semibold text-xl">GSAP</h1>
-          <a
-            href="https://greensock.com/gsap/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FontAwesomeIcon
-              icon={faEllipsis}
-              className="text-3xl text-gray-400"
-            />
-          </a>
-        </div>
-        <div className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2">
-          <TailwindSvg />
-          <h1 className="font-semibold text-xl">Tailwindcss</h1>
-          <a
-            href="https://tailwindcss.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FontAwesomeIcon
-              icon={faEllipsis}
-              className="text-3xl text-gray-400"
-            />
-          </a>
-        </div>
-        <div className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2">
-          <ThreejsSvg />
-          <h1 className="font-semibold text-xl">Threejs</h1>
-          <a
-            href="https://threejs.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <FontAwesomeIcon
-              icon={faEllipsis}
-              className="text-3xl text-gray-400"
-            />
-          </a>
-        </div>
+            <tech.icon />
+            <h1 className="font-semibold text-xl">{tech.name}</h1>
+            <a
+              href={tech.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <FontAwesomeIcon
+                icon={faEllipsis}
+                className="text-3xl text-gray-400"
+              />
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -9,8 +9,19 @@ import { projectsScrollAnimnation } from "../animations/projectsAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Project({ title, description, url, repo, deployUrl, techStack }) {
+function Project({
+  title,
+  description,
+  url,
+  repo,
+  deployUrl,
+  techStack,
+  onHoverChange,
+}) {
   const ref = useRef(null);
+
+  const handleMouseEnter = () => onHoverChange(true);
+  const handleMouseLeave = () => onHoverChange(false);
 
   useGSAP(() => {
     projectsScrollAnimnation(ref.current);
@@ -59,6 +70,8 @@ function Project({ title, description, url, repo, deployUrl, techStack }) {
         <div className="mt-5">
           <a
             className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-1000 cursor-pointer mr-3"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             href={repo}
             target="_blank"
             rel="noopener noreferrer"
@@ -68,6 +81,8 @@ function Project({ title, description, url, repo, deployUrl, techStack }) {
           {deployUrl && (
             <a
               className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-1000 cursor-pointer"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               href={deployUrl}
               target="_blank"
               rel="noopener noreferrer"

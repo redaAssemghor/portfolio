@@ -33,7 +33,7 @@ export const data = [
     ],
     imgurl: "/picgen.png",
     repo: "https://github.com/redaAssemghor/picGen",
-    deployUrl: "https://pic-gen-lilac.vercel.app/",
+    deployUrl: "https://pic-gen-eight.vercel.app/",
   },
   {
     name: "PDF to MP3 Generator",

@@ -10,11 +10,15 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Navbar() {
+function Navbar({ onHoverChange }) {
   const location = useLocation();
   const ref = useRef(null);
 
   const btnText = "AVAILABLE.NOW";
+
+  // Function to handle hover state from Hero component
+  const handleMouseEnter = () => onHoverChange(true);
+  const handleMouseLeave = () => onHoverChange(false);
 
   let [open, setOpen] = useState(false);
   let links = [
@@ -107,10 +111,14 @@ function Navbar() {
     >
       <div className="flex justify-between items-center w-full px-5 py-3">
         <div className="flex items-center">
-          <div className="flex items-center overflow-hidden lg:h-40 lg:w-40 w-20 border-pink-600 -rotate-45 rounded-full border-l-8 bg-gray-100">
-            <a href="/" className="">
+          <div className="flex items-center overflow-hidden lg:h-40 lg:w-40 w-20 border-pink-600 -rotate-45 rounded-full border-l-4 bg-gray-100">
+            <a
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              href="/"
+            >
               <img
-                className="h-20 md:h-[160px] lg:translate-y-1 rotate-[45deg] rounded-full"
+                className="h-20 md:h-[160px] lg:translate-y-1 rotate-[45deg] scale-x-[-1] rounded-full"
                 src="/pic.png"
                 alt="Logo"
               />
@@ -122,6 +130,8 @@ function Navbar() {
             </h1>
             <a
               className="btnContainer flex items-center justify-center gap-2 p-2 mt-4 border border-gray-300 rounded-full text-gray-500 hover:text-white hover:bg-pink-600 transition duration-300"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               href="https://t.me/redaassemghor"
               target="_blank"
               rel="noopener noreferrer"
@@ -158,6 +168,8 @@ function Navbar() {
           {links.map((link) => (
             <li
               key={link.name}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               className="navLink md:py-0 md:px-3 text-center font-semibold p-2 m-1 rounded-lg hover:text-pink-600 transition-colors duration-300 text-gray-800 text-2xl md:text-lg cursor-pointer"
             >
               <Link

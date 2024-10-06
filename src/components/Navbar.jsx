@@ -118,7 +118,7 @@ function Navbar({ onHoverChange }) {
               href="/"
             >
               <img
-                className="h-20 md:h-[160px] lg:translate-y-1 rotate-[45deg] scale-x-[-1] rounded-full"
+                className="h-20 md:h-[210px] lg:translate-y-1 rotate-[45deg] scale-x-[-1] rounded-full"
                 src="/pic.png"
                 alt="Logo"
               />

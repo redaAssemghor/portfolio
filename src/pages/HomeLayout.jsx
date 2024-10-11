@@ -9,22 +9,16 @@ import ScrollUpButton from "../components/ScrollUpButton";
 import Achievements from "../components/Achievements";
 
 function Home() {
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Function to handle hover state from Hero component
-  const handleHoverChange = (hoverState) => {
-    setIsHovered(hoverState);
-  };
   return (
     <div className="overflow-hidden">
-      <ScrollUpButton onHoverChange={handleHoverChange} />
-      <BlurryCursor isHovered={isHovered} />
-      <Hero onHoverChange={handleHoverChange} />
+      <ScrollUpButton />
+      <BlurryCursor />
+      <Hero />
       <Achievements />
-      <Projects onHoverChange={handleHoverChange} />
-      <CostumSkills onHoverChange={handleHoverChange} />
+      <Projects />
+      <CostumSkills />
       <TechList />
-      <Footer onHoverChange={handleHoverChange} />
+      <Footer />
     </div>
   );
 }

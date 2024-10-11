@@ -3,7 +3,6 @@ import {
   faTwitter,
   faGithub,
   faLinkedin,
-  faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faLocationDot,
@@ -19,12 +18,24 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Helmet } from "react-helmet";
 
-export function Hero({ onHoverChange }) {
+const Socials = [
+  {
+    link: "https://twitter.com/AssemghorReda",
+    icon: faTwitter,
+  },
+  {
+    link: "https://www.linkedin.com/in/assemghor-reda/",
+    icon: faLinkedin,
+  },
+  {
+    link: "https://github.com/redaAssemghor",
+    icon: faGithub,
+  },
+];
+
+export function Hero() {
   const ref = useRef(null);
   const nameText = "Hi I'm Reda,";
-
-  const handleMouseEnter = () => onHoverChange(true);
-  const handleMouseLeave = () => onHoverChange(false);
 
   useLayoutEffect(() => {
     let context = gsap.context(() => {
@@ -73,7 +84,7 @@ export function Hero({ onHoverChange }) {
                   </span>
                 ))}
               </h1>
-              <div className="md:text-5xl text-2xl font-bold bg-gradient-to-r from-pink-600 to-blue-500 text-transparent bg-clip-text">
+              <div className="md:text-5xl text-2xl font-bold bg-gradient-to-r from-[--pink] to-blue-500 text-transparent bg-clip-text">
                 <Typewriter
                   className=""
                   words={[
@@ -90,61 +101,21 @@ export function Hero({ onHoverChange }) {
               <p className=" text-xs font-bold text-slate-400 mr-5 name-text">
                 I&apos;m on
               </p>
-              <div className="icons">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  href="https://twitter.com/AssemghorReda"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FontAwesomeIcon
-                    icon={faTwitter}
-                    className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
-                  />
-                </a>
-              </div>
-              <div className="icons">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  href="https://www.linkedin.com/in/assemghor-reda/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FontAwesomeIcon
-                    icon={faLinkedin}
-                    className="text-gray-500 text-xl lg:text-4xl ml-4 hover:scale-125 duration-500"
-                  />
-                </a>
-              </div>
-              <div className="icons">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  href="https://stackoverflow.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FontAwesomeIcon
-                    icon={faStackOverflow}
-                    className="text-gray-500 text-2xl lg:text-4xl ml-4 hover:scale-125 duration-500"
-                  />
-                </a>
-              </div>
-              <div className="icons">
-                <a
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  href="https://github.com/redaAssemghor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-gray-500 text-2xl lg:text-4xl ml-4 hover:scale-125 duration-500"
-                  />
-                </a>
+              <div className="icons flex gap-4">
+                {Socials.map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon
+                      icon={social.icon}
+                      className="text-xl lg:text-2xl duration-500 p-3 rounded-full text-[#3f3c3c] hover:text-white hover:bg-[--pink]"
+                      style={{ border: "1px solid rgba(0, 0, 0, 0.2)" }}
+                    />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -185,8 +156,6 @@ export function Hero({ onHoverChange }) {
                     href="https://www.doyoubuzz.com/reda-assemghor"
                     target="_blank"
                     rel="noopener noreferrer"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
                     className="font-light text-sm cursor-pointer"
                   >
                     Download Resume
@@ -204,6 +173,8 @@ export function Hero({ onHoverChange }) {
 }
 
 export function Sidebox() {
+  const Languages = ["English", "French", "Arabic", "Russian"];
+
   return (
     <div className="border border-gray-300 rounded-3xl p-10 md:w-2/5 md:mt-0 mt-5">
       <div className="">
@@ -214,22 +185,12 @@ export function Sidebox() {
           <h1 className="relative pb-4">Languages I Speak</h1>
         </div>
         <ul className="text-[#181818] pb-4">
-          <div className="flex items-center gap-2">
-            <FontAwesomeIcon icon={faCheck} />
-            <h3>English</h3>
-          </div>
-          <div className="flex items-center gap-2">
-            <FontAwesomeIcon icon={faCheck} />
-            <h3>French</h3>
-          </div>
-          <div className="flex gap-2 items-center">
-            <FontAwesomeIcon icon={faCheck} />
-            <h3>Arabic</h3>
-          </div>
-          <div className="flex gap-2 items-center">
-            <FontAwesomeIcon icon={faCheck} />
-            <h3>Russian</h3>
-          </div>
+          {Languages.map((lan, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <FontAwesomeIcon icon={faCheck} />
+              <h3>{lan}</h3>
+            </div>
+          ))}
         </ul>
       </div>
       <div className="">

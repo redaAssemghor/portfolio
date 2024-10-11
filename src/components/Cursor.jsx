@@ -1,22 +1,32 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-export default function BlurryCursor({ isHovered }) {
+export default function BlurryCursor() {
   const mouse = useRef({ x: 0, y: 0 });
   const delayedMouse = useRef({ x: 0, y: 0 });
   const circle = useRef(null); // The fixed black dot
   const delayedCircle = useRef(null); // The delayed cursor
   const rafId = useRef(null);
-  const size = 8; // Fixed black dot size
-  const delayedSize = 40; // Delayed circle size
+  const size = 10; // Fixed black dot size
+  const delayedSize = 32; // Delayed circle size
   const delay = 0.075; // Delay factor for smoother movement
+
+  const [shouldHideCursor, setShouldHideCursor] = useState(false);
 
   // Manage mouse move events for the fixed black dot
   const manageMouseMove = (e) => {
     const { clientX, clientY } = e;
     mouse.current = { x: clientX, y: clientY };
     moveCircle(mouse.current.x, mouse.current.y);
+
+    // Check if the target element has a pointer cursor style
+    const target = e.target;
+    const computedStyle = window.getComputedStyle(target);
+    const cursorStyle = computedStyle.cursor;
+
+    // Hide the custom cursor if the native cursor is a pointer
+    setShouldHideCursor(cursorStyle === "pointer");
   };
 
   // Move the fixed black dot to the current mouse position
@@ -58,12 +68,13 @@ export default function BlurryCursor({ isHovered }) {
         <div
           ref={circle}
           style={{
-            backgroundColor: isHovered ? "red" : "black",
+            backgroundColor: "black",
             width: size,
             height: size,
             position: "fixed",
             zIndex: 9999,
             pointerEvents: "none",
+            display: shouldHideCursor ? "none" : "block", // Hide when needed
           }}
           className="top-0 left-0 fixed rounded-full"
         />
@@ -74,13 +85,14 @@ export default function BlurryCursor({ isHovered }) {
           ref={delayedCircle}
           style={{
             border: `1px solid gray`,
-            width: isHovered ? delayedSize * 2 : delayedSize,
-            height: isHovered ? delayedSize * 2 : delayedSize,
-            opacity: isHovered ? 0.6 : 1,
+            width: delayedSize,
+            height: delayedSize,
+            opacity: 1,
             transition: "ease-out 0.2s",
             position: "fixed",
             zIndex: 9999,
             pointerEvents: "none",
+            display: shouldHideCursor ? "none" : "block", // Hide when needed
           }}
           className="top-0 left-0 fixed rounded-full"
         />

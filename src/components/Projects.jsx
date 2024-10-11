@@ -13,10 +13,7 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Projects({ onHoverChange }) {
-  const handleMouseEnter = () => onHoverChange(true);
-  const handleMouseLeave = () => onHoverChange(false);
-
+function Projects() {
   const text = "Showcasing Innovation and Excellence in Every Project.";
   const btn = "HIRE.ME";
 
@@ -75,11 +72,7 @@ function Projects({ onHoverChange }) {
               </span>
             ))}
           </h1>
-          <button
-            className="w-fit rounded-lg p-4 hover:border-black border btncontainer"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
+          <button className="w-fit rounded-lg p-4 hover:border-black border btncontainer">
             <a
               className="flex gap-3 hover:text-[#181818] text-gray-500 transition duration-500"
               href="/contact"
@@ -107,7 +100,6 @@ function Projects({ onHoverChange }) {
               repo={prj.repo}
               deployUrl={prj.deployUrl}
               techStack={prj.techStack}
-              onHoverChange={onHoverChange}
             />
           ))}
         </div>

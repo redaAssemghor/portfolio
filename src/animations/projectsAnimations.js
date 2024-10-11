@@ -45,7 +45,7 @@ export const scrollanimation = (rightElement, leftElement) => {
   gsap.to(leftElement, {
     scrollTrigger: {
       trigger: rightElement,
-      start: "top 50%",
+      start: "top 30%",
       end: "bottom bottom",
       pin: true,
       scrub: true,

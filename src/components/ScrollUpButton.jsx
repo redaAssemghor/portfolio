@@ -6,13 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function ScrollUpButton({ onHoverChange }) {
+function ScrollUpButton() {
   const [scrolled, setScrolled] = useState(false);
   const ref = useRef(null);
   const circleRef = useRef(null);
-
-  const handleMouseEnter = () => onHoverChange(true);
-  const handleMouseLeave = () => onHoverChange(false);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -62,12 +59,7 @@ function ScrollUpButton({ onHoverChange }) {
       ref={ref}
       className="fixed z-50 w-14 h-14 bottom-20 right-10 flex items-center justify-center bg-gray-300 rounded-full"
     >
-      <button
-        className="rounded-full flex items-center"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={scrollUp}
-      >
+      <button className="rounded-full flex items-center" onClick={scrollUp}>
         <svg
           className="absolute top-0 left-0 w-full h-full"
           viewBox="0 0 100 100"

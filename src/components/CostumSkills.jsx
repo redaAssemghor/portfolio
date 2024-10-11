@@ -14,11 +14,8 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CostumSkills = ({ onHoverChange }) => {
+const CostumSkills = () => {
   const ref = useRef(null);
-
-  const handleMouseEnter = () => onHoverChange(true);
-  const handleMouseLeave = () => onHoverChange(false);
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -114,13 +111,7 @@ const CostumSkills = ({ onHoverChange }) => {
           >
             <tech.icon />
             <h1 className="font-semibold text-xl">{tech.name}</h1>
-            <a
-              href={tech.url}
-              rel="noopener noreferrer"
-              target="_blank"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
+            <a href={tech.url} rel="noopener noreferrer" target="_blank">
               <FontAwesomeIcon
                 icon={faEllipsis}
                 className="text-3xl text-gray-400"

@@ -9,15 +9,11 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Navbar({ onHoverChange }) {
+function Navbar() {
   const location = useLocation();
   const ref = useRef(null);
 
   const btnText = "AVAILABLE.NOW";
-
-  // Function to handle hover state from Hero component
-  const handleMouseEnter = () => onHoverChange(true);
-  const handleMouseLeave = () => onHoverChange(false);
 
   let [open, setOpen] = useState(false);
   let links = [
@@ -106,14 +102,10 @@ function Navbar({ onHoverChange }) {
     >
       <div className="flex justify-between items-center w-full lg:px-5 px-2 py-3">
         <div className="flex items-center">
-          <div className="flex items-center overflow-hidden lg:h-40 lg:w-40 w-20 border-pink-600 -rotate-45 rounded-full border-l-4 bg-gray-100">
-            <a
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              href="/"
-            >
+          <div className="flex items-center overflow-hidden lg:h-40 lg:w-40 w-20 border-[--pink] -rotate-45 rounded-full border-l-8 shadow-md shadow-[--pink] bg-gray-100">
+            <a href="/">
               <img
-                className="h-20 lg:h-[210px] lg:translate-y-1 object-contain bg-center rotate-[45deg] scale-x-[-1] rounded-full"
+                className="h-20 lg:h-[210px] object-contain bg-center rotate-[45deg] scale-x-[-1] rounded-full"
                 src="/images/avatar.jpg"
                 alt="Logo"
               />
@@ -124,9 +116,7 @@ function Navbar({ onHoverChange }) {
               Assemghor Reda
             </h1>
             <a
-              className="btnContainer flex items-center justify-center gap-2 p-2 mt-4 border border-gray-300 rounded-full text-gray-500 hover:text-white hover:bg-pink-600 transition duration-300"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              className="btnContainer flex items-center justify-center gap-2 p-2 mt-4 border border-black rounded-full font-bold text-gray-500 hover:text-white hover:bg-[--pink] transition duration-300"
               href="https://t.me/redaassemghor"
               target="_blank"
               rel="noopener noreferrer"
@@ -163,9 +153,7 @@ function Navbar({ onHoverChange }) {
           {links.map((link) => (
             <li
               key={link.name}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="navLink md:py-0 md:px-3 text-center font-semibold p-2 m-1 rounded-lg hover:text-pink-600 transition-colors duration-300 text-gray-800 text-2xl md:text-lg cursor-pointer"
+              className="navLink md:py-0 md:px-3 text-center font-bold p-2 m-1 rounded-lg hover:text-[--pink] transition-colors duration-300 text-gray-800 text-2xl md:text-lg cursor-pointer"
             >
               <Link
                 to={link.path}

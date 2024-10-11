@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --pink: #f70354;
+}
+
 .scrollbar-webkit::-webkit-scrollbar {
   width: 12px; /* Width of the scrollbar */
 }

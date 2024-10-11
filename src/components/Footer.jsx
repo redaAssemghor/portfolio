@@ -11,11 +11,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Footer({ onHoverChange }) {
+function Footer() {
   const location = useLocation();
-
-  const handleMouseEnter = () => onHoverChange(true);
-  const handleMouseLeave = () => onHoverChange(false);
 
   const socialLinks = [
     {
@@ -33,19 +30,18 @@ function Footer({ onHoverChange }) {
   ];
 
   return (
-    <footer className="mt-40">
+    <footer className="mt-40 relative z-40">
       {location.pathname === "/" && <Info />}
       <div className="flex lg:flex-row flex-col justify-between items-center p-5 footer-bg">
         <dir className="flex md:gap-10 gap-5">
           {socialLinks.map((social, i) => (
             <a
               key={i}
-              className="text-gray-500 text-2xl lg:text-4xl hover:scale-125 duration-500"
+              className="text-xl lg:text-2xl duration-500 border-2 p-3 rounded-full text-[#3f3c3c] hover:text-white hover:bg-[--pink]"
+              style={{ border: "1px solid rgba(0, 0, 0, 0.2)" }}
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
             >
               <FontAwesomeIcon icon={social.icon} />
             </a>

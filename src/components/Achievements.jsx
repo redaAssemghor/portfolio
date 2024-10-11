@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const achievementsData = [
   {
-    number: 100,
+    number: 90,
     text: "Projects Completed",
   },
   {

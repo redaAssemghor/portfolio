@@ -14,9 +14,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter, Cursor } from "react-simple-typewriter";
 import Band from "./Band";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { Helmet } from "react-helmet";
+import { useGSAP } from "@gsap/react";
 
 const Socials = [
   {
@@ -37,34 +38,32 @@ export function Hero() {
   const ref = useRef(null);
   const nameText = "Hi I'm Reda,";
 
-  useLayoutEffect(() => {
-    let context = gsap.context(() => {
-      const tl = gsap.timeline();
+  useGSAP(() => {
+    const icons = document.querySelectorAll(".icons");
+    const iconsArray = gsap.utils.toArray(icons);
 
-      tl.from(
-        ".name-text",
-        {
-          opacity: 0,
-          y: -24,
-          stagger: 0.1,
-          duration: 1,
-          ease: "bounce.out",
-        },
-        0
-      ).from(
-        ".icons",
-        {
-          opacity: 0,
-          y: -24,
-          stagger: 0.5,
-          duration: 1,
-        },
-        0
-      );
-    }, ref);
-
-    return () => context.revert();
-  }, []);
+    const tl = gsap.timeline();
+    tl.from(
+      ".name-text",
+      {
+        opacity: 0,
+        y: -24,
+        stagger: 0.1,
+        duration: 1,
+        ease: "back.out",
+      },
+      0
+    ).from(
+      iconsArray,
+      {
+        opacity: 0,
+        x: -24,
+        stagger: 0.5,
+        duration: 0.2,
+      },
+      "-=0.5"
+    );
+  });
 
   return (
     <div className="relative" ref={ref} id="hero">
@@ -73,7 +72,7 @@ export function Hero() {
         <meta name="description" content="This is the home page" />
         <meta name="keywords" content="home, landing" />
       </Helmet>
-      <div className="flex flex-col md:flex-row lg:m-10 m-2">
+      <div className="flex flex-col lg:flex-row lg:m-10 m-2">
         <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
           <div className=" lg:flex md:block justify-between border-b-2 p-6">
             <div className="md:py-6">
@@ -101,13 +100,14 @@ export function Hero() {
               <p className=" text-xs font-bold text-slate-400 mr-5 name-text">
                 I&apos;m on
               </p>
-              <div className="icons flex gap-4">
+              <div className="flex gap-4">
                 {Socials.map((social, i) => (
                   <a
                     key={i}
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="icons"
                   >
                     <FontAwesomeIcon
                       icon={social.icon}
@@ -176,7 +176,7 @@ export function Sidebox() {
   const Languages = ["English", "French", "Arabic", "Russian"];
 
   return (
-    <div className="border border-gray-300 rounded-3xl p-10 md:w-2/5 md:mt-0 mt-5">
+    <div className="border md:flex lg:flex-col md:w-full justify-between border-gray-300 rounded-3xl p-10 lg:w-2/5 lg:mt-0 mt-5">
       <div className="">
         <div className="flex gap-4 font-semibold cursor-pointer">
           <div>

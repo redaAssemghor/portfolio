@@ -1,4 +1,7 @@
 import gsap from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
+
+gsap.registerPlugin(TextPlugin);
 
 // Scroll animation for project.jsx
 export const projectsScrollAnimnation = (element) => {
@@ -49,6 +52,19 @@ export const scrollanimation = (rightElement, leftElement) => {
       end: "bottom bottom",
       pin: true,
       scrub: true,
+    },
+  });
+};
+
+// counter animation for achievements.jsx
+export const counterAnimation = (element, targetNumber) => {
+  gsap.to(element, {
+    text: targetNumber,
+    duration: 2,
+    ease: "power1.inOut",
+    snap: { text: 1 },
+    onUpdate: function () {
+      element.textContent = Math.round(this.targets()[0].textContent);
     },
   });
 };

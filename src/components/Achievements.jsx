@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useGSAP } from "@gsap/react";
+import { useRef, useState } from "react";
+import { counterAnimation } from "../animations/projectsAnimations";
 
 const achievementsData = [
   {
@@ -7,7 +9,7 @@ const achievementsData = [
   },
   {
     number: 3,
-    text: "years of experience",
+    text: "Years of Experience",
   },
   {
     number: 20,
@@ -17,26 +19,36 @@ const achievementsData = [
 
 const Achievements = () => {
   const [isHovered, setIsHovered] = useState(null);
+  const refs = useRef([]);
+
+  useGSAP(() => {
+    refs.current.forEach((ref, index) => {
+      if (ref) {
+        counterAnimation(ref, achievementsData[index].number);
+      }
+    });
+  });
 
   return (
-    <section className="flex justify-center">
+    <section className="flex justify-center lg:py-20 border-b-2 border-dotted lg:mx-60">
       {achievementsData.map((achievement, index) => (
         <div
           key={index}
-          className="relative -m-4 overflow-hidden flex flex-col items-center justify-center gap-8 h-[400px] w-[400px] rounded-full"
+          className="relative -m-4 overflow-hidden flex flex-col items-center justify-center gap-8 lg:h-[400px] lg:w-[400px] md:h-[230px] md:w-[230px] h-[130px] w-[130px] rounded-full"
           style={{ border: "1px solid rgba(0, 0, 0, 0.2)" }}
           onMouseEnter={() => setIsHovered(index)}
           onMouseLeave={() => setIsHovered(null)}
         >
           <h1
-            className={`font-black text-5xl z-50 relative ${
+            ref={(el) => (refs.current[index] = el)}
+            className={`font-black lg:text-5xl z-50 relative text-center ${
               isHovered !== index ? "text-black" : "text-white"
             }`}
           >
-            {achievement.number}+
+            0
           </h1>
           <p
-            className={`font-black text-3xl z-50 relative ${
+            className={`font-black lg:text-3xl z-50 relative text-center ${
               isHovered !== index ? "text-black" : "text-white"
             }`}
           >

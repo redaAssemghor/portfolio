@@ -103,14 +103,14 @@ const CostumSkills = () => {
         <span id="text">My Advantages</span>
       </h1>
 
-      <div className="lg:flex gap-5">
+      <div className="lg:flex grid grid-cols-2 gap-5">
         {techStack.map((tech, i) => (
           <div
             key={i}
-            className="icon flex flex-col items-center gap-10 border rounded-full p-8 mb-2"
+            className="icon flex flex-col items-center md:gap-10 border rounded-full md:p-8 mb-2"
           >
             <tech.icon />
-            <h1 className="font-semibold text-xl">{tech.name}</h1>
+            <h1 className="font-semibold md:text-xl">{tech.name}</h1>
             <a href={tech.url} rel="noopener noreferrer" target="_blank">
               <FontAwesomeIcon
                 icon={faEllipsis}

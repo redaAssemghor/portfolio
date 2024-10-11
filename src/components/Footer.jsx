@@ -92,7 +92,7 @@ function Info() {
       className="flex flex-col items-center border-b-2 pb-10 mb-10 border-dotted relative"
     >
       <h1 className="font-semibold text-pink-600">Contact Me</h1>
-      <p className="md:text-5xl text-3xl font-bold lg:w-1/2 text-center m-8 ">
+      <p className="md:text-5xl text-xl font-bold lg:w-1/2 text-center m-8 ">
         {footerText.split(" ").map((char, i) => (
           <span key={i} className="char inline-block m-1">
             {char}

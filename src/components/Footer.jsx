@@ -51,7 +51,7 @@ function Footer({ onHoverChange }) {
             </a>
           ))}
         </dir>
-        <p className="text-[#181818] font-light mr-6 text-sm">
+        <p className="text-[#181818] font-light lg:mr-6 text-sm">
           © 2024 . All Rights Reserved
         </p>
       </div>

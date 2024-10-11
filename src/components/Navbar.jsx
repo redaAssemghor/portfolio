@@ -104,7 +104,7 @@ function Navbar({ onHoverChange }) {
         backgroundImage: !isScrolled ? 'url("/header-bg.png")' : "none",
       }}
     >
-      <div className="flex justify-between items-center w-full px-5 py-3">
+      <div className="flex justify-between items-center w-full lg:px-5 px-2 py-3">
         <div className="flex items-center">
           <div className="flex items-center overflow-hidden lg:h-40 lg:w-40 w-20 border-pink-600 -rotate-45 rounded-full border-l-4 bg-gray-100">
             <a
@@ -120,7 +120,7 @@ function Navbar({ onHoverChange }) {
             </a>
           </div>
           <div className="ml-3">
-            <h1 className="text-2xl font-semibold text-[#181818]">
+            <h1 className="text-2xl lg:block hidden font-semibold text-[#181818]">
               Assemghor Reda
             </h1>
             <a

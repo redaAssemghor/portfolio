@@ -43,7 +43,7 @@ const Band = () => {
   return (
     <div
       ref={component}
-      className="overflow-hidden w-full bg-gradient-to-r from-black via-gray-700 to-white text-white allText"
+      className="cursor-pointer overflow-hidden w-full bg-gradient-to-r from-black via-gray-700 to-white text-white allText my-20"
     >
       <div className="tech-row flex items-center justify-center gap-4 w-full whitespace-nowrap md:p-4">
         {[
@@ -54,7 +54,7 @@ const Band = () => {
           ...skillsArr,
         ].map((skill, i) => (
           <div key={i} className="">
-            <h1 className="md:text-7xl font-extrabold flex gap-4 items-center text-xl hover:text-neutral-600 transition-colors duration-500 ease-in-out">
+            <h1 className="lg:text-7xl md:text-5xl font-extrabold flex gap-4 items-center text-xl hover:text-neutral-600 transition-colors duration-500 ease-in-out">
               {skill}
               <MdCircle />
             </h1>

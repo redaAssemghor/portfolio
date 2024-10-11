@@ -1,11 +1,13 @@
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import Routers from "./router/Routers";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="relative font-custom overflow-hidden">
+    <div className="relative font-custom">
       <BrowserRouter>
+        <Navbar />
         <Routers />
       </BrowserRouter>
     </div>

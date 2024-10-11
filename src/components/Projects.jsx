@@ -60,8 +60,9 @@ function Projects({ onHoverChange }) {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative p-4 lg:p-0">
       <div className="absolute lg:block hidden z-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
+      <div className="absolute lg:block hidden z-0 bottom-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
       <div className="lg:flex lg:m-10">
         <div className="flex flex-col lg:w-2/5 rightElement">
           <h1 className="font-semibold text-pink-600">

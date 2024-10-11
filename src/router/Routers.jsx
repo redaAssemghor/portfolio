@@ -4,7 +4,7 @@ import ContactMe from "../pages/Contact";
 
 const Routers = () => {
   return (
-    <div className="">
+    <div>
       <Switch>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<ContactMe />} />

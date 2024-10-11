@@ -4,7 +4,7 @@ import Routers from "./router/Routers";
 
 function App() {
   return (
-    <div className="relative font-custom">
+    <div className="relative font-custom overflow-hidden">
       <BrowserRouter>
         <Routers />
       </BrowserRouter>

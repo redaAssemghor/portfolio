@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-scroll";
-import { useAnimation } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -36,23 +35,19 @@ function Navbar({ onHoverChange }) {
     },
   ];
   const [isScrolled, setIsScrolled] = useState(false);
-  const controls = useAnimation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isScrolled, controls]);
+  useGSAP(() => {
+    // Create a ScrollTrigger instance
+    ScrollTrigger.create({
+      onUpdate: (self) => {
+        if (self.scroll() > 50) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      },
+    });
+  }, [isScrolled]);
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -118,8 +113,8 @@ function Navbar({ onHoverChange }) {
               href="/"
             >
               <img
-                className="h-20 md:h-[210px] lg:translate-y-1 rotate-[45deg] scale-x-[-1] rounded-full"
-                src="/pic.png"
+                className="h-20 lg:h-[210px] lg:translate-y-1 object-contain bg-center rotate-[45deg] scale-x-[-1] rounded-full"
+                src="/images/avatar.jpg"
                 alt="Logo"
               />
             </a>

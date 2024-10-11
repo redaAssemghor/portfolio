@@ -1,12 +1,15 @@
 import Project from "./Project";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleRight } from "@fortawesome/free-solid-svg-icons";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { data } from "../lib/projectsData";
-import { textScrollAnimation } from "../animations/projectsAnimations";
+import {
+  scrollanimation,
+  textScrollAnimation,
+} from "../animations/projectsAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,13 +17,17 @@ function Projects({ onHoverChange }) {
   const handleMouseEnter = () => onHoverChange(true);
   const handleMouseLeave = () => onHoverChange(false);
 
-  const ref = useRef(null);
   const text = "Showcasing Innovation and Excellence in Every Project.";
   const btn = "HIRE.ME";
 
   useGSAP(() => {
     const textClass = document.querySelectorAll(".text");
     textScrollAnimation(textClass);
+
+    const rightElement = document.querySelectorAll(".rightElement");
+    const leftElement = document.querySelectorAll(".leftElement");
+
+    scrollanimation(rightElement, leftElement);
   });
 
   useLayoutEffect(() => {
@@ -54,9 +61,9 @@ function Projects({ onHoverChange }) {
 
   return (
     <div className="relative">
-      <div className="lg:absolute z-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
-      <div ref={ref} id="projects" className="lg:flex m-10">
-        <div className="flex flex-col lg:w-2/5 h-fit lg:top-1/2 lg:sticky">
+      <div className="absolute lg:block hidden z-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
+      <div className="lg:flex lg:m-10">
+        <div className="flex flex-col lg:w-2/5 rightElement">
           <h1 className="font-semibold text-pink-600">
             Recent Completed Project
           </h1>
@@ -89,7 +96,7 @@ function Projects({ onHoverChange }) {
             </a>
           </button>
         </div>
-        <div className="lg:w-3/5">
+        <div className="lg:w-3/5 leftElement">
           {data.map((prj, i) => (
             <Project
               key={i}

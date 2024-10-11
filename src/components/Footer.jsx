@@ -35,7 +35,7 @@ function Footer({ onHoverChange }) {
   return (
     <footer className="mt-40">
       {location.pathname === "/" && <Info />}
-      <div className="flex justify-between items-center h-36 footer-bg">
+      <div className="flex lg:flex-row flex-col justify-between items-center p-5 footer-bg">
         <dir className="flex md:gap-10 gap-5">
           {socialLinks.map((social, i) => (
             <a

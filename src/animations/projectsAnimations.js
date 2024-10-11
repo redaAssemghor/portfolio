@@ -39,3 +39,16 @@ export const textScrollAnimation = (element) => {
     0
   );
 };
+
+// Scroll projects.jsx
+export const scrollanimation = (rightElement, leftElement) => {
+  gsap.to(leftElement, {
+    scrollTrigger: {
+      trigger: rightElement,
+      start: "top 50%",
+      end: "bottom bottom",
+      pin: true,
+      scrub: true,
+    },
+  });
+};

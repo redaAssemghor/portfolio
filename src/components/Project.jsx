@@ -44,7 +44,10 @@ function Project({
   };
 
   return (
-    <div ref={ref} className="flex flex-col border p-10 rounded-3xl mb-10">
+    <div
+      ref={ref}
+      className="flex flex-col border lg:p-10 p-4 rounded-3xl mb-10"
+    >
       <img
         className="mb-4 rounded-3xl md:w-full min-w-[1000]"
         src={url}

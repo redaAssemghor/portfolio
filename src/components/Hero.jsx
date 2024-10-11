@@ -62,7 +62,7 @@ export function Hero({ onHoverChange }) {
         <meta name="description" content="This is the home page" />
         <meta name="keywords" content="home, landing" />
       </Helmet>
-      <div className="flex flex-col md:flex-row m-10">
+      <div className="flex flex-col md:flex-row lg:m-10 m-2">
         <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
           <div className=" lg:flex md:block justify-between border-b-2 p-6">
             <div className="md:py-6">
@@ -156,7 +156,7 @@ export function Hero({ onHoverChange }) {
               real-world problems through code and always excited to work on
               innovative projects!
             </p>
-            <div className="flex flex-col md:flex-row justify-between mt-5">
+            <div className="flex flex-col lg:flex-row justify-between mt-5">
               <div className="md:flex gap-4">
                 <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faLocationDot} />

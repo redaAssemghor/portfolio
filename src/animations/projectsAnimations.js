@@ -29,9 +29,9 @@ export const textScrollAnimation = (element) => {
     element,
     {
       opacity: 0,
-      y: 24,
-      stagger: 0.1,
-      duration: 1,
+      xPercent: 50,
+      stagger: 0.2,
+      duration: 2,
       ease: "expo",
       scrollTrigger: {
         trigger: element,
@@ -74,4 +74,20 @@ export const counterAnimation = (element, num) => {
       start: "top 80%",
     },
   });
+};
+
+// band animation for band.jsx
+export const bandAnimation = (element) => {
+  gsap.fromTo(
+    element,
+    {
+      xPercent: 100,
+    },
+    {
+      xPercent: -100,
+      duration: 40,
+      ease: "none",
+      repeat: -1,
+    }
+  );
 };

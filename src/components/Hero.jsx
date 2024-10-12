@@ -1,10 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTwitter,
-  faGithub,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import {
   faLocationDot,
   faEnvelope,
   faDownload,
@@ -15,64 +10,21 @@ import {
 import { Typewriter, Cursor } from "react-simple-typewriter";
 import Band from "./Band";
 import { useRef } from "react";
-import { gsap } from "gsap";
 import { Helmet } from "react-helmet";
-import { useGSAP } from "@gsap/react";
-
-const Socials = [
-  {
-    link: "https://twitter.com/AssemghorReda",
-    icon: faTwitter,
-  },
-  {
-    link: "https://www.linkedin.com/in/assemghor-reda/",
-    icon: faLinkedin,
-  },
-  {
-    link: "https://github.com/redaAssemghor",
-    icon: faGithub,
-  },
-];
+import Tooltip from "./ui/SocialsButtons";
 
 export function Hero() {
   const ref = useRef(null);
   const nameText = "Hi I'm Reda,";
 
-  useGSAP(() => {
-    const icons = document.querySelectorAll(".icons");
-    const iconsArray = gsap.utils.toArray(icons);
-
-    const tl = gsap.timeline();
-    tl.from(
-      ".name-text",
-      {
-        opacity: 0,
-        y: -24,
-        stagger: 0.1,
-        duration: 1,
-        ease: "back.out",
-      },
-      0
-    ).from(
-      iconsArray,
-      {
-        opacity: 0,
-        x: -24,
-        stagger: 0.5,
-        duration: 0.2,
-      },
-      "-=0.5"
-    );
-  });
-
   return (
-    <div className="relative" ref={ref} id="hero">
+    <div className="relative" ref={ref} id="about">
       <Helmet>
         <title>Reda Assemghor,developer&designer</title>
         <meta name="description" content="This is the home page" />
         <meta name="keywords" content="home, landing" />
       </Helmet>
-      <div className="flex flex-col lg:flex-row lg:m-10 m-2">
+      <div className="flex flex-col lg:flex-row lg:m-10 m-2 lg:px-44">
         <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
           <div className=" lg:flex md:block justify-between border-b-2 p-6">
             <div className="md:py-6">
@@ -100,23 +52,7 @@ export function Hero() {
               <p className=" text-xs font-bold text-slate-400 mr-5 name-text">
                 I&apos;m on
               </p>
-              <div className="flex gap-4">
-                {Socials.map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="icons"
-                  >
-                    <FontAwesomeIcon
-                      icon={social.icon}
-                      className="text-xl lg:text-2xl duration-500 p-3 rounded-full text-[#3f3c3c] hover:text-white hover:bg-[--pink]"
-                      style={{ border: "1px solid rgba(0, 0, 0, 0.2)" }}
-                    />
-                  </a>
-                ))}
-              </div>
+              <Tooltip />
             </div>
           </div>
           <div className=" mt-10 text-[#181818] font-light">

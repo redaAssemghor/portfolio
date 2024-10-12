@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CostumSkills from "../components/CostumSkills";
 import TechList from "../components/Gsap-skills";
 import { Hero } from "../components/Hero";

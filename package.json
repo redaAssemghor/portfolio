@@ -273,6 +273,7 @@
     "strip-ansi": "^6.0.1",
     "strip-ansi-cjs": "^6.0.1",
     "strip-json-comments": "^3.1.1",
+    "styled-components": "^6.1.13",
     "stylis": "^4.2.0",
     "sucrase": "^3.35.0",
     "supports-color": "^5.5.0",

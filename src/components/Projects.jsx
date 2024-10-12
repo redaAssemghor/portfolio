@@ -57,7 +57,7 @@ function Projects() {
   }, []);
 
   return (
-    <div className="relative p-4 lg:p-0 mt-20">
+    <div id="projects" className="relative p-4 lg:p-0 mt-20 lg:px-44">
       <div className="absolute lg:block hidden z-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
       <div className="absolute lg:block hidden z-0 bottom-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
       <div className="lg:flex lg:m-10">
@@ -72,7 +72,7 @@ function Projects() {
               </span>
             ))}
           </h1>
-          <button className="w-fit rounded-lg p-4 hover:border-black border btncontainer">
+          <button className="w-fit rounded-lg mt-10 p-4 hover:border-black border btncontainer">
             <a
               className="flex gap-3 hover:text-[#181818] text-gray-500 transition duration-500"
               href="/contact"

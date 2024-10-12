@@ -1,50 +1,24 @@
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
 import { MdCircle } from "react-icons/md";
+import { bandAnimation } from "../animations/projectsAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Band = () => {
-  const component = useRef(null);
   const skillsArr = ["UI DESIGNER", "FREELANCER", "FULL-STACK DEVELOPER"];
 
-  useLayoutEffect(() => {
-    const context = gsap.context(() => {
-      const tl = gsap.timeline({
-        repeat: -1,
-        ease: "none",
-      });
-      tl.fromTo(
-        ".tech-row",
-        {
-          xPercent: 100,
-        },
-        {
-          xPercent: -100,
-          duration: 40,
-          ease: "none",
-        }
-      );
-    }, component);
-
-    gsap.to(
-      ".allText",
-      {
-        duration: 3,
-        background: "linear-gradient(to right, #ffffff, #000000)",
-        repeat: -1,
-      },
-      0
-    );
-
-    return () => context.revert();
+  useGSAP(() => {
+    const row = document.querySelector(".tech-row");
+    bandAnimation(row);
   });
+
   return (
-    <div
-      ref={component}
-      className="cursor-pointer overflow-hidden w-full bg-gradient-to-r from-black via-gray-700 to-white text-white allText my-20"
-    >
+    <div className="relative cursor-pointer overflow-hidden w-full bg-black text-white my-20">
+      <span className="absolute left-0 bg-gradient-to-r from-white to-to-transparent h-full w-1/4"></span>
+      <span className="absolute right-0 bg-gradient-to-l from-white to-to-transparent h-full w-1/4"></span>
+
       <div className="tech-row flex items-center justify-center gap-4 w-full whitespace-nowrap md:p-4">
         {[
           ...skillsArr,

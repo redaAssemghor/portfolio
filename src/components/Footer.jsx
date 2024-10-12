@@ -1,52 +1,19 @@
-import {
-  faFacebookMessenger,
-  faInstagram,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Tooltip from "./ui/SocialsButtons";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Footer() {
   const location = useLocation();
 
-  const socialLinks = [
-    {
-      icon: faInstagram,
-      link: "https://www.instagram.com/redaassemghor_/",
-    },
-    {
-      icon: faFacebookMessenger,
-      link: "https://www.facebook.com/profile.php?id=100003490687218",
-    },
-    {
-      icon: faTwitter,
-      link: "https://twitter.com/AssemghorReda",
-    },
-  ];
-
   return (
     <footer className="mt-40 relative z-40">
       {location.pathname === "/" && <Info />}
       <div className="flex lg:flex-row flex-col justify-between items-center p-5 footer-bg">
-        <dir className="flex md:gap-10 gap-5">
-          {socialLinks.map((social, i) => (
-            <a
-              key={i}
-              className="text-xl lg:text-2xl duration-500 border-2 p-3 rounded-full text-[#3f3c3c] hover:text-white hover:bg-[--pink]"
-              style={{ border: "1px solid rgba(0, 0, 0, 0.2)" }}
-              href={social.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={social.icon} />
-            </a>
-          ))}
-        </dir>
+        <Tooltip />
         <p className="text-[#181818] font-light lg:mr-6 text-sm">
           © 2024 . All Rights Reserved
         </p>

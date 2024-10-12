@@ -18,7 +18,7 @@ const TechList = () => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          scrub: 0.3,
+          scrub: 2,
         },
       });
 
@@ -46,23 +46,23 @@ const TechList = () => {
   }, []);
 
   return (
-    <section ref={component} className="wrapper overflow-hidden">
-      <h1 className="text-2xl text-[#181818] m-10">What I Do,</h1>
-      {data.map(({ tech_color, tech_name }, index) => (
+    <section ref={component} className="overflow-hidden lg:pt-20">
+      {data.map((tech, index) => (
         <div
           key={index}
           className="tech-row mb-8 flex items-center justify-center gap-4 text-neutral-700"
-          aria-label={tech_name || ""}
+          aria-label={tech.tech_name || ""}
+          style={{ opacity: index === 2 ? 0.3 : 1 }}
         >
           {Array.from({ length: 20 }, (_, i) => (
             <React.Fragment key={i}>
               <span
-                className="text-6xl font-extrabold uppercase tracking-tighter"
+                className="text-5xl font-extrabold tracking-wide"
                 style={{
-                  color: i % 2 === 0 ? tech_color : "inherit",
+                  color: i % 2 === 0 ? tech.tech_color : "inherit",
                 }}
               >
-                {tech_name}
+                {tech.tech_name}
               </span>
               <span className="text-3xl">
                 <MdCircle />

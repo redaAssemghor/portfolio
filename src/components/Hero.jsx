@@ -3,15 +3,14 @@ import {
   faLocationDot,
   faEnvelope,
   faDownload,
-  faLanguage,
   faCheck,
-  faGraduationCap,
 } from "@fortawesome/free-solid-svg-icons";
 import { Typewriter, Cursor } from "react-simple-typewriter";
 import Band from "./Band";
 import { useRef } from "react";
 import { Helmet } from "react-helmet";
 import Tooltip from "./ui/SocialsButtons";
+import Card from "./ui/SkillsCard";
 
 export function Hero() {
   const ref = useRef(null);
@@ -112,15 +111,15 @@ export function Sidebox() {
   const Languages = ["English", "French", "Arabic", "Russian"];
 
   return (
-    <div className="border md:flex lg:flex-col md:w-full justify-between border-gray-300 rounded-3xl p-10 lg:w-2/5 lg:mt-0 mt-5">
+    <div className="border md:w-full border-gray-300 rounded-3xl p-5 lg:w-2/5 lg:mt-0 mt-5 space-y-14">
       <div className="">
-        <div className="flex gap-4 font-semibold cursor-pointer">
-          <div>
-            <FontAwesomeIcon icon={faLanguage} />
-          </div>
-          <h1 className="relative pb-4">Languages I Speak</h1>
-        </div>
-        <ul className="text-[#181818] pb-4">
+        <h1 className="font-semibold text-2xl">My Special Skills</h1>
+        <Card />
+      </div>
+
+      <div className="space-y-4">
+        <h1 className="relative text-2xl font-semibold">Languages I Speak</h1>
+        <ul className="text-[#181818] pb-4 grid grid-cols-2">
           {Languages.map((lan, i) => (
             <div key={i} className="flex items-center gap-2">
               <FontAwesomeIcon icon={faCheck} />
@@ -128,24 +127,6 @@ export function Sidebox() {
             </div>
           ))}
         </ul>
-      </div>
-      <div className="">
-        <div className="flex gap-4 mb-5 font-semibold cursor-pointer">
-          <div>
-            <FontAwesomeIcon icon={faGraduationCap} />
-          </div>
-          <h1 className="relative">Education Level</h1>
-        </div>
-        <div className=" mb-3 border-y-2 p-2 text-[#181818]">
-          <h1>Lobachevsky University</h1>
-          <h3 className="">Computer Science And Information Technology</h3>
-          <h6 className="text-xs">2017-2021</h6>
-        </div>
-        <div className="mb-3 border-b-2 p-2 text-[#181818]">
-          <h1>The Odin Project</h1>
-          <h3 className="">Full Stack Web Development Bootcamp</h3>
-          <h6 className="text-xs">2021-2022</h6>
-        </div>
       </div>
     </div>
   );

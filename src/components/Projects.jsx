@@ -57,7 +57,7 @@ function Projects() {
   }, []);
 
   return (
-    <div id="projects" className="relative p-4 lg:p-0 mt-20 lg:px-44">
+    <div id="projects" className="relative p-4 lg:p-0 mt-20 lg:px-44 h-full">
       <div className="absolute lg:block hidden z-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
       <div className="absolute lg:block hidden z-0 bottom-0 -left-40 h-[780px] w-[780px] rounded-full border-2"></div>
       <div className="lg:flex lg:m-10">

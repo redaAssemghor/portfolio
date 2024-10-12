@@ -93,7 +93,7 @@ function Navbar() {
   return (
     <div
       ref={ref}
-      className={`h-[200px] lg:px-10 top-0 sticky md:flex justify-between items-center z-20 ${
+      className={`h-[200px] lg:px-10 top-0 sticky md:flex justify-between items-center z-50 ${
         isScrolled ? "bg-white fade-down shadow-sm" : "bg-white bg-no-repeat"
       } transition-all duration-300`}
       style={{

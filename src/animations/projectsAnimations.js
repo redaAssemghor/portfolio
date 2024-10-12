@@ -57,14 +57,21 @@ export const scrollanimation = (rightElement, leftElement) => {
 };
 
 // counter animation for achievements.jsx
-export const counterAnimation = (element, targetNumber) => {
-  gsap.to(element, {
-    text: targetNumber,
+export const counterAnimation = (element, num) => {
+  const counter = {
+    value: 0,
+  };
+
+  gsap.to(counter, {
+    value: num,
     duration: 2,
     ease: "power1.inOut",
-    snap: { text: 1 },
     onUpdate: function () {
-      element.textContent = Math.round(this.targets()[0].textContent);
+      element.textContent = counter.value.toFixed(0);
+    },
+    scrollTrigger: {
+      trigger: element,
+      start: "top 80%",
     },
   });
 };

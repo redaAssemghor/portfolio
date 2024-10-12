@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import { counterAnimation } from "../animations/projectsAnimations";
+import gsap from "gsap";
 
 const achievementsData = [
   {
@@ -22,11 +23,12 @@ const Achievements = () => {
   const refs = useRef([]);
 
   useGSAP(() => {
-    refs.current.forEach((ref, index) => {
-      if (ref) {
-        counterAnimation(ref, achievementsData[index].number);
-      }
-    });
+    if (refs.current.length > 0) {
+      refs.current.forEach((el, index) => {
+        const num = achievementsData[index].number;
+        counterAnimation(el, num);
+      });
+    }
   });
 
   return (
@@ -40,15 +42,24 @@ const Achievements = () => {
           onMouseLeave={() => setIsHovered(null)}
         >
           <h1
-            ref={(el) => (refs.current[index] = el)}
-            className={`font-black lg:text-5xl z-50 relative text-center ${
+            // ref={(el) => (refs.current[index] = el)}
+            className={`font-black lg:text-5xl z-30 relative text-center ${
               isHovered !== index ? "text-black" : "text-white"
             }`}
           >
-            0
+            <span
+              ref={(el) => {
+                if (el) {
+                  refs.current[index] = el;
+                }
+              }}
+            >
+              0
+            </span>
+            +
           </h1>
           <p
-            className={`font-black lg:text-3xl z-50 relative text-center ${
+            className={`font-black lg:text-3xl z-30 relative text-center ${
               isHovered !== index ? "text-black" : "text-white"
             }`}
           >

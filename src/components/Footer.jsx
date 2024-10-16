@@ -12,9 +12,9 @@ function Footer() {
   return (
     <footer className="mt-40 relative z-40">
       {location.pathname === "/" && <Info />}
-      <div className="flex lg:flex-row flex-col justify-between items-center p-5 footer-bg">
+      <div className="flex lg:flex-row flex-col justify-between items-center p-5 footer-bg lg:px-44">
         <Tooltip />
-        <p className="text-[#181818] font-light lg:mr-6 text-sm">
+        <p className="text-[#181818] font-light lg:mr-6 lg:text-base text-sm">
           © 2024 . All Rights Reserved
         </p>
       </div>

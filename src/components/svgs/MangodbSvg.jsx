@@ -1,7 +1,7 @@
 const MangodbSvg = () => {
   return (
     <svg
-      className="h-[100px] w-[100px] bg-blue-950 p-3 rounded-full"
+      className="lg:h-[100px] lg:w-[100px] h-[70px] w-[70px] bg-blue-950 p-3 rounded-full"
       viewBox="0 0 512 135"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"

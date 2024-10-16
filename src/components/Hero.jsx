@@ -23,9 +23,9 @@ export function Hero() {
         <meta name="description" content="This is the home page" />
         <meta name="keywords" content="home, landing" />
       </Helmet>
-      <div className="flex flex-col lg:flex-row lg:m-10 m-2 lg:px-44">
-        <div className="border border-gray-300 p-10 rounded-3xl md:w-auto md:mr-5 h-max">
-          <div className=" lg:flex md:block justify-between border-b-2 p-6">
+      <div className="flex flex-col lg:flex-row gap-4 lg:m-10 m-2 lg:px-44">
+        <div className="border border-gray-300 p-10 rounded-3xl">
+          <div className="lg:flex md:block justify-between border-b-2">
             <div className="md:py-6">
               <h1 className=" text-2xl md:text-6xl font-bold text-[#181818] md:pb-6">
                 {nameText.split(" ").map((char, i) => (
@@ -34,7 +34,7 @@ export function Hero() {
                   </span>
                 ))}
               </h1>
-              <div className="md:text-5xl text-2xl font-bold bg-gradient-to-r from-[--pink] to-blue-500 text-transparent bg-clip-text">
+              <div className="md:text-5xl text-lg font-bold bg-gradient-to-r from-[--pink] to-blue-500 text-transparent bg-clip-text">
                 <Typewriter
                   className=""
                   words={[
@@ -47,8 +47,8 @@ export function Hero() {
                 <Cursor cursorColor="blue" />
               </div>
             </div>
-            <div className="flex items-center mt-10">
-              <p className=" text-xs font-bold text-slate-400 mr-5 name-text">
+            <div className="lg:flex items-center pt-5">
+              <p className=" text-xs font-bold text-slate-400 mr-5">
                 I&apos;m on
               </p>
               <Tooltip />
@@ -62,8 +62,8 @@ export function Hero() {
               real-world problems through code and always excited to work on
               innovative projects!
             </p>
-            <div className="flex flex-col lg:flex-row justify-between mt-5">
-              <div className="md:flex gap-4">
+            <div className="flex flex-col lg:flex-row justify-between mt-5 space-y-2">
+              <div className="md:flex space-y-2 gap-4">
                 <div className="flex gap-2 items-center">
                   <FontAwesomeIcon icon={faLocationDot} />
                   <h3 className="font-light text-sm">

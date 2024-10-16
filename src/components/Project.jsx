@@ -1,11 +1,11 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { projectsScrollAnimnation } from "../animations/projectsAnimations";
+import Tooltip from "./ui/ProjectBtn";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,8 +20,18 @@ function Project({
 }) {
   const ref = useRef(null);
 
-  const handleMouseEnter = () => onHoverChange(true);
-  const handleMouseLeave = () => onHoverChange(false);
+  const btns = [
+    {
+      url: repo,
+      icon: faGithub,
+      bgColor: "#000",
+    },
+    {
+      url: deployUrl,
+      icon: faArrowUpRightFromSquare,
+      bgColor: "#ffffff",
+    },
+  ];
 
   useGSAP(() => {
     projectsScrollAnimnation(ref.current);
@@ -68,9 +78,11 @@ function Project({
           ))}
         </ul>
       </div>
-      <div className="md:flex justify-between items-center border-t">
-        <h1 className="font-extrabold text-balance">{title}</h1>
-        <div className="mt-5">
+      <div className="md:flex justify-between items-center border-t pt-3">
+        <h1 className="font-extrabold lg:text-2xl">{title}</h1>
+        <Tooltip bgColor={randomColor()} btns={btns} />
+
+        {/* <div className="mt-5">
           <a
             className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-1000 cursor-pointer mr-3"
             onMouseEnter={handleMouseEnter}
@@ -93,7 +105,7 @@ function Project({
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </a>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

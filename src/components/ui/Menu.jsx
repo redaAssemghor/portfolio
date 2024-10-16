@@ -32,7 +32,6 @@ const MenuButton = () => {
 };
 
 const StyledWrapper = styled.div`
-  .menu-item,
   .menu-open-button {
     background: #eeeeee;
     border-radius: 100%;
@@ -49,6 +48,17 @@ const StyledWrapper = styled.div`
     transition: -webkit-transform ease-out 200ms;
     transition: transform ease-out 200ms;
     font-size: 20px;
+  }
+
+  .menu-item {
+    border-radius: 10%;
+    margin-top: 15px;
+    margin-left: -35px;
+    position: absolute;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 0px;
   }
 
   .menu-open {
@@ -186,27 +196,28 @@ const StyledWrapper = styled.div`
   .menu-open:checked ~ .menu-item {
     -webkit-transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
     transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+    font-size: 20px;
   }
 
   .menu-open:checked ~ .menu-item:nth-child(3) {
     transition-duration: 180ms;
     -webkit-transition-duration: 180ms;
-    -webkit-transform: translate3d(-100px, 40px, 0); /* Moves left */
-    transform: translate3d(-100px, 40px, 0); /* Moves left */
+    -webkit-transform: translate3d(-130px, 0px, 0); /* Moves left */
+    transform: translate3d(-130px, 0px, 0); /* Moves left */
   }
 
   .menu-open:checked ~ .menu-item:nth-child(4) {
     transition-duration: 280ms;
     -webkit-transition-duration: 280ms;
-    -webkit-transform: translate3d(-80px, -60px, 0); /* Moves left and up */
-    transform: translate3d(-80px, -50px, 0); /* Moves left and up */
+    -webkit-transform: translate3d(-80px, -80px, 0); /* Moves left and up */
+    transform: translate3d(-80px, 80px, 0); /* Moves left and up */
   }
 
   .menu-open:checked ~ .menu-item:nth-child(5) {
     transition-duration: 380ms;
     -webkit-transition-duration: 380ms;
-    -webkit-transform: translate3d(0px, 90px, 0); /* Moves left and down */
-    transform: translate3d(0px, 90px, 0); /* Moves left and down */
+    -webkit-transform: translate3d(0px, 150px, 0); /* Moves left and down */
+    transform: translate3d(0px, 150px, 0); /* Moves left and down */
   }
 
   .blue {

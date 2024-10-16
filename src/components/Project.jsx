@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { projectsScrollAnimnation } from "../animations/projectsAnimations";
 import Tooltip from "./ui/ProjectBtn";
+import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,12 +55,9 @@ function Project({
   };
 
   return (
-    <div
-      ref={ref}
-      className="flex flex-col border lg:p-10 p-4 rounded-3xl mb-10"
-    >
-      <img
-        className="mb-4 rounded-3xl md:w-full min-w-[1000]"
+    <div ref={ref} className="flex flex-col ">
+      {/* <img
+        className="mb-4 rounded-3xl md:w-full min-w-[1000] cursor-pointer hover:scale-105 transition-all duration-500"
         src={url}
         alt={title}
       />
@@ -81,32 +79,52 @@ function Project({
       <div className="md:flex justify-between items-center border-t pt-3">
         <h1 className="font-extrabold lg:text-2xl">{title}</h1>
         <Tooltip bgColor={randomColor()} btns={btns} />
+      </div> */}
 
-        {/* <div className="mt-5">
-          <a
-            className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-1000 cursor-pointer mr-3"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            href={repo}
-            target="_blank"
-            rel="noopener noreferrer"
+      <CardContainer className="">
+        <CardBody className="w-full bg-gray-50 relative  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] h-full rounded-xl p-10 border space-y-8">
+          <CardItem translateZ="100" className="w-full mt-4">
+            <img
+              src={url}
+              height="1000"
+              width="1000"
+              className="md:w-full min-w-[1000] object-cover rounded-xl group-hover/card:shadow-xl"
+              alt={title}
+            />
+          </CardItem>
+
+          <CardItem
+            as="p"
+            translateZ="60"
+            className="text-neutral-500 text-sm mt-2 dark:text-neutral-300"
           >
-            <FontAwesomeIcon icon={faGithub} />
-          </a>
-          {deployUrl && (
-            <a
-              className="border-2 rounded-full font-bold w-fit p-3 text-pink-600 hover:bg-pink-600 hover:text-white duration-1000 cursor-pointer"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              href={deployUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-            </a>
-          )}
-        </div> */}
-      </div>
+            <div className="space-y-4">
+              <p className="text-2xl">{description}</p>
+              <ul className="flex gap-4 flex-wrap">
+                {techStack.map((tech, index) => (
+                  <li
+                    key={index}
+                    style={{ backgroundColor: randomColor() }}
+                    className="rounded-full px-2 text-sm"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </CardItem>
+
+          <CardItem
+            translateZ={60}
+            className="flex justify-between w-full font-bold text-neutral-600 dark:text-white"
+          >
+            <h1 className="text-2xl">{title}</h1>
+            <CardItem translateY={-20} rotateY={-50}>
+              <Tooltip btns={btns} />
+            </CardItem>
+          </CardItem>
+        </CardBody>
+      </CardContainer>
     </div>
   );
 }

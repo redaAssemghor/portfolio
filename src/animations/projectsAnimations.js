@@ -8,7 +8,7 @@ export const projectsScrollAnimnation = (element) => {
   gsap.fromTo(
     element,
     {
-      opacity: 0.4,
+      opacity: 0.3,
       scale: 0.8,
     },
     {
@@ -17,7 +17,9 @@ export const projectsScrollAnimnation = (element) => {
       ease: "power2.inOut",
       scrollTrigger: {
         trigger: element,
-        scrub: true,
+        top: "top top",
+        end: "bottom 50%",
+        scrub: 0.1,
       },
     }
   );

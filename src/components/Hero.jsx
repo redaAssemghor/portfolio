@@ -81,20 +81,13 @@ export function Hero() {
               </div>
               <div className="">
                 <a
-                  href="https://www.doyoubuzz.com/reda-assemghor"
+                  href="https://docs.google.com/document/d/1Bbxo3ZTP3gc0BI92y1JI8wXx5ti43dWw8XLQqlguB88/edit?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex gap-2 items-center"
                 >
                   <FontAwesomeIcon icon={faDownload} />
-                  <a
-                    href="https://www.doyoubuzz.com/reda-assemghor"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-light text-sm cursor-pointer"
-                  >
-                    Download Resume
-                  </a>
+                  Download Resume
                 </a>
               </div>
             </div>

@@ -13,7 +13,7 @@ export const data = [
     ],
     imgurl: "/tomodev.png",
     repo: "https://github.com/redaAssemghor/tomodev",
-    deployUrl: "https://tomodev.vercel.app/",
+    deployUrl: "https://www.tomodev.tech/",
   },
   {
     name: "PicGen",

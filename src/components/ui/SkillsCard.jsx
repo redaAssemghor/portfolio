@@ -72,6 +72,8 @@ const StyledWrapper = styled.div`
     width: 100%;
     border-radius: 7px;
     user-select: none;
+    margin: 0;
+    padding: 0;
   }
 
   .container .skill-box {

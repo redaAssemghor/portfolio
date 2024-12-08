@@ -1,11 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import { counterAnimation } from "../animations/projectsAnimations";
-import gsap from "gsap";
 
 const achievementsData = [
   {
-    number: 90,
+    number: 50,
     text: "Projects Completed",
   },
   {

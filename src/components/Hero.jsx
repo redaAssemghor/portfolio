@@ -104,12 +104,9 @@ export function Sidebox() {
   const Languages = ["English", "French", "Arabic", "Russian"];
 
   return (
-    <div className="border md:w-full border-gray-300 rounded-3xl p-5 lg:w-2/5 lg:mt-0 mt-5 space-y-14">
-      <div className="">
-        <h1 className="font-semibold text-2xl">My Special Skills</h1>
-        <Card />
-      </div>
-
+    <div className="border md:w-full border-gray-300 rounded-3xl p-5 lg:w-2/5 lg:mt-0 mt-5 space-y-4">
+      <h1 className="font-semibold text-2xl">My Special Skills</h1>
+      <Card />
       <div className="space-y-4">
         <h1 className="relative text-2xl font-semibold">Languages I Speak</h1>
         <ul className="text-[#181818] pb-4 grid grid-cols-2">

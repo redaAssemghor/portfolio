@@ -66,9 +66,14 @@ function Info() {
           </span>
         ))}
       </p>
-      <div className="font-bold flex items-center">
-        <div className="relative">
-          <img className=" h-16 mr-8 img" src="/logo.png" alt="picture" />
+      <div className="font-bold flex items-center gap-4">
+        <div className="relative h-16 w-16">
+          <img
+            className="relative h-16 mr-8 img rounded-full border-2 border-pink-600"
+            src="/images/avatar.jpg"
+            alt="picture"
+          />
+          <span className="absolute bottom-1 right-0 h-4 w-4 bg-green-500 rounded-full border-2 border-white"></span>
         </div>
         <a href="/contact">
           <span className=" underline mr-1">SEND ME</span>{" "}

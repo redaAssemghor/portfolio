@@ -210,7 +210,7 @@ function ContactMe() {
               {!sent && (
                 <form
                   onSubmit={handleSubmit}
-                  className="card flex flex-col flex-1 h-[500px] p-10 bg-gray-100 gap-5 relative"
+                  className="card flex flex-col flex-1 h-[500px] p-10 bg-gray-100 gap-10 relative"
                 >
                   {loading && (
                     <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-75 z-10">
@@ -222,6 +222,7 @@ function ContactMe() {
                   <h1 className="font-semibold text-2xl">Leave A Message</h1>
                   <div className="flex gap-4">
                     <input
+                      required
                       onChange={(e) => setName(e.target.value)}
                       className="bg-transparent w-1/2 outline-none py-4 border-b-2 border-gray-300"
                       type="text"
@@ -231,6 +232,7 @@ function ContactMe() {
                       onMouseLeave={handleHoverChange.bind(this, false)}
                     />
                     <input
+                      required
                       onChange={(e) => setEmail(e.target.value)}
                       className="bg-transparent w-1/2 outline-none py-4 border-b-2 border-gray-300"
                       type="text"
@@ -241,17 +243,19 @@ function ContactMe() {
                     />
                   </div>
                   <Select
+                    required
                     className="cursor-pointer"
                     options={[
+                      { value: "WebDevelopment", label: "Web Development" },
+                      { value: "UIUXDesign", label: "UI/UX Design" },
                       { value: "Consultation", label: "Consultation" },
-                      { value: "Service", label: "Service" },
-                      { value: "Pricing", label: "Pricing" },
-                      { value: "Support", label: "Support" },
+                      { value: "Other", label: "Other" },
                     ]}
                     value={selectedOption}
                     onChange={setSelectedOption}
                   />
                   <textarea
+                    required
                     onChange={(e) => setMessage(e.target.value)}
                     className="bg-transparent w-full outline-none py-4 border-b-2 border-gray-300"
                     name=""
@@ -263,13 +267,17 @@ function ContactMe() {
                     onMouseLeave={handleHoverChange.bind(this, false)}
                   ></textarea>
                   <button
-                    className="w-60 py-5 border border-gray-500 rounded-full font-bold hover:text-white hover:bg-pink-600 duration-500 flex items-center justify-center"
+                    className="w-60 py-4 border border-gray-500 rounded-full font-bold hover:text-white hover:bg-pink-600 duration-300 flex items-center justify-center self-end"
                     type="submit"
                     disabled={loading}
                     onMouseEnter={handleHoverChange.bind(this, true)}
                     onMouseLeave={handleHoverChange.bind(this, false)}
                   >
-                    Send Message
+                    {loading ? (
+                      <span className="animate-bounce">Loading ...</span>
+                    ) : (
+                      "Send Message"
+                    )}
                   </button>
                 </form>
               )}

@@ -19,9 +19,8 @@ export function Hero() {
   return (
     <div className="relative" ref={ref} id="about">
       <Helmet>
-        <title>Reda Assemghor,developer&designer</title>
-        <meta name="description" content="This is the home page" />
-        <meta name="keywords" content="home, landing" />
+        <title>Reda Assemghor,Full-stack developer</title>
+        <meta name="description" content="main portfolio page" />
       </Helmet>
       <div className="flex flex-col lg:flex-row gap-4 lg:m-10 m-2 lg:px-44">
         <div className="border border-gray-300 p-10 rounded-3xl">
@@ -40,7 +39,8 @@ export function Hero() {
                   words={[
                     "Freelancer",
                     "Full-Stack Developer",
-                    "UI/UX Designer",
+                    "Mobile Developer",
+                    "Web Developer",
                   ]}
                   loop={true}
                 />
@@ -56,11 +56,11 @@ export function Hero() {
           </div>
           <div className=" mt-10 text-[#181818] font-light">
             <p className="border-b-2 pb-10">
-              I&rsquo;m a full stack developer skilled in Next.js, React,
-              Node.js, and TypeScript. I build scalable web apps with seamless
-              user experiences and strong backends. Passionate about solving
-              real-world problems through code and always excited to work on
-              innovative projects!
+              I’m a web developer with a passion for creating functional and
+              visually appealing websites. Proficient in modern tools and best
+              practices, I deliver successful projects on time and within
+              budget. A collaborative team player, I’m eager to contribute my
+              skills to make a positive impact on the web.
             </p>
             <div className="flex flex-col lg:flex-row justify-between mt-5 space-y-2">
               <div className="md:flex space-y-2 gap-4">
@@ -73,9 +73,12 @@ export function Hero() {
                 <div className="">
                   <div className="flex gap-2 items-center">
                     <FontAwesomeIcon icon={faEnvelope} />
-                    <h3 className="font-light text-sm">
+                    <a
+                      href="mailto:Assemghor.Reda@Gmail.com"
+                      className="font-light text-sm"
+                    >
                       Assemghor.Reda@Gmail.com
-                    </h3>
+                    </a>
                   </div>
                 </div>
               </div>

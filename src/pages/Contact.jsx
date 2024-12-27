@@ -169,28 +169,37 @@ function ContactMe() {
               <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
                 <img className="w-10" src="/mail.png" alt="Mobile" />
                 <h1 className="font-semibold lg:text-2xl">Mail Address</h1>
-                <a className="text-[#181818] font-light" href="">
+                <a
+                  className="text-[#181818] font-light"
+                  href="mailto:Assemghor.reda@gmail.com"
+                >
                   Assemghor.reda@gmail.com
                 </a>
               </div>
 
               <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
-                <img className="w-10" src="/time.png" alt="Mobile" />
+                <img className="w-10" src="/location.png" alt="location" />
                 <h1 className="font-semibold lg:text-2xl">Our Location</h1>
-                <a className="text-[#181818] font-light" href="">
+                <a className="text-[#181818] font-light" href="#map">
                   Morocco, Rabat
                 </a>
               </div>
 
               <div className="card p-12 flex flex-col items-center gap-4 bg-gray-100">
-                <img className="w-10" src="/location.png" alt="Mobile" />
-                <h1 className="font-semibold lg:text-2xl">Office Hour</h1>
-                <a className="text-[#181818] font-light" href=""></a>
+                <img className="w-10" src="/time.png" alt="time" />
+                <h1 className="font-semibold lg:text-2xl">Working Hours</h1>
+                <p
+                  className="text-[#181818] font-light lg:text-base text-sm"
+                  href=""
+                >
+                  Monday to Friday: 9:00 AM - 6:00 PM
+                </p>
               </div>
             </div>
 
             <div className="card flex md:flex-row flex-col w-full items-center justify-center gap-10 relative">
               <iframe
+                id="map"
                 className="md:h-[500px] w-full flex-1"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52962.05933104808!2d-6.8845567999999995!3d33.9378176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7129ada04c2fb%3A0x35aeb81f6b145b90!2zVMOpbWFyYQ!5e0!3m2!1sfr!2sma!4v1706398600301!5m2!1sfr!2sma"
                 style={{ border: 0 }}

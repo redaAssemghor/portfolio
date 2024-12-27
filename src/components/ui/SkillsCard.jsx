@@ -33,16 +33,16 @@ const Card = () => {
           </div>
         </div>
         <div className="skill-box">
-          <span className="title">Team Leadership</span>
+          <span className="title">UI/UX</span>
 
           <div className="skill-bar">
             <span
               style={{
                 background: "linear-gradient(90deg, #f1662b 0%, #34a9dc 100%)",
               }}
-              className="skill-per team-leadership"
+              className="skill-per ui-ux"
             >
-              <span className="tooltip">80%</span>
+              <span className="tooltip">98%</span>
             </span>
           </div>
         </div>
@@ -56,7 +56,7 @@ const Card = () => {
               }}
               className="skill-per problem-solving"
             >
-              <span className="tooltip">95%</span>
+              <span className="tooltip">96%</span>
             </span>
           </div>
         </div>
@@ -106,9 +106,9 @@ const StyledWrapper = styled.div`
     opacity: 0;
   }
 
-  .skill-per.team-leadership {
+  .skill-per.ui-ux {
     /*progreso de las diferentes lenguajes*/
-    width: 80%;
+    width: 98%;
     animation-delay: 0.1s;
   }
 

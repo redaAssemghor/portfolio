@@ -1,5 +1,21 @@
 export const data = [
   {
+    name: "Digital Solutions",
+    description: "web development agency.",
+    techStack: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "magicUI",
+      "GSAP",
+    ],
+    imgurl: "/digitalSolutions.png",
+    repo: "https://github.com/redaAssemghor/Digital-Solutions",
+    deployUrl: "https://digital-solutions-ten.vercel.app/",
+  },
+  {
     name: "Solar System 3D Simulator",
     description: "Explore the solar system with realistic 3D graphics.",
     techStack: ["React", "Three.js", "Tailwind CSS"],
@@ -58,21 +74,5 @@ export const data = [
     imgurl: "/saas-finder.png",
     repo: "https://github.com/redaAssemghor/micro-saas-finder",
     deployUrl: "https://micro-saas-finder.vercel.app",
-  },
-  {
-    name: "Tomodev",
-    description: "web development agency.",
-    techStack: [
-      "Next.js",
-      "React",
-      "Node.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "magicUI",
-      "GSAP",
-    ],
-    imgurl: "/tomodev.png",
-    repo: "https://github.com/redaAssemghor/tomodev",
-    deployUrl: "https://www.tomodev.tech/",
   },
 ];

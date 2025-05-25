@@ -21,7 +21,7 @@ const CostumSkills = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#cover",
-        start: "top center",
+        start: "top bottom",
       },
     });
     const iconsArr = gsap.utils.toArray(".icon");

@@ -73,7 +73,7 @@ export const counterAnimation = (element, num) => {
     },
     scrollTrigger: {
       trigger: element,
-      start: "top 80%",
+      start: "top bottom",
     },
   });
 };

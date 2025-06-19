@@ -14,7 +14,7 @@ import Card from "./ui/SkillsCard";
 
 export function Hero() {
   const ref = useRef(null);
-  const nameText = "Hi I'm Reda,";
+  const nameText = "Hello, I'M A";
 
   return (
     <div className="relative" ref={ref} id="about">
@@ -24,9 +24,9 @@ export function Hero() {
       </Helmet>
       <div className="flex flex-col lg:flex-row gap-4 lg:m-10 m-2 lg:px-44">
         <div className="border border-gray-300 p-10 rounded-3xl">
-          <div className="lg:flex md:block justify-between border-b-2">
-            <div className="md:py-6">
-              <h1 className=" text-2xl md:text-6xl font-bold text-[#181818] md:pb-6">
+          <div className="border-b-2 flex justify-between items-end">
+            <div className="flex flex-col">
+              <h1 className="text-2xl shrink-0 md:text-6xl font-semibold text-[#181818] md:pb-6">
                 {nameText.split(" ").map((char, i) => (
                   <span key={i} className="name-text inline-block m-1">
                     {char}
@@ -37,10 +37,9 @@ export function Hero() {
                 <Typewriter
                   className=""
                   words={[
-                    "Freelancer",
-                    "Full-Stack Developer",
-                    "Mobile Developer",
-                    "Web Developer",
+                    "Frontend Developer",
+                    "Shopify Themes Developer",
+                    "CMS Developer",
                   ]}
                   loop={true}
                 />

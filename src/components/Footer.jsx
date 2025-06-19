@@ -23,7 +23,8 @@ function Footer() {
 }
 
 function Info() {
-  const footerText = "Let's Create Together A Unique Site That Looks Like You.";
+  const footerText =
+    "Let's Create Together A Unique project That Looks Like You.";
   const ref = useRef();
 
   useLayoutEffect(() => {

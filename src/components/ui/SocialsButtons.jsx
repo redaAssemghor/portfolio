@@ -93,7 +93,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    row-gap: 0.5rem;
+    row-gap: 5px;
   }
   .example-2 .icon-content {
     margin: 0 10px;
